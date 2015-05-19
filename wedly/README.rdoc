@@ -10,58 +10,73 @@ DREAMS ***
 
 
 *-As a couple we need start an account for our wedding
-*  -login and logout
-*  -sign in and sign out
-**  -multip admin for one account
-*-As a couple we need to start a guest list
-*  -add and remove guests
-*  -with full name, address
-*  -add option of a plus one
-*-As a couple we need to give our guest info to rsvp via website
-*  -each guest needs to login into the specific wedding page and rsvp using their name
-*-As a couple we need to have a rsvp page
-*  -know how many guests have rsvp-ed,
-*  -list how many haven't
-*  -how many total are coming(with plus-one)
-*-As a couple we need to set up our seating chart
-*  -set table size
-*  -set table shape,
-*  -assign guests to seats
-**-As a couple we need to print-off seating charts
-**  - for caterers with meal preferences and restrictions
-**  - for the wedding display
-**-As a couple we want to set up our wedding social page
-**  -with pictures and wedding party (web scrap book)
-**  -guests can add and update
-***  -chose from available themes, colours, fonts
-**-As a couple we want to set up a addable playlist
-**  -guests can suggest but party must approve
-**  -voting by guests
-***  -restrictions by party
-**  -print off to dj or band/ email
-***-As a couple we want to print off or email our invitations with website link and wedding name
-**-As a couple we want to print off place cards for guests
-**-As a couple we want to print off thank you cards to guests
-**-As a couple we want budget sheet
+*  - login and logout
+*  - sign in and sign out
+** - multiple admin for one
 
-*-As a guest I want to rsvp with website information from invitation
-*-As a guest we need to login to see extra features for the wedding (i.e. social, registry)
-*-As a guest I want to see where the wedding is
-**  -be given directions to get there
-**  -map
-**-As a guest I want to view the couple's registry
-**  -see whats on the list
-**  -see the vendors selling it
-**  -see whether it's been purchased already by another guest
-*-As a guest I want to set up a hotel reservation (if neccessary)
-*  -see hotels/motels close to the location
-**-As a guest I want to view picture that the couple has posted
-**  -on the social site
-***-As a guest I want to add to a playlist
-***  -vote on songs
-**-As a guest I want to be able to add comments
-***  -suggest pictures
-**-As a guest I want to be able to see additional events (optional), (i.e. bridal shower, stag and doe, stag party)
+
+*- As a couple we need to start a guest list
+*  - add and remove guests
+*  - with full name, address
+*  - add option of a plus one
+
+*- As a couple we need to give our guest info to rsvp via website
+*  - each guest needs to login into the specific wedding page and rsvp using their name
+
+*- As a couple we need to have a rsvp page
+*  - know how many guests have rsvp-ed,
+*  - list how many haven't
+*  - how many total are coming(with plus-one)
+
+*- As a couple we need to set up our seating chart
+*  - set table size
+*  - set table shape,
+*  - assign guests to seats
+
+**- As a couple we need to print- off seating charts
+**  -  for caterers with meal preferences and restrictions
+**  -  for the wedding display
+
+**- As a couple we want to set up our wedding social page
+**  - with pictures and wedding party (web scrap book)
+**  - guests can add and update
+***  - chose from available themes, colours, fonts
+
+**- As a couple we want to set up a addable playlist
+**  - guests can suggest but party must approve
+**  - voting by guests
+***  - restrictions by party
+**  - print off to dj or band/ email
+
+***- As a couple we want to print off or email our invitations with website link and wedding name
+**- As a couple we want to print off place cards for guests
+**- As a couple we want to print off thank you cards to guests
+**- As a couple we want budget sheet
+
+*- As a guest I want to rsvp with website information from invitation
+*- As a guest we need to login to see extra features for the wedding (i.e. social, registry)
+*- As a guest I want to see where the wedding is
+**  - be given directions to get there
+**  - map
+
+**- As a guest I want to view the couple's registry
+**  - see whats on the list
+**  - see the vendors selling it
+**  - see whether it's been purchased already by another guest
+
+*- As a guest I want to set up a hotel reservation (if neccessary)
+*  - see hotels/motels close to the location
+
+**- As a guest I want to view picture that the couple has posted
+**  - on the social site
+
+***- As a guest I want to add to a playlist
+***  - vote on songs
+
+**- As a guest I want to be able to add comments
+***  - suggest pictures
+
+**- As a guest I want to be able to see additional events (optional), (i.e. bridal shower, stag and doe, stag party)
 
 
 
