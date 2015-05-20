@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(event_params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(event_params[:id])
+    @event = Event.find(params[:id])
       if @event.update_attributes(event_params)
         @event.save
       else redirect_to events_path
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(event_params[:id])
+    @event = Event.find(params[:id])
     @event.destroy
   end
 
