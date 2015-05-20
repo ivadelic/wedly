@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partner_1: 1
+  parter_2: 1
+
+two:
+  partner_1: 1
+  parter_2: 1
