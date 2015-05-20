@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guest_id: 1
+  container_id: 1
+  food_choice: 1
+  food_restrictions: MyText
+  rsvp: false
+
+two:
+  guest_id: 1
+  container_id: 1
+  food_choice: 1
+  food_restrictions: MyText
+  rsvp: false
