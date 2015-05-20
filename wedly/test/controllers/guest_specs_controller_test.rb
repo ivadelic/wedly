@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GuestTest < ActiveSupport::TestCase
+class GuestsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

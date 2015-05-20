@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520204353) do
+ActiveRecord::Schema.define(version: 20150520221241) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150520204353) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "guest_specs", force: :cascade do |t|
+  create_table "guests", force: :cascade do |t|
     t.integer  "container_id"
     t.integer  "food_choice"
     t.text     "food_restrictions"

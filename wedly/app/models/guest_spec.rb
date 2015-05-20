@@ -1,4 +1,4 @@
-class GuestSpec < ActiveRecord::Base
+class Guest < ActiveRecord::Base
   belongs_to :user
   belongs_to :container
 end

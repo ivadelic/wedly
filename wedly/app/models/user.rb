@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :guest_specs
-  has_many :contrainers, through: :guest_specs
+  has_many :guests
+  has_many :contrainers, through: :guests
   belongs_to :wedding
 end
