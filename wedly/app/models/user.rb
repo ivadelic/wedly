@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :guests
-  has_many :contrainers, through: :guests
-  belongs_to :wedding
+  authenticates_with_sorcery!
+
+  validates :password, length: { minimum: 4 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+
+  validates :email, uniqueness: true
 end

@@ -1,18 +1,37 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+
+  skip_before_filter :require_login, only: [:new, :create]
 
   def new
     @user = User.new
   end
 
+  def edit
+    @user = current_user
+    render '/users/_form.html.erb'
+  end
+
+  def show
+    @user = current_user
+    render '/users/_form.html.erb'
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to events_url, notice: "Hello! You're signed up!"
+      auto_login(@user)
+      redirect_to(:user, notice: "Hello! You're signed up!")
     else
-      render :new
+      redirect_to new_user_url, alert: @user.errors.full_messages
+    end
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      redirect_to(:user, notice: 'Profile updated!')
+    else
+      redirect_to edit_user_url, alert: @user.errors.full_messages
     end
   end
 
@@ -21,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = current_user
     @user.destroy
   end
 
@@ -37,6 +56,9 @@ class UsersController < ApplicationController
     :country,
     :province,
     :email,
+    :phone,
+    :password,
+    :password_confirmation,
     :longitude,
     :latitude
     )
