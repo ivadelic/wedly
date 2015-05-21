@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150521192832) do
+=======
+ActiveRecord::Schema.define(version: 20150521210239) do
+>>>>>>> guests2
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -88,8 +92,8 @@ ActiveRecord::Schema.define(version: 20150521192832) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 
   create_table "weddings", force: :cascade do |t|
-    t.integer  "partner_1"
-    t.integer  "partner_2"
+    t.string   "partner_1"
+    t.string   "partner_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
