@@ -1,0 +1,10 @@
+<h1>All Events for "<%= @current_user %>"</h1>
+
+<% @events.each do |event| %>
+
+  <p><%= event.address_line_1 %></p>
+  <p><%= event.address_line_2 %></p>
+  <p><%= event.city %></p>
+  <br/>
+<% end %>
+

@@ -30,6 +30,8 @@ gem 'pry-rails'
 
 gem 'best_errors'
 
+gem 'faker'
+
 gem 'favorite_things'
 
 # Use Unicorn as the app server

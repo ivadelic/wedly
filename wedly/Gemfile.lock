@@ -65,6 +65,8 @@ GEM
       interception
     erubis (2.7.0)
     execjs (2.5.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     favorite_things (0.1.7)
       awesome_print
       did_you_mean
@@ -173,6 +175,7 @@ DEPENDENCIES
   best_errors
   byebug
   coffee-rails (~> 4.1.0)
+  faker
   favorite_things
   jbuilder (~> 2.0)
   jquery-rails
