@@ -36,6 +36,9 @@ gem 'favorite_things'
 
 gem 'sorcery'
 
+gem 'cocoon'
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
