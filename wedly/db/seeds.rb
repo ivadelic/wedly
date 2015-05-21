@@ -1,4 +1,5 @@
 Event.destroy_all
+Guest.destroy_all
 12.times do |e|
 e = Event.create!({
       :name => "The ceremony of " + Faker::Name.name + " and " + Faker::Name.name,
@@ -11,6 +12,14 @@ e = Event.create!({
       :province => Faker::Address.state_abbr,
       :zip => Faker::Address.zip_code,
       :country => Faker::Address.country
+    }
+  )
+end
+
+20.times do |g|
+  g = Guest.create!({
+    :first_name => Faker::Name.name,
+    :last_name => Faker::Name.name
     }
   )
 end

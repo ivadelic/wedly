@@ -1,24 +1,13 @@
-<h1>Guest List</h1>
-<div id="create-guests">
-      <div class= "field">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </div>
-    <div class= "field">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </div>
-    <div class= "field">
-      <%= f.label :food_choice %>
-      <%= f.text_field :food_choice %>
-    </div>
-    <div class= "field">
-      <%= f.label :food_restrictions %>
-      <%= f.text_area :food_restrictions %>
-    </div>
-    <div class= "field">
-      <%= f.label :rsvp %>
-      <%= f.input type="radio" name="rsvp" value="yes":rsvp %>
-      <%= f.input type="radio" name="rsvp" value="no":rsvp %>
-    </div>
-</div>
+<h1>Guest Index for "<%= %>" </h1>
+
+<% @guests.each do |guest| %>
+  <h3><%= guest.first_name %></h3>
+  <h4><%= guest.last_name %></h4>
+  <p><%= guest.rsvp %></p>
+  <p><%= guest.food_choice %></p>
+  <p><%= guest.food_restrictions %></p>
+
+
+<br/>
+<br/>
+<% end %>

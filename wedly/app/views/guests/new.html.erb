@@ -1,0 +1,24 @@
+<h1>Add a guest</h1>
+<div id="create-guests">
+      <div class= "field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class= "field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class= "field">
+      <%= f.label :food_choice %>
+      <%= f.text_field :food_choice %>
+    </div>
+    <div class= "field">
+      <%= f.label :food_restrictions %>
+      <%= f.text_area :food_restrictions %>
+    </div>
+    <div class= "field">
+      <%= f.label :rsvp %>
+      <%= f.input type="radio" name="rsvp" value="true":rsvp %>
+      <%= f.input type="radio" name="rsvp" value="false":rsvp %>
+    </div>
+</div>
