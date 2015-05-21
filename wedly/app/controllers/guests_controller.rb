@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 
   def index
     @guests = Guest.all
+    @event = Event.find(params[:event_id])
   end
 
   def new

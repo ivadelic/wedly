@@ -1,4 +1,4 @@
-<h1>Guest Index for "<%= %>" </h1>
+<h1>Guest Index for "<%= @event.name %>" </h1>
 
 <% @guests.each do |guest| %>
   <h3><%= guest.first_name %></h3>
@@ -11,3 +11,5 @@
 <br/>
 <br/>
 <% end %>
+
+<!-- <%#button_to "Add a Guest", "/events/#{@event.id}/guests/new", :method => :get %> -->
