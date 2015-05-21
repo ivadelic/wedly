@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'weddings#index'
 
-  resources :weddings do
-    resources :events
+  resources :weddings
+
+  resources :events do
     resources :containers
     resources :guests
   end

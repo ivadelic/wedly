@@ -1,4 +1,7 @@
 class WeddingsController < ApplicationController
+  def index
+    @weddings = Wedding.all
+  end
 
   def show
     @wedding = Wedding.find(params[:id])
@@ -22,7 +25,7 @@ class WeddingsController < ApplicationController
       redirect_to users_url, notice: "Wedding created!"
     else
       render :new
-    else
+    end
   end
 
   def update
