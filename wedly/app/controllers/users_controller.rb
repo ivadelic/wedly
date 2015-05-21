@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -8,8 +12,12 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to events_url, notice: "Hello! You're signed up!"
     else
-      render "new"
+      render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def destroy
@@ -18,7 +26,8 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params(
+  def user_params
+    params.require(:user).permit(
     :first_name,
     :last_name,
     :address_line_1,

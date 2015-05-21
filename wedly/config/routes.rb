@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :events
+  root 'weddings#index'
+
+  resources :weddings
+
+  resources :events do
+    resources :containers
+    resources :guests
+  end
+
+  resources :users, except: [:destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
