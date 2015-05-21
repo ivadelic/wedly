@@ -1,4 +1,7 @@
 Event.destroy_all
+Guest.destroy_all
+Container.destroy_all
+
 12.times do |e|
 e = Event.create!({
       :name => "The ceremony of " + Faker::Name.name + " and " + Faker::Name.name,
@@ -12,5 +15,18 @@ e = Event.create!({
       :zip => Faker::Address.zip_code,
       :country => Faker::Address.country
     }
+
   )
+  5.times do |c|
+    c = e.containers.build({limit: 4})
+      c.save
+    4.times do |g|
+      g = c.guests.build({
+        :first_name => Faker::Name.name,
+        :last_name => Faker::Name.name
+      }
+    )
+      g.save
+    end
+  end
 end
