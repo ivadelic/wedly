@@ -1,0 +1,27 @@
+<%= form_for @wedding do |f| %>
+
+  <div class="field">
+    <%= f.label :partner_1 %>
+    <%= f.text_field :partner_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :partner_2 %>
+    <%= f.text_field :partner_2 %>
+  </div>
+
+  <h4>Events</h4>
+
+  <div id="events">
+    <%= f.fields_for :events do |events_form| %>
+      <%= render 'events_fields', f: events_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add event', f, :events %>
+    </div>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
