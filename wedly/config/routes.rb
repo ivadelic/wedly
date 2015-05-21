@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :weddings, except: [:index]
+  resources :weddings
 
    resources :events do
     resources :containers
