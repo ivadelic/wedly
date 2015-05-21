@@ -32,6 +32,8 @@ gem 'best_errors'
 
 gem 'favorite_things'
 
+gem 'sorcery'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
