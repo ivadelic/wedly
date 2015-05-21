@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :load_project
 
   def index
     @events = Event.all
