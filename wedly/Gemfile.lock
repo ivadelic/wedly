@@ -66,13 +66,10 @@ GEM
       interception
     erubis (2.7.0)
     execjs (2.5.2)
-<<<<<<< HEAD
     faker (1.4.3)
       i18n (~> 0.5)
-=======
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
->>>>>>> user_sorcery
     favorite_things (0.1.7)
       awesome_print
       did_you_mean
@@ -181,6 +178,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    user_sorcery ()
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
