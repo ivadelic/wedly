@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
   end
 
   def create
@@ -39,6 +38,11 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(
+      :name,
+      :description,
+      :date,
+      :start_time,
+      :end_time,
       :address_line_1,
       :address_line_2,
       :city,

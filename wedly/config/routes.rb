@@ -3,22 +3,13 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :weddings do
-<<<<<<< HEAD
-    resources :events do
-      resources :containers
-      resources :guests
-    end
-=======
 
     resources :guests
 
-     resources :events do
+    resources :events do
       resources :containers
     end
-
->>>>>>> ajax_guest
   end
-
 
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
