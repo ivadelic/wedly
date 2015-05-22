@@ -9,6 +9,8 @@
      <%= event.zip %><br>
      <%= event.country %>
   <p>
-    <%= button_to "Edit", "/events/#{event.id}/edit", :method => :get %>  <%= button_to "Delete", event, method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>  <%= button_to "Guests", "/events/#{event.id}/guests", :method => :get %>
+    <%= button_to "Edit", "/events/#{event.id}/edit", :method => :get %>
+    <%= link_to "Delete", "/weddings/#{event.wedding.id}/events/#{event.id}/", method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>
+    <%= button_to "Guests", "/events/#{event.id}/guests", :method => :get %>
   </p>
 </div>

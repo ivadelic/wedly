@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path
+    redirect_to wedding_path(@event.wedding)
   end
 
   private

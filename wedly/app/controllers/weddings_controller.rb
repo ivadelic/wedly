@@ -62,7 +62,7 @@ class WeddingsController < ApplicationController
                     :first_name,
                     :last_name,
                     :_destroy
-                    ]
+                    ],
                     events_attributes: [
                       :id,
                       :name,
