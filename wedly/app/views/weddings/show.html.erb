@@ -1,5 +1,7 @@
 <h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
+<%= link_to "Guests", "/weddings/#{@wedding.id}/guests", :method => :get %>
+
 <div id="events">
   <h2>Events:</h2>
 
