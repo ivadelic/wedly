@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :load_project
+  before_filter :load_wedding
 
   def index
     @events = Event.all
@@ -14,12 +14,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to events_url
-    else
-      render(:new)
-    end
+    @event = @wedding.events.build(events_params)
+    @wedding = wedding_id
   end
 
   def edit
@@ -53,5 +49,9 @@ class EventsController < ApplicationController
       :latitude,
       :wedding_id
       )
+  end
+
+  def load_wedding
+    @wedding = Wedding.find(params[:wedding_id])
   end
 end
