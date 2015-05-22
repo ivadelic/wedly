@@ -1,3 +1,16 @@
 <div id="event-view">
-  Title: <%= event.city %>
+    <h3><em><%= event.name %></em></h3>
+    <ul>
+      <li>Description: <%= event.description %></li>
+    <li>Date: <%= event.date %></li>
+    <li>Start time: <%= event.start_time %></li>
+    <li>Finish time: <%= event.end_time %></li>
+    <li>Address line 1: <%= event.address_line_1 %></li>
+    <li>Address line 2: <%= event.address_line_2 %></li>
+    <li>City:  <%= event.city %></li>
+    <li>Country: <%= event.country %></li>
+    <li>Zip: <%= event.zip %></li>
+</ul>
+
+  <%#link_to_remove_association "remove event" %>
 </div>
