@@ -50,6 +50,6 @@ class WeddingsController < ApplicationController
 
   private
   def wedding_params
-    params.require(:wedding).permit(:partner_1, :partner_2, events_attributes: [:id, :name, :description, :date, :start_time, :end_time, :address_line_1, :address_line_2, :city, :province, :zip, :country, :longitude, :latitude, :wedding_id, :destroy])
+    params.require(:wedding).permit(:partner_1, :partner_2, events_attributes: [:id, :name, :description, :date, :start_time, :end_time, :address_line_1, :address_line_2, :city, :province, :zip, :country, :longitude, :latitude, :wedding_id, :_destroy])
   end
 end

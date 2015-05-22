@@ -1,3 +1,13 @@
 <h1>Welcome <%= current_user.first_name %>!</h1>
 
-<%= link_to 'New User', new_user_path %>
+<h3>Your profile info: <%= current_user.first_name %> <%= current_user.last_name %></h3>
+     <%= current_user.address_line_1 %><br>
+     <%= current_user.address_line_2 %><br>
+     <%= current_user.city %>
+     <%= current_user.province %>
+     <%= current_user.country %>
+     <%= current_user.zip %>
+     <%= current_user.phone %>
+     <%= current_user.longtitude %>
+     <%= current_user.latitude %>
+     <%= current_user.email %>
