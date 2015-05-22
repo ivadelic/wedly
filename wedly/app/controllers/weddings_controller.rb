@@ -12,7 +12,6 @@ class WeddingsController < ApplicationController
 
   def create
     @wedding = Wedding.new(wedding_params)
-    @wedding.partner_1 = current_user.first_name + " " + current_user.last_name
 
     if @wedding.save
       redirect_to wedding_path(@wedding)

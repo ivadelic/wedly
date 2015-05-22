@@ -7,6 +7,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @wedding = @event.weddings.build
+    @nearby_events = @event.nearbys(1, units, :km)
   end
 
   def new
