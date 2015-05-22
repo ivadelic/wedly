@@ -1,4 +1,7 @@
 class WeddingsController < ApplicationController
+
+  before_filter :require_login, except: [:index, :show]
+
   def index
     @weddings = Wedding.all
   end
@@ -9,7 +12,7 @@ class WeddingsController < ApplicationController
 
   def create
     @wedding = Wedding.new(wedding_params)
-    # @wedding.user = current_user
+    @wedding.partner_1 = current_user.first_name + " " + current_user.last_name
 
     if @wedding.save
       redirect_to wedding_path(@wedding)
