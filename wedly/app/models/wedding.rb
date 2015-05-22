@@ -5,4 +5,6 @@ class Wedding < ActiveRecord::Base
   has_many :attendee_users, through: guests, class_name: "User"
 
   accepts_nested_attributes_for :events
+  accepts_nested_attributes_for :guests
+
 end
