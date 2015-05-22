@@ -1,8 +1,9 @@
 class GuestsController < ApplicationController
 
+  before_filter :load_wedding
+
   def index
     @guests = Guest.all
-    @event = Event.find(params[:event_id])
   end
 
   def new
@@ -44,5 +45,9 @@ class GuestsController < ApplicationController
   private
   def guest_params
     params.require(:guest).permit(:first_name, :last_name, :container_id, :food_choice, :food_restrictions, :rsvp, :user_id)
+  end
+
+  def load_wedding
+    @wedding = Wedding.find(params[:wedding_id])
   end
 end

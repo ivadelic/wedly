@@ -45,6 +45,19 @@ class WeddingsController < ApplicationController
 
   private
   def wedding_params
-    params.require(:wedding).permit(:partner_1, :partner_2)
+    params.require(:wedding)
+          .permit(:partner_1,
+                  :partner_2,
+                  guest_attributes: [
+                    :id,
+                    :container_id,
+                    :food_choice,
+                    :food_restrictions,
+                    :rsvp,
+                    :first_name,
+                    :last_name,
+                    :_destroy
+                    ]
+                  )
   end
 end

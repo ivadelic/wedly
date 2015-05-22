@@ -1,0 +1,21 @@
+<div class = "nested-fields" >
+  <div class="field">
+      <div class= "field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class= "field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class= "field">
+        <%= f.label :food_choice %>
+        <%= f.text_field :food_choice %>
+      </div>
+      <div class= "field">
+        <%= f.label :food_restrictions %>
+        <%= f.text_area :food_restrictions %>
+      </div>
+  </div>
+  <%= link_to_remove_association "remove guest", f %>
+</div>

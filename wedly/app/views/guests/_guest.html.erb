@@ -1,0 +1,7 @@
+<% @guests.each do |guest| %>
+  <h3><%= guest.first_name %></h3>
+  <h4><%= guest.last_name %></h4>
+  <p><%= guest.rsvp %></p>
+  <p><%= guest.food_choice %></p>
+  <p><%= guest.food_restrictions %></p>
+<% end %>

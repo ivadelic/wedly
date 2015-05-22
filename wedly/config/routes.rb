@@ -2,12 +2,16 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :weddings
+  resources :weddings do
 
-   resources :events do
-    resources :containers
     resources :guests
+
+     resources :events do
+      resources :containers
+    end
+
   end
+
 
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
