@@ -2,5 +2,18 @@
 
 <div id="events">
   <h2>Events:</h2>
+
+
+<%= form_for @wedding do |f| %>
+    <div class="links">
+      <%= link_to_add_association 'add event', f, :events %>
+    </div>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
+
   <%= render @wedding.events %>
+
 </div>

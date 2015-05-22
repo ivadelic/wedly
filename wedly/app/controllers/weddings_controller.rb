@@ -1,6 +1,24 @@
 class WeddingsController < ApplicationController
+
+  before_filter :require_login, except: [:index, :show]
+
   def index
     @weddings = Wedding.all
+  end
+
+  def new
+    @wedding = Wedding.new
+  end
+
+  def create
+    @wedding = Wedding.new(wedding_params)
+    @wedding.partner_1 = current_user.first_name + " " + current_user.last_name
+
+    if @wedding.save
+      redirect_to wedding_path(@wedding)
+    else
+      render :new
+    end
   end
 
   def show
@@ -11,21 +29,8 @@ class WeddingsController < ApplicationController
     @wedding = Wedding.find(params[:id])
   end
 
-  def new
-    @wedding = Wedding.new
-  end
-
   def edit
     @wedding = Wedding.find(params[:id])
-  end
-
-  def create
-    @wedding = Wedding.new(wedding_params)
-    if @wedding.save
-      redirect_to weddings_url, notice: "Wedding created!"
-    else
-      render :new
-    end
   end
 
   def update
@@ -40,7 +45,7 @@ class WeddingsController < ApplicationController
   def destroy
     @wedding = Wedding.find(params[:id])
     @wedding.destroy
-    redirect_to users_url
+    redirect_to weddings_url
   end
 
   private
@@ -57,7 +62,23 @@ class WeddingsController < ApplicationController
                     :first_name,
                     :last_name,
                     :_destroy
-                    ]
-                  )
+                    ],
+                    events_attributes: [
+                      :id,
+                      :name,
+                      :description,
+                      :date,
+                      :start_time,
+                      :end_time,
+                      :address_line_1,
+                      :address_line_2,
+                      :city,
+                      :province,
+                      :zip,
+                      :country,
+                      :longitude,
+                      :latitude,
+                      :wedding_id,
+                      :_destroy])
   end
 end

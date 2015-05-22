@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
   end
 
   def create
@@ -33,12 +32,17 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path
+    redirect_to wedding_path(@event.wedding)
   end
 
   private
   def event_params
     params.require(:event).permit(
+      :name,
+      :description,
+      :date,
+      :start_time,
+      :end_time,
       :address_line_1,
       :address_line_2,
       :city,
