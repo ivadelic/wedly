@@ -22,7 +22,7 @@ class WeddingsController < ApplicationController
   def create
     @wedding = Wedding.new(wedding_params)
     if @wedding.save
-      redirect_to users_url, notice: "Wedding created!"
+      redirect_to weddings_url, notice: "Wedding created!"
     else
       render :new
     end

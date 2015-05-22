@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to(:user, notice: "Hello! You're signed up!")
+      redirect_to root_url, notice: "Hello! You're signed up!"
     else
       redirect_to new_user_url, alert: @user.errors.full_messages
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to(:user, notice: 'Profile updated!')
+      redirect_to root_url, notice: 'Profile updated!'
     else
       redirect_to edit_user_url, alert: @user.errors.full_messages
     end

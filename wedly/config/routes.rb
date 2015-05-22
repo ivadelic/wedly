@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :weddings
-
-   resources :events do
-    resources :containers
-    resources :guests
+  resources :weddings do
+    resources :events do
+      resources :containers
+      resources :guests
+    end
   end
 
   resources :users

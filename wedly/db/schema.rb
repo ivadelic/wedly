@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150521192832) do
-=======
 ActiveRecord::Schema.define(version: 20150521210239) do
->>>>>>> guests2
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
