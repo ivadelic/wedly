@@ -39,6 +39,8 @@ gem 'cocoon'
 
 gem 'geocoder'
 
+gem 'combined_time_select'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

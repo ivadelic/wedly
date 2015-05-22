@@ -20,6 +20,8 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(guest_params)
+    @guest.wedding_id = @wedding.id
+    @guest.user_id = current_user.id
     if @guest.save
       redirect_to guests_url
     else
@@ -44,7 +46,15 @@ class GuestsController < ApplicationController
 
   private
   def guest_params
-    params.require(:guest).permit(:first_name, :last_name, :container_id, :food_choice, :food_restrictions, :rsvp, :user_id)
+    params.require(:guest).permit(
+      :first_name,
+      :last_name,
+      :container_id,
+      :food_choice,
+      :food_restrictions,
+      :rsvp,
+      :user_id,
+      :wedding_id)
   end
 
   def load_wedding

@@ -12,8 +12,7 @@ class WeddingsController < ApplicationController
 
   def create
     @wedding = Wedding.new(wedding_params)
-    @wedding.partner_1 = current_user.first_name + " " + current_user.last_name
-
+    @wedding.user_id = current_user.id
     if @wedding.save
       redirect_to wedding_path(@wedding)
     else
@@ -50,35 +49,36 @@ class WeddingsController < ApplicationController
 
   private
   def wedding_params
-    params.require(:wedding)
-          .permit(:partner_1,
-                  :partner_2,
-                  guest_attributes: [
-                    :id,
-                    :container_id,
-                    :food_choice,
-                    :food_restrictions,
-                    :rsvp,
-                    :first_name,
-                    :last_name,
-                    :_destroy
-                    ],
-                    events_attributes: [
-                      :id,
-                      :name,
-                      :description,
-                      :date,
-                      :start_time,
-                      :end_time,
-                      :address_line_1,
-                      :address_line_2,
-                      :city,
-                      :province,
-                      :zip,
-                      :country,
-                      :longitude,
-                      :latitude,
-                      :wedding_id,
-                      :_destroy])
+    params.require(:wedding).permit(
+      :partner_1,
+      :partner_2,
+      :user_id,
+      guest_attributes: [
+        :id,
+        :container_id,
+        :food_choice,
+        :food_restrictions,
+        :rsvp,
+        :first_name,
+        :last_name,
+        :_destroy
+        ],
+          events_attributes: [
+            :id,
+            :name,
+            :description,
+            :date,
+            :start_time,
+            :end_time,
+            :address_line_1,
+            :address_line_2,
+            :city,
+            :province,
+            :zip,
+            :country,
+            :longitude,
+            :latitude,
+            :wedding_id,
+            :_destroy])
   end
 end
