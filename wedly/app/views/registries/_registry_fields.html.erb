@@ -2,7 +2,7 @@
   <div class="field">
     <div class= "field">
       <%= f.label :store %>
-      <%= f.text_field :store %>
+      <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
     </div>
     <div class= "field">
       <%= f.label :link_to_registry %>
