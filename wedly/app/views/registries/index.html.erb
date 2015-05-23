@@ -1,0 +1,18 @@
+<h1>All Registries</h1>
+<h3>Add a Registry</h3>
+<%= form_for @wedding do |f| %>
+  <div id= "create-registry">
+    <%= f.fields_for :registries do |registry_form| %>
+      <%= render "registry_fields", f: registry_form %>
+    <% end %>
+  </div>
+    <div class= "links">
+      <%= link_to_add_association "add registry", f, :registries %>
+    </div>
+
+    <br/>
+
+    <div class= "submit-button">
+      <%= f.submit %>
+    </div>
+<% end %>

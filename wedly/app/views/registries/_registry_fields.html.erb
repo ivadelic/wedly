@@ -1,0 +1,14 @@
+<div class = "nested-fields" >
+  <div class="field">
+    <div class= "field">
+      <%= f.label :store %>
+      <%= f.text_field :store %>
+    </div>
+    <div class= "field">
+      <%= f.label :link_to_registry %>
+      <%= f.text_field :link_to_registry %>
+    </div>
+  </div>
+  <%= link_to_remove_association "remove registry", f %>
+</div>
+

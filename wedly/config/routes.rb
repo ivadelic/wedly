@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :weddings do
     resources :guests
+    resources :registries
     resources :events do
       resources :containers
     end

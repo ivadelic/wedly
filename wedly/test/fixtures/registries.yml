@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wedding_id: 1
+  link_to_registry: MyString
+  store: MyString
+  image_url: MyString
+
+two:
+  wedding_id: 1
+  link_to_registry: MyString
+  store: MyString
+  image_url: MyString

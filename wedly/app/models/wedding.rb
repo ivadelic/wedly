@@ -2,9 +2,11 @@ class Wedding < ActiveRecord::Base
   has_many :events
   belongs_to :user
   has_many :guests
+  has_many :registries
   has_many :attendee_users, through: :guests, class_name: "User"
 
   accepts_nested_attributes_for :events
   accepts_nested_attributes_for :guests
+  accepts_nested_attributes_for :registries
 
 end
