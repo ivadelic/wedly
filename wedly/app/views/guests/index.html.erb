@@ -14,4 +14,6 @@
   <p><strong>RSVP: </strong><%= guest.rsvp %></p>
   <p><strong>Food Choice (number): </strong><%= guest.food_choice %></p>
   <p><strong>Any food food restrictions: </strong><%= guest.food_restrictions %></p>
+
+    <%= button_to "Edit", "/weddings/#{@wedding.id}/guests/#{guest.id}/edit", :method => :get %>
 <% end %>

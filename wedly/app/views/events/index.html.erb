@@ -12,8 +12,6 @@
 
 <%= button_to "Delete", event, method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>
 
-<%= button_to "Guests", "/events/#{event.id}/guests", :method => :get %>
-
 <br/>
 <br/>
 <% end %>

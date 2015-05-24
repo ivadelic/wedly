@@ -2,7 +2,6 @@ class RegistriesController < ApplicationController
   before_filter :load_wedding
   def index
     @registries = Registry.all
-    @registry = Registry.new
   end
 
   def show
@@ -20,7 +19,7 @@ class RegistriesController < ApplicationController
 
   def update
     @registry = Registry.find(params[:id])
-      if @registry.update_attributes(wedding_registries_params)
+      if @registry.update_attributes(registries_params)
         @registry.save
       else redirect_to wedding_registries_path
     end

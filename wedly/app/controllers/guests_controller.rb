@@ -2,41 +2,31 @@ class GuestsController < ApplicationController
   before_filter :load_wedding
   def index
     @guests = Guest.all
-    @guest = Guest.new
-      if @guest.save
-      render :index
-      else render :new
-    end
-  end
-
-  def new
-    @guest = Guest.new
-  end
-
-  def edit
-    @guest = Guest.find(params[:id])
   end
 
   def show
     @guest = Guest.find(params[:id])
   end
 
+  def new
+    @guest = Guest.new
+  end
+
   def create
     @guest = @wedding.guests.build(guest_params)
     @wedding = wedding_id
-    if @guest.save
-      redirect_to guests_url
-    else
-      render :new
-    end
+  end
+
+  def edit
+    @guest = Guest.find(params[:id])
   end
 
   def update
     @guest = Guest.new(params[:id])
-    if @guest.update_attributes(wedding_guests_params)
-      @registry.save
+    if @guest.update_attributes(guests_params)
+      @guest.save
     else 
-      redirect_to "/weddings/#{@wedding.id}/guests"
+      render :edit
     end
   end
 

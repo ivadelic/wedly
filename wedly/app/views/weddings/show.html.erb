@@ -11,13 +11,16 @@ it<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
 <%= form_for @wedding do |f| %>
     <div class="links">
-      <%= link_to_add_association 'add event', f, :events %>
+      <%= link_to_add_association 'Add Event', f, :events %>
     </div>
   </div>
 
-  <%= f.submit %>
 
 <% end %>
+
+    <%# button_to "Edit", "/weddings/#{@wedding.id}/events/#{@event.id}/edit", :method => :get %>
+    <%# link_to "Delete", "/weddings/#{event.wedding.id}/events/#{event.id}/", method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>
+    <%# button_to "Guests", "/events/#{event.id}/guests", :method => :get %>
 
   <%= render @wedding.events %>
 

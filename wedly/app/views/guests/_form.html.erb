@@ -1,4 +1,4 @@
-<% @guests.each do |guest| %>
+<%= form_for(@guest) do |guest| %>
   <h3><%= guest.first_name %></h3>
   <h4><%= guest.last_name %></h4>
   <p><%= guest.rsvp %></p>
