@@ -1,20 +1,17 @@
-<h1>Guest Index for the Celebration of "<%= @wedding.partner_1 %>" & "<%= @wedding.partner_2 %>" </h1>
+<h2>Guest Index for the Celebration of <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
 
 <h2>Add a New Guest</h2>
-<%= form_for @wedding do |f| %>
-  <div id= "create-guests">
-    <%= f.fields_for :guests do |guest_form| %>
-      <%= render 'guest_fields', f: guest_form %>
-    <% end %>
+  <%= form_for @wedding do |f| %>
+  <div class= "links">
+    <%= link_to_add_association 'Add a Guest', f, :guests %>
+    <%# f.submit %>
+  <% end %>
   </div>
 
-  <div class = "links">
-    <%= link_to_add_association "add guest", f, :guests %>
-  </div>
-
-  <br/>
-
-  <div class= "submit-button">
-    <%= f.submit %>
-  </div>
+<% @guests.each do |guest| %>
+  <p><strong>First name: </strong><%= guest.first_name %></p>
+  <p><strong>Last name: </strong><%= guest.last_name %></p>
+  <p><strong>RSVP: </strong><%= guest.rsvp %></p>
+  <p><strong>Food Choice (number): </strong><%= guest.food_choice %></p>
+  <p><strong>Any food food restrictions: </strong><%= guest.food_restrictions %></p>
 <% end %>

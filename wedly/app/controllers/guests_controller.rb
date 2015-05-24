@@ -1,9 +1,12 @@
 class GuestsController < ApplicationController
-
   before_filter :load_wedding
-
   def index
     @guests = Guest.all
+    @guest = Guest.new
+      if @guest.save
+      render :index
+      else render :new
+    end
   end
 
   def new
@@ -11,7 +14,7 @@ class GuestsController < ApplicationController
   end
 
   def edit
-    @guest = Guest.find
+    @guest = Guest.find(params[:id])
   end
 
   def show
@@ -19,7 +22,8 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.new(guest_params)
+    @guest = @wedding.guests.build(guest_params)
+    @wedding = wedding_id
     if @guest.save
       redirect_to guests_url
     else
@@ -29,10 +33,10 @@ class GuestsController < ApplicationController
 
   def update
     @guest = Guest.new(params[:id])
-    if @guest.update_attributes(guest_params)
-      redirect_to guest_path(@guest)
-    else
-      render :edit
+    if @guest.update_attributes(wedding_guests_params)
+      @registry.save
+    else 
+      redirect_to "/weddings/#{@wedding.id}/guests"
     end
   end
 
@@ -44,7 +48,15 @@ class GuestsController < ApplicationController
 
   private
   def guest_params
-    params.require(:guest).permit(:first_name, :last_name, :container_id, :food_choice, :food_restrictions, :rsvp, :user_id)
+    params.require(:guest).permit(
+      :first_name,
+      :last_name,
+      :container_id,
+      :food_choice,
+      :food_restrictions,
+      :rsvp,
+      :user_id,
+      :wedding_id)
   end
 
   def load_wedding

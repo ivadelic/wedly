@@ -1,18 +1,21 @@
-<h1>All Registries</h1>
-<h3>Add a Registry</h3>
+<h2>All Registries for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
+
+<% @registries.each do |registry| %>
+    <p><%= registry.store %></p>
+    <p><%= registry.link_to_registry %></p>
+    <p><%= registry.image_url %></p>
+
+
+<%#render 'form' %>
+<%#render @wedding.registries %>
+
+<% end %>
+
 <%= form_for @wedding do |f| %>
-  <div id= "create-registry">
-    <%= f.fields_for :registries do |registry_form| %>
-      <%= render "registry_fields", f: registry_form %>
+<div id= "links">
+    <%= link_to_add_association 'add registry', f, :registries %>
+
+    <% f.submit %>
+
     <% end %>
   </div>
-    <div class= "links">
-      <%= link_to_add_association "add registry", f, :registries %>
-    </div>
-
-    <br/>
-
-    <div class= "submit-button">
-      <%= f.submit %>
-    </div>
-<% end %>

@@ -1,6 +1,5 @@
-<div class = "nested-fields" >
-  <div class="field">
-    <div class= "field">
+  <div class = "nested-fields" >
+    <div class="field">
       <%= f.label :store %>
       <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
     </div>
@@ -8,7 +7,8 @@
       <%= f.label :link_to_registry %>
       <%= f.text_field :link_to_registry %>
     </div>
+    <div class= "submit-button">
+      <%= f.submit %>
+    </div>
+    <%= link_to_remove_association "remove registry", f %>
   </div>
-  <%= link_to_remove_association "remove registry", f %>
-</div>
-

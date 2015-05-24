@@ -53,32 +53,40 @@ class WeddingsController < ApplicationController
     params.require(:wedding)
           .permit(:partner_1,
                   :partner_2,
-                  guest_attributes: [
-                    :id,
-                    :container_id,
-                    :food_choice,
-                    :food_restrictions,
-                    :rsvp,
-                    :first_name,
-                    :last_name,
-                    :_destroy
-                    ],
-                    events_attributes: [
+                    guests_attributes: [
                       :id,
-                      :name,
-                      :description,
-                      :date,
-                      :start_time,
-                      :end_time,
-                      :address_line_1,
-                      :address_line_2,
-                      :city,
-                      :province,
-                      :zip,
-                      :country,
-                      :longitude,
-                      :latitude,
-                      :wedding_id,
-                      :_destroy])
+                      :container_id,
+                      :food_choice,
+                      :food_restrictions,
+                      :rsvp,
+                      :first_name,
+                      :last_name,
+                      :_destroy
+                      ],
+                      events_attributes: [
+                        :id,
+                        :name,
+                        :description,
+                        :date,
+                        :start_time,
+                        :end_time,
+                        :address_line_1,
+                        :address_line_2,
+                        :city,
+                        :province,
+                        :zip,
+                        :country,
+                        :longitude,
+                        :latitude,
+                        :wedding_id,
+                        :_destroy
+                        ],
+                        registries_attributes: [
+                          :wedding_id,
+                          :link_to_registry,
+                          :store,
+                          :image_url,
+                          :_destroy
+                          ])
   end
 end

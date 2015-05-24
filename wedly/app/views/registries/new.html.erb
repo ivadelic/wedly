@@ -1,12 +1,3 @@
 <h1>Add a new Registry</h1>
-<%= form_for @registry do |f| %>
-  <div class= "field">
-    <%= f.label :store %>
-    <%= f.select :store, options_for_select("Amazon", "Crate and Barrel", "Hudson Bay", "Home Outfitters", "Bed Bath & Beyond") %>
-  </div>
-  <div>
-    <% f.label :link_to_registry %>
-    <% f.text_field :link_to_registry %>
-  </div>
 
-<% end %>
+<%= render 'form' %>
