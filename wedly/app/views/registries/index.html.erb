@@ -8,10 +8,9 @@
 <% end %>
 
 <%= form_for @wedding do |f| %>
-<div id= "links">
-    <%= link_to_add_association 'add registry', f, :registries %>
-
-    <% f.submit %>
-
-    <% end %>
+  <div id= "links">
+    <%= link_to_add_association "Add Registry", f, :registries %>
   </div>
+<%= f.submit %>
+
+<% end %>

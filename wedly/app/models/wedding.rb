@@ -5,8 +5,8 @@ class Wedding < ActiveRecord::Base
   has_many :registries
   has_many :attendee_users, through: :guests, class_name: "User"
 
-  accepts_nested_attributes_for :events
-  accepts_nested_attributes_for :guests
-  accepts_nested_attributes_for :registries
+  accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :guests, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :registries, :reject_if => :all_blank, :allow_destroy => true
 
 end

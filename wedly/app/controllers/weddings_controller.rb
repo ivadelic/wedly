@@ -82,6 +82,7 @@ class WeddingsController < ApplicationController
                         :_destroy
                         ],
                         registries_attributes: [
+                          :id,
                           :wedding_id,
                           :link_to_registry,
                           :store,

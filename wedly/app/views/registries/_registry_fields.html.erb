@@ -1,14 +1,11 @@
-  <div class = "nested-fields" >
-    <div class="field">
-      <%= f.label :store %>
-      <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
-    </div>
-    <div class= "field">
-      <%= f.label :link_to_registry %>
-      <%= f.text_field :link_to_registry %>
-    </div>
-    <div class= "submit-button">
-      <%= f.submit %>
-    </div>
-    <%= link_to_remove_association "remove registry", f %>
+<div class="nested-fields">
+  <div class= "field">
+    <%= f.label :store %>
+    <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
   </div>
+  <div class= "field">
+    <%= f.label :link_to_registry %>
+    <%= f.text_area :link_to_registry %>
+  </div>
+  <%= link_to_remove_association "Cancel", f %>
+</div>
