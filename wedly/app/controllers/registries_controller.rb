@@ -8,27 +8,39 @@ class RegistriesController < ApplicationController
     @registry = Registry.find(params[:id])
   end
 
+  def edit
+    @registry = Registry.find(params[:id])
+  end
+
   def new
     @registry = Registry.new
   end
 
   def create
-    @event = @wedding.events.build(events_params)
-    @wedding = wedding_id
+    #@registry = @wedding.registries.build(events_params)
+    #@wedding = wedding_id
+    @registry = Registry.new(registry_params)
+    if @registry.save
+      flash[:notice] = "Registry added"
+    else
+      flash[:notice] = "Registry couldn't be added"
+    end
+    redirect_to wedding_registries_path(@registry.wedding)
   end
 
   def update
     @registry = Registry.find(params[:id])
-      if @registry.update_attributes(registries_params)
-        @registry.save
-      else redirect_to wedding_registries_path
+    if @registry.update_attributes(registry_params)
+      redirect_to wedding_registries_path(@wedding)
+    else
+      render :edit
     end
   end
 
   def destroy
     @registry = Registry.find(params[:id])
     @registry.destroy
-    redirect_to wedding_path(@registry.wedding)
+    redirect_to wedding_registries_path(@wedding)
   end
 
   private

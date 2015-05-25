@@ -1,16 +1,37 @@
 <h2>All Registries for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
 
+<%= form_for([@wedding, Registry.new]) do |f| %>
+   <%= f.hidden_field :wedding_id, value: @wedding.id %>
+  <div class="field">
+    <%= f.label :store %>
+    <!-- options_for_select(Store.all.map{|x| [x.name, x.id] }) -->
+    <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
+  </div>
+  <div class= "field">
+    <%= f.label :link_to_registry %>
+    <%= f.text_field :link_to_registry %>
+  </div>
+
+  <div class= "submit-button">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
 <% @registries.each do |registry| %>
+
   <p><strong>Store: </strong><%= registry.store %></p>
   <p><strong>Link: </strong><%= registry.link_to_registry %></p>
   <p><%= registry.image_url %></p>
 
+  <%= link_to "Edit", edit_wedding_registry_path(registry.wedding, registry) %> |
+  <%= link_to "Delete", wedding_registry_path(registry.wedding, registry), method: :delete, data: {confirm: "Are you sure you want to delete this Registry link?"} %>
 <% end %>
 
-<%= form_for @wedding do |f| %>
+
+
+<%# form_for @wedding do |f| %>
   <div id= "links">
-    <%= link_to_add_association "Add Registry", f, :registries %>
+    <%# link_to_add_association "Add Registry", f, :registries %>
   </div>
-<%= f.submit %>
-
-<% end %>
+<%# f.submit %>

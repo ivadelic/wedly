@@ -1,22 +1,17 @@
-  <div class = "nested-fields" >
+<%= form_for([@registry.wedding, @registry]) do |f| %>
+
   <div class="field">
     <%= f.label :store %>
+    <!-- options_for_select(Store.all.map{|x| [x.name, x.id] }) -->
     <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
   </div>
   <div class= "field">
     <%= f.label :link_to_registry %>
     <%= f.text_field :link_to_registry %>
   </div>
-  <div id="registries">
-    <%= f.fields_for :registries do |registries_form| %>
-    <%= render 'registry_fields', f: => registries_form %>
-    <% end %>
-
-  <div class = "links">
-    <%= link_to_add_association "Add Registry ", f %>
-  </div>
 
   <div class= "submit-button">
     <%= f.submit %>
   </div>
-  </div>
+
+<% end %>

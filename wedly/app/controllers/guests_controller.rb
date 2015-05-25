@@ -13,8 +13,16 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = @wedding.guests.build(guest_params)
-    @wedding = wedding_id
+    # @guest = @wedding.guests.build(guest_params)
+    # @wedding = wedding_id
+    @guest = Guest.new(guest_params)
+
+    if @guest.save
+      flash[:notice] = "Guest added"
+    else
+      flash[:notice] = "Guest couldn't be added"
+    end
+    redirect_to wedding_guests_path(@guest.wedding)
   end
 
   def edit
