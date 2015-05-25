@@ -4,7 +4,6 @@
    <%= f.hidden_field :wedding_id, value: @wedding.id %>
   <div class="field">
     <%= f.label :store %>
-    <!-- options_for_select(Store.all.map{|x| [x.name, x.id] }) -->
     <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
   </div>
   <div class= "field">
@@ -21,7 +20,8 @@
 <% @registries.each do |registry| %>
 
   <p><strong>Store: </strong><%= registry.store %></p>
-  <p><strong>Link: </strong><%= registry.link_to_registry %></p>
+  <p><strong>Link: </strong>
+  <a href="<%= registry.link_to_registry %>" target= "_blank"><%= registry.link_to_registry %></a></p>
   <p><%= registry.image_url %></p>
 
   <%= link_to "Edit", edit_wedding_registry_path(registry.wedding, registry) %> |
@@ -29,9 +29,3 @@
 <% end %>
 
 
-
-<%# form_for @wedding do |f| %>
-  <div id= "links">
-    <%# link_to_add_association "Add Registry", f, :registries %>
-  </div>
-<%# f.submit %>
