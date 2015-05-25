@@ -33,7 +33,7 @@ class GuestsController < ApplicationController
   def destroy
     @guest = Guest.find(params[:id])
     @guest.destroy
-    #flash[:notice] = "Guest #{@guest.first_name} #{@guest.last_name} has been deleted."
+    redirect_to wedding_guests_path(@guest.wedding)
   end
 
   private
