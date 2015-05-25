@@ -22,10 +22,10 @@ class GuestsController < ApplicationController
   end
 
   def update
-    @guest = Guest.new(params[:id])
-    if @guest.update_attributes(guests_params)
-      @guest.save
-    else 
+    @guest = Guest.find(params[:id])
+    if @guest.update_attributes(guest_params)
+      redirect_to wedding_guests_path(@wedding)
+    else
       render :edit
     end
   end

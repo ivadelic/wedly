@@ -1,7 +1,23 @@
-<%= form_for(@guests) do |guest| %>
-  <h3><%= guest.first_name %></h3>
-  <h4><%= guest.last_name %></h4>
-  <p><%= guest.rsvp %></p>
-  <p><%= guest.food_choice %></p>
-  <p><%= guest.food_restrictions %></p>
+<%= form_for([@guest.wedding, @guest]) do |f| %>
+  <div class = "create-guests" >
+    <div class= "field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class= "field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class= "field">
+      <%= f.label :food_choice %>
+      <%= f.text_field :food_choice %>
+    </div>
+    <div class= "field">
+      <%= f.label :food_restrictions %>
+      <%= f.text_area :food_restrictions %>
+    </div>
+    <div class= "submit-button">
+    <%= f.submit %>
+    </div>
+  </div>
 <% end %>

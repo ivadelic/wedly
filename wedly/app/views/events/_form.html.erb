@@ -1,6 +1,5 @@
-<%= form_for(@event) do |f| %>
+<%= form_for [@event.wedding, @event] do |f| %>
   <div id="create-events">
-
     <div class= "field">
       <%= f.label :name %>
       <%= f.text_field :name %>

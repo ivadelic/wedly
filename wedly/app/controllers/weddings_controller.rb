@@ -36,7 +36,7 @@ class WeddingsController < ApplicationController
   def update
     @wedding = Wedding.find(params[:id])
     if @wedding.update_attributes(wedding_params)
-      redirect_to weddings_path(@wedding)
+      redirect_to wedding_path(@wedding)
     else
       render :edit
     end

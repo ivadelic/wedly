@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
       if @event.update_attributes(event_params)
-        @event.save
+        redirect_to wedding_path(@wedding)
       else redirect_to events_path
     end
   end
