@@ -3,7 +3,16 @@ class WeddingsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    @weddings = Wedding.search(params[:search])
+    @weddings = if params[:search]
+      Wedding.where('token LIKE?', params[:search])
+    else
+      Wedding.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

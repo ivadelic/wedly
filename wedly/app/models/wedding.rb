@@ -16,11 +16,9 @@ class Wedding < ActiveRecord::Base
     p2 = self.partner_2.split(' ')
     self.token = (p1[0] + p2[0] + Time.now.year.to_s).downcase
   end
-
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['token LIKE?', "#{search}"])
-      errors.add(:base, "No match found for wedding key entered.")
-    end
-  end
+  # def is_admin?(the_user)
+  #   the_user == user || the_user == other_user
+  # end
+  # @wedding.is_admin?(current_user)
 end
+
