@@ -1,0 +1,12 @@
+<h2>Menu for <%#@food.event.name %></h2>
+<%= form_for([@food.event, @food]) do |f| %>
+  <div class = "create-guests" >
+    <div class= "field">
+      <%= f.label :food_choice %>
+      <%= f.number_field :first_name %>
+    </div>
+    <div class= "submit-button">
+    <%= f.submit %>
+    </div>
+  </div>
+<% end %>

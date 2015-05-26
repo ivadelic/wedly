@@ -12,7 +12,8 @@
      <%= event.longitude %>
   <p>
     <%= link_to "Edit", edit_wedding_event_path(event.wedding, event) %> |
-    <%= link_to "Delete", wedding_event_path(event.wedding, event), method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>
+    <%= link_to "Delete", wedding_event_path(event.wedding, event), method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %> |
+      <%# link_to "General Menu", wedding_event_foods_path(event.wedding, food) %>
   </p>
 </div>
 

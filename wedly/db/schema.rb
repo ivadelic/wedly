@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522212603) do
+ActiveRecord::Schema.define(version: 20150526195139) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150522212603) do
 
   create_table "guests", force: :cascade do |t|
     t.integer  "container_id"
-    t.integer  "food_choice"
+    t.integer  "food_id"
     t.text     "food_restrictions"
     t.boolean  "rsvp"
     t.datetime "created_at",        null: false

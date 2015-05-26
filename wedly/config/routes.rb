@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :registries
     resources :events do
       resources :containers
+      resources :foods
     end
   end
 

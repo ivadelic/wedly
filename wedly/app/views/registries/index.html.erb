@@ -1,5 +1,6 @@
 <h2>All Registries for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
-
+<%= link_to "Back to Events", wedding_path(@wedding) %>
+<br/>
 <%= form_for([@wedding, Registry.new]) do |f| %>
    <%= f.hidden_field :wedding_id, value: @wedding.id %>
   <div class="field">
