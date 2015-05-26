@@ -13,10 +13,9 @@ class GuestsController < ApplicationController
   end
 
   def create
-    # @guest = @wedding.guests.build(guest_params)
-    # @wedding = wedding_id
     @guest = Guest.new(guest_params)
-
+    @wedding = @wedding_id
+    @user = current_user
     if @guest.save
       flash[:notice] = "Guest added"
     else

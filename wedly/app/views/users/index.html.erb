@@ -1,19 +1,34 @@
 <h1>Welcome <%= current_user.first_name %>!</h1>
 
-<h3>Your profile info: <%= current_user.first_name %> <%= current_user.last_name %></h3>
-     <%= current_user.address_line_1 %><br>
-     <%= current_user.address_line_2 %><br>
-     <%= current_user.city %>
-     <%= current_user.province %>
-     <%= current_user.country %>
-     <%= current_user.zip %>
-     <%= current_user.phone %>
-     <%= current_user.latitude %>
-     <%= current_user.longitude %>
-     <%= current_user.email %>
+<h3>Your profile info: <%= current_user.first_name %>
+  <%= current_user.last_name %></h3>
+    <%= current_user.address_line_1 %><br>
+    <%= current_user.address_line_2 %>
+    <%= current_user.city %>,
+    <%= current_user.province %><br>
+    <%= current_user.country %>,
+    <%= current_user.zip %><br>
+    <%= current_user.phone %><br>
+    <%= current_user.email %>
 
-     <!-- <div id="map-canvas" ></div> -->
+<div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
+</div>
 
-     <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>"></div>
+<% if current_user.my_wedding.present? %>
+  <h3>Your Wedding</h3>
+  <%= link_to wedding_path(current_user.my_wedding) do %>
+    <%= current_user.my_wedding.partner_1 %> &#38 <%=current_user.my_wedding.partner_2 %>
+  <% end %>
+<% end %>
 
+<% if current_user.weddings.present? %>
+  <h3>Invitation to Weddings</h3>
+
+  <% current_user.weddings.each do |wedding| %>
+    <%= link_to wedding_path(current_user.wedding) do %>
+      <div>
+        <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
+      </div>
+  <% end %>
+<% end %>
 

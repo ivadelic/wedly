@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150522211309) do
-=======
-ActiveRecord::Schema.define(version: 20150522212603) do
->>>>>>> geocode
+ActiveRecord::Schema.define(version: 20150525222036) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -103,9 +99,11 @@ ActiveRecord::Schema.define(version: 20150522212603) do
   create_table "weddings", force: :cascade do |t|
     t.string   "partner_1"
     t.string   "partner_2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.string   "partner_email"
+    t.string   "token"
   end
 
 end

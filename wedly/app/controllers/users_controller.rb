@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
+      UserMailer.welcome_email(@user).deliver_later
       redirect_to root_url, notice: "Hello! You're signed up!"
     else
       redirect_to new_user_url, alert: @user.errors.full_messages
@@ -47,20 +48,20 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(
-    :first_name,
-    :last_name,
-    :address_line_1,
-    :address_line_2,
-    :city,
-    :zip,
-    :country,
-    :province,
-    :email,
-    :phone,
-    :password,
-    :password_confirmation,
-    :longitude,
-    :latitude
-    )
+      :first_name,
+      :last_name,
+      :address_line_1,
+      :address_line_2,
+      :city,
+      :zip,
+      :country,
+      :province,
+      :email,
+      :phone,
+      :password,
+      :password_confirmation,
+      :longitude,
+      :latitude
+      )
   end
 end
