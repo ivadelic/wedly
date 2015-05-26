@@ -38,7 +38,7 @@
   </tr>
 
   <tr>
-    <td><h4><strong>Add Guest</strong></h4></td>
+    <td><h4><strong>New</strong></h4></td>
     <%= form_for([@wedding, Guest.new]) do |f| %>
     <%= f.hidden_field :wedding_id, value: @wedding.id %>
       <div class= "field">
@@ -56,20 +56,22 @@
       <div class= "field">
         <td><p><%= f.text_area :food_restrictions %></p></td>
       </div>
-        <td><p><%= f.submit "Add Guest" %></p></td>
+        <td><p><%= f.submit "Add guest" %></p></td>
   <% end %>
   </tr>
 
   <% @guests.each do |guest| %>
-  <tr>
-    <td><p><%# @guest.order(created_at::desc) %></p></td>
-    <td><p><%= guest.first_name %></p></td>
-    <td><p><%= guest.last_name %></p></td>
-    <td><p><%= guest.rsvp %></p></td>
-    <td><p><%= guest.food_choice %></p></td>
-    <td><p><%= guest.food_restrictions %></p></td>
-    <td><p><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %></p></td>
-    <td><p><%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %></p></td>
-
+    <% guest == 0 %>
+    <%# guest += 1 %>
+    <tr>
+      <td><p><%= puts "#{guest}"%></p></td>
+      <td><p><%= guest.first_name %></p></td>
+      <td><p><%= guest.last_name %></p></td>
+      <td><p><%= guest.rsvp %></p></td>
+      <td><p><%= guest.food_choice %></p></td>
+      <td><p><%= guest.food_restrictions %></p></td>
+      <td><p><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %></p></td>
+      <td><p><%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
+    </tr>
   <% end %>
 </table>
