@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   before_filter :load_wedding
+
   def index
     @guests = Guest.all
   end

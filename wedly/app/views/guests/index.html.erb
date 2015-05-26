@@ -1,47 +1,75 @@
 <h2>Guest Index for the Celebration of <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
 
-<h2>Add a New Guest</h2>
- <!--  <%= form_for @wedding do |f| %>
-  <div class= "links">
-    <%= link_to_add_association 'Add a Guest', f, :guests %>
-  <% end %>
-  </div> -->
+<!-- <h2>Add a New Guest</h2>
+  <%# form_for([@wedding, Guest.new]) do |f| %>
+    <%# f.hidden_field :wedding_id, value: @wedding.id %>
+    <div class= "field">
+      <%# f.label :first_name %>
+      <%# f.text_field :first_name %>
+    </div>
+    <div class= "field">
+      <%# f.label :last_name %>
+      <%# f.text_field :last_name %>
+    </div>
+    <div class= "field">
+      <%# f.label :rsvp %>
+      <%# f.text_field :rsvp %>
+    </div>
+    <div class= "field">
+      <%# f.label :food_choice %>
+      <%# f.text_field :food_choice %>
+    </div>
+    <div class= "field">
+      <%# f.label :food_restrictions %>
+      <%# f.text_area :food_restrictions %>
+    </div>
+    <%# f.submit "Add Guest" %>
+  <%#end %> -->
+<table>
+  <tr>
+    <th><h4><strong></strong></h4></th>
+    <th><h4><strong>First name </strong></h4></th>
+    <th><h4><strong>Last name </strong></h4></th>
+    <th><h4><strong>RSVP </strong></h4></th>
+    <th><h4><strong>Food Choice (number) </strong></h4></th>
+    <th><h4><strong>Food Restrictions </strong></h4></th>
+    <th><h4><strong></strong></h4></th>
+    <th><h4><strong></strong></h4></th>
+  </tr>
 
-  <%= form_for([@wedding, Guest.new]) do |f| %>
+  <tr>
+    <td><h4><strong>Add Guest</strong></h4></td>
+    <%= form_for([@wedding, Guest.new]) do |f| %>
     <%= f.hidden_field :wedding_id, value: @wedding.id %>
-    <div class= "field">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </div>
-    <div class= "field">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </div>
-    <div class= "field">
-      <%= f.label :rsvp %>
-      <%= f.text_field :rsvp %>
-    </div>
-    <div class= "field">
-      <%= f.label :food_choice %>
-      <%= f.text_field :food_choice %>
-    </div>
-    <div class= "field">
-      <%= f.label :food_restrictions %>
-      <%= f.text_area :food_restrictions %>
-    </div>
-    <%= f.submit "Add Guest" %>
+      <div class= "field">
+        <td><p><%= f.text_field :first_name %></p></td>
+      </div>
+      <div class= "field">
+        <td><p><%= f.text_field :last_name %></p></td>
+      </div>
+      <div class= "field">
+        <td><p><%= f.check_box :rsvp %></p></td>
+      </div>
+      <div class= "field">
+        <td><p><%= f.text_field :food_choice %></p></td>
+      </div>
+      <div class= "field">
+        <td><p><%= f.text_area :food_restrictions %></p></td>
+      </div>
+        <td><p><%= f.submit "Add Guest" %></p></td>
   <% end %>
+  </tr>
 
+  <% @guests.each do |guest| %>
+  <tr>
+    <td><p><%# @guest.order(created_at::desc) %></p></td>
+    <td><p><%= guest.first_name %></p></td>
+    <td><p><%= guest.last_name %></p></td>
+    <td><p><%= guest.rsvp %></p></td>
+    <td><p><%= guest.food_choice %></p></td>
+    <td><p><%= guest.food_restrictions %></p></td>
+    <td><p><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %></p></td>
+    <td><p><%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %></p></td>
 
-
-<% @guests.each do |guest| %>
-  <p><strong>First name: </strong><%= guest.first_name %></p>
-  <p><strong>Last name: </strong><%= guest.last_name %></p>
-  <p><strong>RSVP: </strong><%= guest.rsvp %></p>
-  <p><strong>Food Choice (number): </strong><%= guest.food_choice %></p>
-  <p><strong>Any food food restrictions: </strong><%= guest.food_restrictions %></p>
-
-    <%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %> |
-    <%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
-  <%# render @wedding.guests %>
-<% end %>
+  <% end %>
+</table>
