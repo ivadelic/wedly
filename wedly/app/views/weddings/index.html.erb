@@ -1,8 +1,19 @@
-<h1>Welcome to Hooked!!</h1>
+<h1>Welcome to WedWeb!!</h1>
 
 <p>We are your personal wedding planner all-in-one!</p>
 
+<% form_tag weddings_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Find Wedding', :name => nil %>
+  </p>
+<% end %>
+
 <div id="weddings">
   <h2>Wedding Directory:</h2>
-  <%= render @weddings %>
+  <%#= render partial: 'wedding' %>
+    <%#= link_to wedding_path(self) do %>
+
+      <%= link_to wedding.partner_1, wedding_path(wedding_id) %> &#38 <%#= wedding.partner_2 %>
+    <%# end %>
 </div>

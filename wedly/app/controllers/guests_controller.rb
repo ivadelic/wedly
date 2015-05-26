@@ -20,8 +20,8 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(guest_params)
-    @guest.wedding_id = @wedding.id
-    @guest.user_id = current_user.id
+    @wedding = @wedding_id
+    @user = current_user
     if @guest.save
       redirect_to guests_url
     else

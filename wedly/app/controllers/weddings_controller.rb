@@ -3,33 +3,30 @@ class WeddingsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    @weddings = Wedding.all
+    @weddings = Wedding.search(params[:search])
   end
 
   def new
     @wedding = Wedding.new
   end
 
-  def create
-    @wedding = Wedding.new(wedding_params)
-    @wedding.user_id = current_user.id
-    if @wedding.save
-      redirect_to wedding_path(@wedding)
-    else
-      render :new
-    end
-  end
-
   def show
-    @wedding = Wedding.find(params[:id])
-  end
-
-  def find
     @wedding = Wedding.find(params[:id])
   end
 
   def edit
     @wedding = Wedding.find(params[:id])
+  end
+
+  def create
+    @wedding = Wedding.new(wedding_params)
+    @wedding.user_id = current_user.id
+    if @wedding.save
+      UserMailer.partner_email(@wedding).deliver_later
+      redirect_to wedding_path(@wedding), notice: "Your Wedding Key is #{@wedding.token}"
+    else
+      render :new
+    end
   end
 
   def update
@@ -52,6 +49,8 @@ class WeddingsController < ApplicationController
     params.require(:wedding).permit(
       :partner_1,
       :partner_2,
+      :partner_email,
+      :token,
       :user_id,
       guest_attributes: [
         :id,
@@ -79,6 +78,7 @@ class WeddingsController < ApplicationController
             :longitude,
             :latitude,
             :wedding_id,
-            :_destroy])
+            :_destroy]
+            )
   end
 end

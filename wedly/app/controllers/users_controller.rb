@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
+      UserMailer.welcome_email(@user).deliver_later
       redirect_to root_url, notice: "Hello! You're signed up!"
     else
       redirect_to new_user_url, alert: @user.errors.full_messages

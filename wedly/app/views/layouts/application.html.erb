@@ -12,12 +12,15 @@
     <% if current_user %>
       <%= link_to "All Weddings", "/weddings"%> |
       <%= link_to "Create Your Wedding!", "/weddings/new" %> |
+      <%= link_to "Join A Wedding", "/weddings/#{@wedding.id}/guests/new" %> |
       <%= link_to "Profile", users_path %> |
       <%= link_to "Logout", :logout, method: :post %>
     <% else %>
       <%= link_to "Register", new_user_path %> |
+      <%= link_to "Create Your Wedding!", "/weddings/new" %> |
+      <%= link_to "Join A Wedding", "/weddings/#{@wedding.id}/guests/new" %> |
       <%= link_to "Login", :login %>
-    <% end %>
+    <% end %>>
   </div>
   <div>
     <p id="notice"><%= flash[:notice] %></p>

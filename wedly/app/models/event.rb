@@ -3,4 +3,6 @@ class Event < ActiveRecord::Base
   has_many :containers
   has_many :guests, through: :containers
   has_many :foods
+
+  accepts_nested_attributes_for :containers
 end

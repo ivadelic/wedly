@@ -1,14 +1,22 @@
 <%= form_for @wedding do |f| %>
 
   <div class="field">
-    <%= f.label :partner_1 %>
+    <%= f.label 'Your Full Name' %>:
     <%= f.text_field :partner_1, :value => current_user.first_name + " " + current_user.last_name %>
   </div>
 
   <div class="field">
-    <%= f.label :partner_2 %>
+    <%= f.label 'Partner Full Name' %>:
     <%= f.text_field :partner_2 %>
   </div>
+
+  <div class="field">
+    <p>If you would like your partner to also become an administrator to the wedding, please enter partner email address.</p>
+    <%= f.label :partner_email %>:
+    <%= f.email_field :partner_email %>
+  </div>
+
+  <%= f.submit %>
 
   <h4>Events</h4>
 
@@ -22,6 +30,17 @@
     </div>
   </div>
 
-  <%= f.submit %>
+
+  <h5>Event Capacity</h5>
+
+  <div class="containers">
+    <%= f.fields_for :containers do |containers_form| %>
+      <%= render 'container_fields', f: containers_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add event capacity', f, :containers %>
+    </div>
+  </div>
 
 <% end %>
