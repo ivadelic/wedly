@@ -2,11 +2,24 @@ class EventsController < ApplicationController
   before_filter :load_wedding
 
   def index
+    @events = if params[:search]
+      Event.near(params[:search], 1, units: :km)
+    elsif params[:longitude] && params[:latitude]
+      Event.near([params[:latitude], params[:longitude]], 1, units: :km)
+    else
     @events = Event.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.js #index.js.erb
+    end
   end
 
   def show
     @event = Event.find(params[:id])
+    @wedding = @event.weddings.build
+    @nearby_events = @event.nearbys(1, units, :km)
   end
 
   def new

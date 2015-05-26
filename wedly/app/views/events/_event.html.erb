@@ -8,8 +8,11 @@
      <%= event.city %><br>
      <%= event.zip %><br>
      <%= event.country %>
+     <%= event.latitude %>
+     <%= event.longitude %>
   <p>
     <%= link_to "Edit", edit_wedding_event_path(event.wedding, event) %> |
     <%= link_to "Delete", wedding_event_path(event.wedding, event), method: :delete, data: {confirm: "Are you sure you want to delete this Event?"} %>
   </p>
 </div>
+

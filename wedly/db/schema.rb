@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150522211309) do
+=======
+ActiveRecord::Schema.define(version: 20150522212603) do
+>>>>>>> geocode
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -27,11 +31,11 @@ ActiveRecord::Schema.define(version: 20150522211309) do
     t.string   "province"
     t.string   "zip"
     t.string   "country"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
+    t.decimal  "longitude",      precision: 9, scale: 6
+    t.decimal  "latitude",       precision: 9, scale: 6
     t.integer  "wedding_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "name"
     t.text     "description"
     t.datetime "date"
@@ -78,9 +82,9 @@ ActiveRecord::Schema.define(version: 20150522211309) do
     t.string   "country"
     t.string   "zip"
     t.string   "phone"
-    t.decimal  "longtitude"
-    t.decimal  "latitude"
-    t.string   "email",                           null: false
+    t.decimal  "longitude",                       precision: 9, scale: 6
+    t.decimal  "latitude",                        precision: 9, scale: 6
+    t.string   "email",                                                   null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
