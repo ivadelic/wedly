@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
+  after_validation :geocode
 
   authenticates_with_sorcery!
 
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   def full_address
-    "#{address_line_1} #{address_line_2}, #{city}, #{province} #{zip}"
+    "#{address_line_1}, #{city}, #{province} #{country}"
   end
 
 end

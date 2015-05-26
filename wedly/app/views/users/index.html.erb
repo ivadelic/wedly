@@ -8,6 +8,12 @@
      <%= current_user.country %>
      <%= current_user.zip %>
      <%= current_user.phone %>
-     <%= current_user.longtitude %>
      <%= current_user.latitude %>
+     <%= current_user.longitude %>
      <%= current_user.email %>
+
+     <!-- <div id="map-canvas" ></div> -->
+
+     <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>"></div>
+
+
