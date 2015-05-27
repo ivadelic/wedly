@@ -25,7 +25,8 @@
         <td><p><%= f.check_box :rsvp %></p></td>
       </div>
       <div class= "field">
-        <td><p><%= f.collection_select :food_id, @wedding.foods, :id, :name %></p></td>
+
+        <td><p><%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name %></p></td>
       </div>
       <div class= "field">
         <td><p><%= f.text_area :food_restrictions %></p></td>

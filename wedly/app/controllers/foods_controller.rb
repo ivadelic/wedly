@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_filter :load_wedding
 
   def index
-    @foods = Food.all
+    @foods = Food.where(wedding_id: @wedding.id)
     @food = Food.new
   end
 
@@ -16,13 +16,12 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-
     if @food.save
       flash[:notice] = "Menu option added"
     else
       flash[:notice] = "Menu option couldn't be added"
     end
-    redirect_to wedding_event_foods_path(@wedding, @event)
+    redirect_to wedding_foods_path(@wedding, @foods)
   end
 
   def edit
@@ -33,7 +32,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.update_attributes(food_params)
-      redirect to wedding_event_foods_path(@wedding)
+      redirect to wedding_foods_path(@wedding)
     else
       render :edit
     end
@@ -42,7 +41,7 @@ class FoodsController < ApplicationController
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    redirect_to wedding_event_foods_path(@wedding, @event)
+    redirect_to wedding_foods_path(@wedding, @foods)
   end
 
 
@@ -53,6 +52,7 @@ class FoodsController < ApplicationController
       :event_id,
       :dish_name,
       :dish_description,
+      :wedding_id
       )
   end
 
