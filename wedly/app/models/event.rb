@@ -5,9 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :wedding
   has_many :containers
   has_many :guests, through: :containers
-  has_many :foods
 
-  accepts_nested_attributes_for :foods, :reject_if => :all_blank, :allow_destroy => true
 
   def full_address
     "#{address_line_1}, #{city}, #{province} #{country}"

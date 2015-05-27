@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-  before_filter :load_event
   before_filter :load_wedding
 
   def index
@@ -59,9 +58,5 @@ class FoodsController < ApplicationController
 
   def load_wedding
     @wedding = Wedding.find(params[:wedding_id])
-  end
-
-  def load_event
-    @event = Event.find(params[:event_id])
   end
 end
