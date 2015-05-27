@@ -1,12 +1,15 @@
-<h2>Menu for <%#@food.event.name %></h2>
-<%= form_for([@food.event, @food]) do |f| %>
-  <div class = "create-guests" >
-    <div class= "field">
-      <%= f.label :food_choice %>
-      <%= f.number_field :first_name %>
-    </div>
-    <div class= "submit-button">
-    <%= f.submit %>
-    </div>
-  </div>
+<%= link_to "Back to Events", wedding_path(@event.wedding) %>
+<% @foods.each do |food| %>
+
+  <p><%= food.food_choice%></p>
+  <p><%= food.dish_name %></p>
+  <p><%= food.dish_description %></p>
+
+  <%= link_to "Edit",  edit_wedding_event_food_path(food.event.wedding, food)%>
+  <%= link_to "Delete", wedding_event_food_path(food.event.wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
+
 <% end %>
+
+<h2>Menu for <%= @event.name %></h2>
+
+<%= render "form" %>

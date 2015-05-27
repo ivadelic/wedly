@@ -6,9 +6,8 @@
     <th><h4><strong>First name </strong></h4></th>
     <th><h4><strong>Last name </strong></h4></th>
     <th><h4><strong>RSVP </strong></h4></th>
-    <th><h4><strong>Food Choice (number) </strong></h4></th>
+    <th><h4><strong>Menu Choice (number) </strong></h4></th>
     <th><h4><strong>Food Restrictions </strong></h4></th>
-    <th><h4><strong></strong></h4></th>
     <th><h4><strong></strong></h4></th>
   </tr>
 
@@ -26,7 +25,7 @@
         <td><p><%= f.check_box :rsvp %></p></td>
       </div>
       <div class= "field">
-        <td><p><%= f.text_field :food_choice %></p></td>
+        <td><p><%= f.number_field :food_id %></p></td>
       </div>
       <div class= "field">
         <td><p><%= f.text_area :food_restrictions %></p></td>
@@ -41,7 +40,7 @@
       <td><p><%= guest.first_name %></p></td>
       <td><p><%= guest.last_name %></p></td>
       <td class = "rsvp check"><p><%= guest.rsvp %></p></td>
-      <td><p><%= guest.food_choice %></p></td>
+      <td><p><%= guest.food_id %></p></td>
       <td><p><%= guest.food_restrictions %></p></td>
       <td><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %> <%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
     </tr>

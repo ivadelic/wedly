@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :guests
     resources :registries
     resources :events do
-      resources :containers
       resources :foods
+      resources :containers
     end
   end
 

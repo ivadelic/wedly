@@ -1,0 +1,19 @@
+<h2>Menu for <%#= @event.name %></h2>
+<div class = "nested-fields">
+  <div class= "field">
+      <%= f.label :food_choice %>
+      <%= f.number_field :food_choice %>
+  </div>
+  <div class= "field">
+    <%= f.label :dish_name %>
+    <%= f.text_field :dish_name %>
+  </div>
+  <div class= "field">
+    <%= f.label :dish_description %>
+    <%= f.text_area :dish_description %>
+  </div>
+  <div class= "submit-button">
+    <%# f.submit %>
+  </div>
+    <%#= link_to_remove_association "Cancel", f %>
+</div>

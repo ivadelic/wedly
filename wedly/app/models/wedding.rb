@@ -9,4 +9,5 @@ class Wedding < ActiveRecord::Base
   accepts_nested_attributes_for :guests, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :registries, :reject_if => :all_blank, :allow_destroy => true
 
+
 end
