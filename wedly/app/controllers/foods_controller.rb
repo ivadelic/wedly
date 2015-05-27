@@ -23,7 +23,7 @@ class FoodsController < ApplicationController
     else
       flash[:notice] = "Menu option couldn't be added"
     end
-    redirect_to wedding_event_foods_path(@foods.event.wedding)
+    redirect_to wedding_event_foods_path(@wedding, @event)
   end
 
   def edit
@@ -43,7 +43,7 @@ class FoodsController < ApplicationController
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    redirect_to wedding_event_foods_path(@wedding)
+    redirect_to wedding_event_foods_path(@wedding, @event)
   end
 
 
@@ -53,7 +53,7 @@ class FoodsController < ApplicationController
       :food_choice,
       :event_id,
       :dish_name,
-      :dish_description
+      :dish_description,
       )
   end
 

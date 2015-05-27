@@ -1,12 +1,12 @@
 <%= link_to "Back to Events", wedding_path(@event.wedding) %>
 <% @foods.each do |food| %>
 
-  <p><%= food.food_choice%></p>
-  <p><%= food.dish_name %></p>
-  <p><%= food.dish_description %></p>
+  <p>Food Choice: <%= food.food_choice%></p>
+  <p>Dish Name: <%= food.dish_name %></p>
+  <p>Description: <%= food.dish_description %></p>
 
-  <%= link_to "Edit",  edit_wedding_event_food_path(food.event.wedding, food)%>
-  <%= link_to "Delete", wedding_event_food_path(food.event.wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
+  <%= link_to "Edit",  edit_wedding_event_food_path(@event.wedding, @event, food)%>
+  <%= link_to "Delete", wedding_event_food_path(@event.wedding, @event, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
 
 <% end %>
 
