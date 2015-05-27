@@ -1,5 +1,8 @@
 <h2>Guest Index for the Celebration of <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
 <%= link_to "Back to Events", wedding_path(@wedding) %>
+
+<h4> <%= @guests.size %> Guests have been Invited </h4>
+<h4> Have CONFIRMED their attendance </h4>
 <table>
   <tr>
     <th><h4><strong></strong></h4></th>
@@ -26,7 +29,7 @@
       </div>
       <div class= "field">
 
-        <td><p><%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name %></p></td>
+        <td><p><%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name, {:prompt=>true}%></p></td>
       </div>
       <div class= "field">
         <td><p><%= f.text_area :food_restrictions %></p></td>
@@ -41,7 +44,7 @@
       <td><p><%= guest.first_name %></p></td>
       <td><p><%= guest.last_name %></p></td>
       <td class = "rsvp check"><p><%= guest.rsvp %></p></td>
-      <td><p><%= guest.food_id %></p></td>
+      <td><p><%= guest.food.try(:dish_name) %></p></td>
       <td><p><%= guest.food_restrictions %></p></td>
       <td><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %> <%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
     </tr>

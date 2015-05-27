@@ -17,6 +17,7 @@ class GuestsController < ApplicationController
     # @guest = @wedding.guests.build(guest_params)
     # @wedding = wedding_id
     @guest = Guest.new(guest_params)
+    @guest.food = @wedding.foods.find_by(food_choice: food_choice_params[:food_id])
 
     if @guest.save
       flash[:notice] = "Guest added"
@@ -37,6 +38,7 @@ class GuestsController < ApplicationController
     else
       render :edit
     end
+    @guest.save
   end
 
   def destroy
@@ -51,11 +53,14 @@ class GuestsController < ApplicationController
       :first_name,
       :last_name,
       :container_id,
-      :food_choice,
       :food_restrictions,
       :rsvp,
       :user_id,
       :wedding_id)
+  end
+
+  def food_choice_params
+    params.require(:guest).permit(:food_id)
   end
 
   def load_wedding
