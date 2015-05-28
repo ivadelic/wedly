@@ -1,7 +1,18 @@
 class GuestsController < ApplicationController
   before_filter :load_wedding
+
   def index
     @guests = Guest.all
+  end
+
+  def rsvp_true
+    confirm = 0
+    @guests.each do |guest|
+      if guest.rsvp == true
+        confirm += 1
+      end
+    end
+    puts confirm
   end
 
   def show
@@ -16,6 +27,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     @wedding = @wedding_id
     @user = current_user
+    @guest.food = @wedding.foods.find_by(food_choice: food_choice_params[:food_id])
     if @guest.save
       flash[:notice] = "Guest added"
     else
@@ -35,6 +47,7 @@ class GuestsController < ApplicationController
     else
       render :edit
     end
+    @guest.save
   end
 
   def destroy
@@ -49,11 +62,14 @@ class GuestsController < ApplicationController
       :first_name,
       :last_name,
       :container_id,
-      :food_choice,
       :food_restrictions,
       :rsvp,
       :user_id,
       :wedding_id)
+  end
+
+  def food_choice_params
+    params.require(:guest).permit(:food_id)
   end
 
   def load_wedding

@@ -50,8 +50,12 @@ class EventsController < ApplicationController
   end
 
   private
+  def load_wedding
+    @wedding = Wedding.find(params[:wedding_id])
+  end
   def event_params
-    params.require(:event).permit(
+    params.require(:event)
+    .permit(
       :name,
       :description,
       :date,
@@ -65,11 +69,14 @@ class EventsController < ApplicationController
       :country,
       :longitude,
       :latitude,
-      :wedding_id
-      )
-  end
-
-  def load_wedding
-    @wedding = Wedding.find(params[:wedding_id])
+      :wedding_id,
+      foods_attributes: [
+          :id,
+          :food_choice,
+          :event_id,
+          :dish_name,
+          :dish_description,
+          :_destroy
+        ])
   end
 end

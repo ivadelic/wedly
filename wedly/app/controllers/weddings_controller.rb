@@ -68,7 +68,7 @@ class WeddingsController < ApplicationController
                     guests_attributes: [
                       :id,
                       :container_id,
-                      :food_choice,
+                      :food_id,
                       :food_restrictions,
                       :rsvp,
                       :first_name,

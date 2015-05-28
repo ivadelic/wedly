@@ -1,0 +1,21 @@
+<h3>Add Menu Item</h3>
+<%=form_for([@wedding, Food.new])do |f| %>
+  <div class = "nested-fields">
+    <%= f.hidden_field :wedding_id, value: @wedding.id %>
+    <div class= "field">
+      <%= f.label :food_choice %>
+      <%= f.number_field :food_choice %>
+    </div>
+    <div class= "field">
+      <%= f.label :dish_name %>
+      <%= f.text_field :dish_name %>
+    </div>
+    <div class= "field">
+      <%= f.label :dish_description %>
+      <%= f.text_area :dish_description %>
+    </div>
+    <div class= "submit-button">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

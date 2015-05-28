@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525222036) do
-
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
     t.integer  "event_id"
@@ -42,13 +40,16 @@ ActiveRecord::Schema.define(version: 20150525222036) do
   create_table "foods", force: :cascade do |t|
     t.string   "food_choice"
     t.integer  "event_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "dish_name"
+    t.text     "dish_description"
+    t.integer  "wedding_id"
   end
 
   create_table "guests", force: :cascade do |t|
     t.integer  "container_id"
-    t.integer  "food_choice"
+    t.integer  "food_id"
     t.text     "food_restrictions"
     t.boolean  "rsvp"
     t.datetime "created_at",        null: false
