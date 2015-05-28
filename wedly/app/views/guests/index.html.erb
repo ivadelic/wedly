@@ -52,15 +52,3 @@
     <% num -= 1 %>
   <% end %>
 </table>
-
-<% @guests.each do |guest| %>
-  <p><strong>First name: </strong><%= guest.first_name %></p>
-  <p><strong>Last name: </strong><%= guest.last_name %></p>
-  <p><strong>RSVP: </strong><%= guest.rsvp %></p>
-  <p><strong>Food Choice (number): </strong><%= guest.food_choice %></p>
-  <p><strong>Any food restrictions: </strong><%= guest.food_restrictions %></p>
-
-    <%# link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %> |
-    <%# link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
-  <%# render @wedding.guests %>
-<% end %>
