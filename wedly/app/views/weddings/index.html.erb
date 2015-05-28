@@ -2,17 +2,8 @@
 
 <p>We are your personal wedding planner all-in-one!</p>
 
-<%#= form_tag weddings_path, :method => 'get', authentication: false, id: 'search-form' do %>
-  <p>
-    <%#= text_field_tag :search,s params[:search] %>
-    <%#= submit_tag 'Find Wedding', :name => nil %>
-  </p>
-<%# end %>
-
-<% if @search.present? %>
   <div id="weddings">
     <h2>Wedding Directory:</h2>
     <%= render :partial => 'wedding' %>
   </div>
-<% end %>
 
