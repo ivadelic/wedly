@@ -9,8 +9,6 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :containers
 
-  accepts_nested_attributes_for :containers
-
   def full_address
     "#{address_line_1}, #{city}, #{province} #{country}"
   end

@@ -72,12 +72,18 @@ class EventsController < ApplicationController
       :latitude,
       :wedding_id,
       foods_attributes: [
-          :id,
-          :food_choice,
-          :event_id,
-          :dish_name,
-          :dish_description,
-          :_destroy
-        ])
+        :id,
+        :food_choice,
+        :event_id,
+        :dish_name,
+        :dish_description,
+        :_destroy
+      ],
+      containers_attributes: [
+        :id,
+        :limit,
+        :event_id,
+        :_destroy
+      ])
   end
 end
