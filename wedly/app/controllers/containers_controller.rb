@@ -17,8 +17,8 @@ class ContainersController < ApplicationController
   end
 
   def create
-    @container = @event.build(container_params)
     @event = event_id
+    @container = @event.build(container_params)
   end
 
   def update

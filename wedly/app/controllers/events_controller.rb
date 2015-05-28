@@ -78,6 +78,12 @@ class EventsController < ApplicationController
           :dish_name,
           :dish_description,
           :_destroy
+        ],
+      containers_attributes:[
+        :id,
+        :limit,
+        :event_id,
+        :_destroy
         ])
   end
 end
