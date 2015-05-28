@@ -1,3 +1,4 @@
+
 class EventsController < ApplicationController
   before_filter :load_wedding
 
@@ -65,8 +66,13 @@ class EventsController < ApplicationController
       :country,
       :longitude,
       :latitude,
-      :wedding_id
-      )
+      :wedding_id,
+      event_attributes:[
+        :id,
+        :limit,
+        :event_id,
+        :_destroy
+      ])
   end
 
   def load_wedding
