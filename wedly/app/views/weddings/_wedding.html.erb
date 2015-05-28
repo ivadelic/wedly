@@ -1,6 +1,6 @@
 <p class="wedding">
   <% @weddings.each do |wedding| %>
-    <%= link_to wedding_guests_path(wedding, @guests) do %>
+    <%= link_to wedding_path(wedding) do %>
       <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %><br>
     <% end %>
   <% end %>

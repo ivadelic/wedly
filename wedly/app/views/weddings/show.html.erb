@@ -4,7 +4,8 @@
   <%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %> |
   <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
   <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %> |
-  <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>
+  <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %> |
+  <%= link_to "Events", " " %>
 </div>
 
 <div id="events">
@@ -20,3 +21,8 @@
     </div>
     <%= f.submit %>
   <% end %>
+
+<div class = "event" id= "events">
+  <%= render @wedding.events %>
+  <div id= "map canvas"></div>
+</div>
