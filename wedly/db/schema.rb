@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150528035317) do
     t.string   "phone"
     t.decimal  "longitude",                       precision: 9, scale: 6
     t.decimal  "latitude",                        precision: 9, scale: 6
-    t.string   "email",                                                   null: false
+    t.string   "email",        re                                           null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
