@@ -8,13 +8,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    render '/users/_form.html.erb'
+    @user = User.find(params[:id])
   end
 
   def show
-    @user = current_user
-    render '/users/_form.html.erb'
+    @user = User.find(params[:id])
   end
 
   def create
@@ -36,10 +34,6 @@ class UsersController < ApplicationController
     else
       redirect_to edit_user_url, alert: @user.errors.full_messages
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def destroy

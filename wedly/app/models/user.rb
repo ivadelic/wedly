@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, uniqueness: true
 
+  attr_accessor :invitation_token
+
   def full_address
     "#{address_line_1}, #{city}, #{province} #{country}"
   end
