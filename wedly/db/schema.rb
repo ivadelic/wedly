@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20150527210724) do
     t.integer  "wedding_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "wedding_id"
+    t.string   "recipient_email", null: false
+    t.string   "token"
+    t.datetime "send_time"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "registries", force: :cascade do |t|
     t.integer  "wedding_id"
     t.string   "link_to_registry"
@@ -83,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150527210724) do
     t.string   "phone"
     t.decimal  "longitude",                       precision: 9, scale: 6
     t.decimal  "latitude",                        precision: 9, scale: 6
-    t.string   "email",                                                   null: false
+    t.string   "email",        re                                           null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -93,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150527210724) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.integer  "invitation_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

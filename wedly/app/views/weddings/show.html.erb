@@ -1,6 +1,7 @@
 <h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
 <div id="nav">
+  <%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %> |
   <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
   <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %> |
   <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>

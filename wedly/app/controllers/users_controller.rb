@@ -3,21 +3,21 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def new
-    @user = User.new
+    @user = User.new(:invitation_token => params[:invitation_token])
+      @user.email = @user.invitation.recipient_email if @user.invitation
   end
 
   def edit
-    @user = current_user
-    render '/users/_form.html.erb'
+    @user = User.find(params[:id])
   end
 
   def show
-    @user = current_user
-    render '/users/_form.html.erb'
+    @user = User.find(params[:id])
   end
 
   def create
     @user = User.new(user_params)
+    @user.invitation_id = @invitation.id
     if @user.save
       auto_login(@user)
       UserMailer.welcome_email(@user).deliver_later
@@ -34,10 +34,6 @@ class UsersController < ApplicationController
     else
       redirect_to edit_user_url, alert: @user.errors.full_messages
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def destroy
@@ -61,7 +57,8 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :longitude,
-      :latitude
+      :latitude,
+      :invitation_id
       )
   end
 end

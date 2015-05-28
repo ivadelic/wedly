@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Greetings from WedWeb</h1>
+    <p>
+       Your have been invited to <%= @invitation.wedding.partner_1 %> and <%= @invitation.wedding.partner_2 %>'s wedding!
+    </p>
+    <p>
+      To RSVP, follow this link: <%= link_to 'Sign up', signup_path(:token) %>.
+    </p>
+  </body>
+</html>
