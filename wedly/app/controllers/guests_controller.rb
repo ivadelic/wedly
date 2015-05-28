@@ -2,7 +2,8 @@ class GuestsController < ApplicationController
   before_filter :load_wedding
 
   def index
-    @guests = Guest.all
+    @wedding = Wedding.find(params[:wedding_id])
+    @guests = @wedding.guests
   end
 
   def rsvp_true

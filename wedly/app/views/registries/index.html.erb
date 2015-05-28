@@ -25,9 +25,10 @@
   <p><strong>Link: </strong>
   <a href="<%= registry.link_to_registry %>" target= "_blank"><%= registry.link_to_registry %></a></p>
   <p><%= registry.image_url %></p>
-
-  <%= link_to "Edit", edit_wedding_registry_path(@wedding, registry) %> |
-  <%= link_to "Delete", wedding_registry_path(@wedding, registry), method: :delete, data: {confirm: "Are you sure you want to delete this Registry link?"} %>
+  <% if current_user == @wedding.user %>
+    <%= link_to "Edit", edit_wedding_registry_path(@wedding, registry) %> |
+    <%= link_to "Delete", wedding_registry_path(@wedding, registry), method: :delete, data: {confirm: "Are you sure you want to delete this Registry link?"} %>
+  <% end %>
 <% end %>
 
 
