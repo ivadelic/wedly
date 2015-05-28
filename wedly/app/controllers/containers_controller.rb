@@ -1,4 +1,6 @@
 class ContainersController < ApplicationController
+  before_filter :load_event
+
   def index
     @containers = Container.all
   end
@@ -16,20 +18,16 @@ class ContainersController < ApplicationController
   end
 
   def create
-    @container = Container.new(container_params)
-      if @container.save
-        redirect_to containers_url
-      else
-        render(:new)
-    end
+    @container = @event.build(container_params)
+    @event = event_id
   end
 
   def update
     @container = Container.new(params[:id])
     if @container.update_attributes(container_params)
-      redirect_to container_path(@container)
+      @container.save
     else
-      render :edit
+      redirect_to container_path(@container)
     end
   end
 
@@ -40,9 +38,14 @@ class ContainersController < ApplicationController
   end
 
   private
-  def container_params(
+  def container_params
+    require.params(:container).permit(
     :limit,
     :event_id
     )
+  end
+
+  def load_event
+    @event = Event.find(params[:event_id])
   end
 end

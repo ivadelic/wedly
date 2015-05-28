@@ -1,24 +1,72 @@
 <h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
-<div id="nav">
-  <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
-  <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %>
-</div>
+<div id="wrapper">
+  <ul id="tabs">
+    <li><%= link_to "Social", "/weddings/#{@wedding.id}/social" %></li>
+    <li><%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %></li>
+    <li><%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %></li>
+    <li><%= link_to "Events", "/weddings/#{@wedding.id}/events/#{@event_id}" %></li>
+  </ul>
 
-<div id="events">
-  <h2>Events:</h2>
 
-
-<%= form_for @wedding do |f| %>
-    <div class="links">
-      <%= link_to_add_association 'Add Event', f, :events %>
-    </div>
+  <div class="container" id="Events">
+    <%= render @wedding.events %>
+    <div id="map-canvas" ></div>
   </div>
 
+  <div class="container" id="#tab2" >
+  </div>
 
-<% end %>
+  <div class="container" id="Guests">
+  </div>
+</div>
 
-  <%= render @wedding.events %>
+<script>$(document).ready(function() {
+  $('#tabs li a:not(:first)').addClass('inactive');
+  $('.container:not(:first)').hide();
 
-<div id="map-canvas" ></div>
+  $('#tabs li a').click(function(){
+    var t = $(this).attr('href');
+    if($(this).hasClass('inactive')){ //added to not animate when active
+      $('#tabs li a').addClass('inactive');
+      $(this).removeClass('inactive');
+      $('.container').hide();
+      $(t).fadeIn('slow');
+    }
+    return false;
+  }) //end click
+});
 
+//   <ul class="nav nav-tabs" role="tablist">
+//     <li role="presentation" class="active">
+//       <%= link_to "Social", "#social", data: {toggle: "tab", target: "social"}, href: "/weddings/#{@wedding.id}/social" %></li>
+//     <li><%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %></li>
+//     <li><%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %></li>
+//     <li><%= link_to "Events", "/weddings/#{@wedding.id}/events/#{@event_id}" %></li>
+//   </ul>
+
+//   <div class="tab-content">
+
+//     <div role="tabpanel" class="tab-pane active" id="social"></div>
+//     <div role="tabpanel" class="tab-pane active" id="guests"></div>
+//     <div role="tabpanel" class="tab-pane active" id="registry"></div>
+//     <div role="tabpanel" class="tab-pane active" id="events">
+//       <%= render @wedding.events %>
+//       <div id="map-canvas" ></div>
+//     </div>
+
+//   </div>
+// </div>
+
+<script>
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(this).data("target");
+    var href = $(this).data("href");
+    $.ajax({
+      type: "GET",
+      url: href,
+      data: {tab: target},
+      dataType: "script"
+    });
+  })
+</script>

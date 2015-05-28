@@ -1,0 +1,60 @@
+<div class="nested-fields">
+  <div class= "field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class= "field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class= "field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+   <div class= "field">
+      <%= f.label :start_time %>
+      <%= f.time_select :start_time,
+        :combined => true,
+        :default => Time.now,
+        :minute_interval => 30,
+        :time_seperator => "",
+        :ampm =>true
+        %>to
+      <%= f.label :end_time %>
+      <%= f.time_select :end_time,
+        :combined => true,
+        :default => Time.now,
+        :minute_interval => 30,
+        :time_seperator => "",
+        :ampm =>true
+       %>
+    </div>
+  <div class= "field">
+    <%= f.label :address_line_1 %>
+    <%= f.text_field :address_line_1 %>
+  </div>
+  <div class= "field">
+    <%= f.label :address_line_2 %>
+    <%= f.text_field :address_line_2 %>
+  </div>
+  <div class= "field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div class= "field">
+    <%= f.label :province %>
+    <%= f.text_field :province %>
+  </div>
+  <div class= "field">
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </div>
+  <div class= "field">
+    <%= f.label :zip %>
+    <%= f.text_field :zip %>
+  </div>
+  <div class= "submit-button">
+    <%= f.submit %>
+  </div>
+  <%= link_to_remove_association "remove event", f %>
+</div>

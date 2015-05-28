@@ -23,6 +23,18 @@
     </div>
   </div>
 
+  <h5>Event Capacity</h5>
+
+  <div class="containers">
+    <%= f.fields_for :containers do |containers_form| %>
+      <%= render 'container_fields', f: containers_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add event capacity', f, :containers %>
+    </div>
+  </div>
+
   <%= f.submit %>
 
 <% end %>

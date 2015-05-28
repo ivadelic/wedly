@@ -1,5 +1,6 @@
 class Wedding < ActiveRecord::Base
   has_many :events
+  has_many :containers, through: :events
   belongs_to :user
   has_many :guests
   has_many :registries

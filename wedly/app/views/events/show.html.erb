@@ -1,3 +1,15 @@
-<h1>Edit Event</h1>
-
-<%= render partial: 'form' %>
+<div id="events">
+  <h2>Events:</h2>
+  <%= form_for([@event.wedding, @events]) do |f| %>
+    <div class="links">
+      <%= link_to_add_association 'Add Event', f, :events %>
+    </div>
+    <h3>Event Capacity:</h3>
+    <!-- <div class="links"> -->
+      <%#link_to_add_association 'add event capacity', f, :containers %>
+    <!-- </div> -->
+    <%= f.submit %>
+  <% end %>
+</div>
+<%= render @wedding.events %>
+<div id="map-canvas" ></div>
