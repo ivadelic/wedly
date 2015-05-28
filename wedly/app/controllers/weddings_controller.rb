@@ -3,11 +3,7 @@ class WeddingsController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    @weddings = if params[:search]
-      Wedding.where('token LIKE?', params[:search])
-    else
-      Wedding.all
-    end
+    @weddings = Wedding.all
 
     respond_to do |format|
       format.html
@@ -100,6 +96,12 @@ class WeddingsController < ApplicationController
                         :store,
                         :image_url,
                         :_destroy
+                      ],
+                      invitations_attributes: [
+                        :recipient_email,
+                        :token,
+                        :wedding_id,
+                        :send_time
                         ])
   end
 end

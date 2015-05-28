@@ -1,5 +1,6 @@
 class Wedding < ActiveRecord::Base
   has_many :events
+  has_many :invitations
   has_many :containers, through: :events
   belongs_to :user
   has_many :guests
@@ -9,6 +10,7 @@ class Wedding < ActiveRecord::Base
   accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :guests, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :registries, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :invitations, :reject_if => :all_blank
 
   before_create :generate_token
 

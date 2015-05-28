@@ -12,4 +12,11 @@ class UserMailer < ApplicationMailer
     @url = 'http://localhost:3000/weddings/new'
     mail(to: @wedding.partner_email, subject: 'Invitation to Join WedWeb')
   end
+
+  def invitation_email(invitation)
+    @invitation = invitation
+    @url = 'http://localhost:3000/users/new'
+    mail(to: @invitation.recipient_email, subject: 'Wedding Invitation')
+    invitation.update_attribute(:send_time, Time.now)
+  end
 end

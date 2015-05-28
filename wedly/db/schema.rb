@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525222036) do
+ActiveRecord::Schema.define(version: 20150528035317) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20150525222036) do
     t.integer  "wedding_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "wedding_id"
+    t.string   "recipient_email", null: false
+    t.string   "token"
+    t.datetime "send_time"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "registries", force: :cascade do |t|
     t.integer  "wedding_id"
     t.string   "link_to_registry"
@@ -90,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150525222036) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.integer  "invitation_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

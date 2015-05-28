@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def new
-    @user = User.new
+    @user = User.new(:invitation_token => params[:invitation_token])
+      @user.email = @user.invitation.recipient_email if @user.invitation
   end
 
   def edit
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.invitation_id = @invitation.id
     if @user.save
       auto_login(@user)
       UserMailer.welcome_email(@user).deliver_later
@@ -61,7 +63,8 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :longitude,
-      :latitude
+      :latitude,
+      :invitation_id
       )
   end
 end

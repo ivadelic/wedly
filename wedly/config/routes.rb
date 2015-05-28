@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :weddings do
+    resources :invitations, only: [:index, :new, :create]
     resources :guests
     resources :registries
     resources :events do
@@ -16,5 +17,7 @@ Rails.application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  get 'users/signup/:token' => 'users#new', :as => :signup
 
 end
