@@ -65,7 +65,34 @@ class WeddingsController < ApplicationController
                   :partner_email,
                   :token,
                   :user_id,
-                    guests_attributes: [
+                  guests_attributes: [
+                    :id,
+                    :container_id,
+                    :food_choice,
+                    :food_restrictions,
+                    :rsvp,
+                    :first_name,
+                    :last_name,
+                    :_destroy
+                    ],
+                  events_attributes: [
+                    :id,
+                    :name,
+                    :description,
+                    :date,
+                    :start_time,
+                    :end_time,
+                    :address_line_1,
+                    :address_line_2,
+                    :city,
+                    :province,
+                    :zip,
+                    :country,
+                    :longitude,
+                    :latitude,
+                    :wedding_id,
+                    :_destroy,
+                    containers_attributes: [
                       :id,
                       :container_id,
                       :food_id,
@@ -73,33 +100,18 @@ class WeddingsController < ApplicationController
                       :rsvp,
                       :first_name,
                       :last_name,
+                      :limit,
+                      :event_id,
                       :_destroy
+                    ]
                       ],
-                      events_attributes: [
-                        :id,
-                        :name,
-                        :description,
-                        :date,
-                        :start_time,
-                        :end_time,
-                        :address_line_1,
-                        :address_line_2,
-                        :city,
-                        :province,
-                        :zip,
-                        :country,
-                        :longitude,
-                        :latitude,
-                        :wedding_id,
-                        :_destroy
-                      ],
-                      registries_attributes: [
-                        :id,
-                        :wedding_id,
-                        :link_to_registry,
-                        :store,
-                        :image_url,
-                        :_destroy
-                        ])
+                  registries_attributes: [
+                    :id,
+                    :wedding_id,
+                    :link_to_registry,
+                    :store,
+                    :image_url,
+                    :_destroy
+                    ])
   end
 end

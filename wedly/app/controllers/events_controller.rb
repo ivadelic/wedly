@@ -1,3 +1,4 @@
+
 class EventsController < ApplicationController
   before_filter :load_wedding
 
@@ -85,5 +86,9 @@ class EventsController < ApplicationController
         :event_id,
         :_destroy
       ])
+  end
+
+  def load_wedding
+    @wedding = Wedding.find(params[:wedding_id])
   end
 end
