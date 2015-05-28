@@ -20,6 +20,7 @@ class ContainersController < ApplicationController
   def create
     @container = @wedding.events.containers.build(container_params)
     @event = event_id
+    @container = @event.build(container_params)
   end
 
   def update

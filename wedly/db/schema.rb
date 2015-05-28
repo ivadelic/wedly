@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20150528035317) do
     t.datetime "updated_at",                             null: false
     t.string   "name"
     t.text     "description"
-    t.datetime "date"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
   end
 
   create_table "foods", force: :cascade do |t|

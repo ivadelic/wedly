@@ -85,10 +85,12 @@ class EventsController < ApplicationController
         :limit,
         :event_id,
         :_destroy
+        ])
       ])
   end
 
   def load_wedding
     @wedding = Wedding.find(params[:wedding_id])
+>>>>>>> 9588b83f73e62bdb1a8ec3513fc04b03e8c2731b
   end
 end
