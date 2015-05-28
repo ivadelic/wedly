@@ -25,8 +25,9 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(guest_params)
-    @wedding = @wedding_id
+    @wedding = Wedding.find(params[:wedding_id])
     @user = current_user
+    @foods = Food.where(@wedding_id)
     @guest.food = @wedding.foods.find_by(food_choice: food_choice_params[:food_id])
     if @guest.save
       flash[:notice] = "Guest added"
