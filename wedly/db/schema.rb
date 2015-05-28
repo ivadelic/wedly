@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527210724) do
+ActiveRecord::Schema.define(version: 20150528035317) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150527210724) do
     t.string   "phone"
     t.decimal  "longitude",                       precision: 9, scale: 6
     t.decimal  "latitude",                        precision: 9, scale: 6
-    t.string   "email",        re                                           null: false
+    t.string   "email",                                                   null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
