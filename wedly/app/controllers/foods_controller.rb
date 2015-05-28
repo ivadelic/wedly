@@ -36,6 +36,7 @@ class FoodsController < ApplicationController
       redirect to wedding_foods_path(@wedding)
     else
       render :edit
+    ends
     end
   end
 
@@ -61,3 +62,5 @@ class FoodsController < ApplicationController
     @wedding = Wedding.find(params[:wedding_id])
   end
 end
+
+
