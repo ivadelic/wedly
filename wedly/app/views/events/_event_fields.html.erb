@@ -56,5 +56,15 @@
   <div class= "submit-button">
     <%= f.submit %>
   </div>
-  <%= link_to_remove_association "remove event", f %>
+
+  <div class="containers">
+    <%= f.fields_for :containers, :wrapper => 'incline' do |container| %>
+      <%= render 'container_fields', :f => container %>
+    <% end %>
+  </div>
+
+  <div class="links">
+  <%= link_to_add_association 'Add Event Capacity', f, :containers, :render_options => {:wrapper => 'incline'} %>
+  </div>
+  <%= link_to_remove_association "Remove Event", f %>
 </div>
