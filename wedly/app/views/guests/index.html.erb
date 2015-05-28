@@ -2,7 +2,10 @@
 <%= link_to "Back to Events", wedding_path(@wedding) %>
 
 <h4> <%= @guests.size %> Guests have been Invited </h4>
-<h4> Have CONFIRMED their attendance </h4>
+<h4> <%= @rsvp_true %> Have CONFIRMED their attendance </h4>
+
+
+
 <table>
   <tr>
     <th><h4><strong></strong></h4></th>

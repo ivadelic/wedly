@@ -5,6 +5,16 @@ class GuestsController < ApplicationController
     @guests = Guest.all
   end
 
+  def rsvp_true
+    confirm = 0
+    @guests.each do |guest|
+      if guest.rsvp == true
+        confirm += 1
+      end
+    end
+    puts confirm
+  end
+
   def show
     @guest = Guest.find(params[:id])
   end
