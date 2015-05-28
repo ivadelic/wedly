@@ -7,6 +7,7 @@ class ContainersController < ApplicationController
 
   def show
     @container = Container.find(params[:id])
+    @wedding = @container.events.weddings.build
   end
 
   def new
@@ -17,23 +18,24 @@ class ContainersController < ApplicationController
   end
 
   def create
+    @container = @wedding.events.containers.build(container_params)
     @event = event_id
     @container = @event.build(container_params)
   end
 
   def update
-    @container = Container.new(params[:id])
+    @container = Container.find(params[:id])
     if @container.update_attributes(container_params)
-      @container.save
+      redirect_to wedding_path(@wedding)
     else
-      redirect_to container_path(@container)
+      redirect_to containers_path
     end
   end
 
   def destroy
     @container = Container.find(params[:id])
     @container.destroy
-    redirect_to container_path
+    redirect_to wedding_path(@continer.event.wedding)
   end
 
   private

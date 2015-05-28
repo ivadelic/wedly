@@ -7,6 +7,7 @@ class Wedding < ActiveRecord::Base
   has_many :foods
   has_many :attendee_users, through: :guests, class_name: "User"
 
+  accepts_nested_attributes_for :containers, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :guests, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :registries, :reject_if => :all_blank, :allow_destroy => true

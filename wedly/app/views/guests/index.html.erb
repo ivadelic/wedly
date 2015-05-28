@@ -47,7 +47,8 @@
       <td class = "rsvp check"><p><%= guest.rsvp %></p></td>
       <td><p><%= guest.food.try(:dish_name) %></p></td>
       <td><p><%= guest.food_restrictions %></p></td>
-      <td><%= link_to "Edit", edit_wedding_guest_path(guest.wedding, guest) %> <%= link_to "Delete", wedding_guest_path(guest.wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
+      <td><%=link_to "Edit", edit_wedding_guest_path(@wedding, guest) %>
+        <%= link_to "Delete", wedding_guest_path(@wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
     </tr>
     <% num -= 1 %>
   <% end %>

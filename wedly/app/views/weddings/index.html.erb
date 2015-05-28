@@ -9,7 +9,10 @@
   </p>
 <% end %>
 
-<div id="weddings">
-  <h2>Wedding Directory:</h2>
-  <%= render :partial => 'wedding' %>
-</div>
+<% if @search.present? %>
+  <div id="weddings">
+    <h2>Wedding Directory:</h2>
+    <%= render :partial => 'wedding' %>
+  </div>
+<% end %>
+

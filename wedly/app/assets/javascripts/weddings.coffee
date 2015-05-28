@@ -1,1 +1,0 @@
-$.getScript('/products?search=' + searchValue);
