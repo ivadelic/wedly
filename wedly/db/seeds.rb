@@ -1,4 +1,5 @@
 Event.destroy_all
+Wedding.destroy_all
 Guest.destroy_all
 Container.destroy_all
 

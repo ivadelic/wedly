@@ -1,6 +1,10 @@
 class ContainersController < ApplicationController
   before_filter :load_event
 
+  def index
+    @containers = Container.all
+  end
+
   def show
     @container = Container.find(params[:id])
   end
@@ -43,5 +47,5 @@ class ContainersController < ApplicationController
   def load_event
     @event = Event.find(params[:event_id])
   end
-end
 
+end

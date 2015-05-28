@@ -11,6 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+=======
+ActiveRecord::Schema.define(version: 20150522212603) do
+
+>>>>>>> seating
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
     t.integer  "event_id"

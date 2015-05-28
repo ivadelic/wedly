@@ -3,8 +3,10 @@
 <head>
   <title>Wed Web</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.19&key=#{Figaro.env.google_maps_api}" %>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.19&key=#{Figaro.env.google_maps_api}" %>
   <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
