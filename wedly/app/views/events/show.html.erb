@@ -1,25 +1,19 @@
-<div id="nav">
-  <%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %> |
-  <%= link_to "Events", "/weddings/#{@wedding.id}/events" %> |
-  <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
-  <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %> |
-  <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>
-</div>
-
 <h1>Event <%= @event.name %></h1>
 
+
+<%= link_to "Back to Events", "/weddings/#{@wedding.id}/events" %>
+
   <h4>Description: <%= @event.description %></h4>
-  <h4>Date: <%= @event.date %></h4>
+  <h4>Date: <%= @event.date.strftime("%A, %B %e, %Y ") %></h4>
   <h5>Time: <%= @event.start_time.strftime("%m :%M %p ") %> - <%= @event.end_time.strftime("%m :%M %p ") %></h5>
   Address:
-    <%= @event.address_line_1 %><br>
-     <%= @event.address_line_2 %><br>
+    <%= @event.address_line_1 %>, <%= @event.address_line_2 %><br>
      <%= @event.city %><br>
      <%= @event.zip %><br>
      <%= @event.country %>
 <p>
 
-<%= link_to "Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
+<%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
 
 <div id="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
 </div>
