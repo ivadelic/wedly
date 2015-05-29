@@ -1,7 +1,19 @@
-<div id="container-view">
-<h3><em><%= container.limit %></em></h3>
-  <p>
-    <%= button_to 'Edit', 'weddings/#{container.wedding.id/containers/#{container.id}/edit' %>
-    <%= link_to 'Delete', '/containers/#{container.id}', method: :delete }%>
-  </p>
-</div>
+    <%= form_for([@event.wedding, @event, @container]) do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+      <div class= "field">
+        <p><%= f.label "Name:" %></p>
+        <p><%= f.text_field :name %></p>
+      </div>
+      <div class= "field">
+        <p><%= f.label "Limit:" %></p>
+        <p><%= f.text_field :limit %></p>
+      </div>
+
+      <div class= "field">
+
+        <td><p><%= f.collection_select :guest_id, @event.guests, :first_name, {:prompt=>true}%></p></td>
+      </div>
+      <div class="submit-button">
+      <p><%= f.submit %></p>
+      </div>
+  <% end %>

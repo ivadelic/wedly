@@ -6,7 +6,6 @@
   <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>
 </div>
 
-
 <h1>Event <%= @event.name %></h1>
 
   <h4>Description: <%= @event.description %></h4>
@@ -20,5 +19,34 @@
      <%= @event.latitude %>
      <%= @event.longitude %>
 
-<div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
+<table>
+  <tr>
+    <th><h4><strong></strong></h4></th>
+    <th><h4><strong>Name </strong></h4></th>
+    <th><h4><strong>Limit </strong></h4></th>
+    <th><h4><strong></strong></h4></th>
+  </tr>
+
+  <tr>
+    <td><h4><strong>New</strong></h4></td>
+    <%= form_for([@event.wedding, @event, Container.new]) do |f| %>
+    <%= f.hidden_field :wedding_id, value: @wedding.id %>
+      <div class= "field">
+        <td><p><%= f.text_field :name %></p></td>
+      </div>
+      <div class= "field">
+        <td><p><%= f.text_field :limit %></p></td>
+      </div>
+
+      <div class= "field">
+
+        <td><p><%# f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name, {:prompt=>true}%></p></td>
+      </div>
+      <td><p><%= f.submit "Add container" %></p></td>
+  <% end %>
+  </tr>
+
+</table>
+
+<div id="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
 </div>

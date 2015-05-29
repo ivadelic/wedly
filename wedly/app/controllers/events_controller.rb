@@ -1,4 +1,5 @@
 
+
 class EventsController < ApplicationController
   before_filter :load_wedding
 
@@ -23,7 +24,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     # @wedding = Wedding.find(params[:id])
     # @wedding = @event.weddings.build(@event.wedding)
-    # @nearby_events = @event.nearbys(1, units, :km)
+  #   @nearby_events = @event.nearbys(1, units, :km)
   end
 
   def new
@@ -93,6 +94,7 @@ class EventsController < ApplicationController
         :id,
         :limit,
         :event_id,
+        :guest_id,
         :_destroy
         ])
   end

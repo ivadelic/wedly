@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528180952) do
+ActiveRecord::Schema.define(version: 20150529152539) do
 
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "guest_id"
   end
 
   create_table "events", force: :cascade do |t|

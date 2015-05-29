@@ -1,9 +1,6 @@
 <h1>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
-IVA please add current user wrapper!!
-
-<h4>Events</h4>
-
+<% if current_user == @wedding.user %>
   <div id="events">
     <%= form_for([@wedding, @event]) do |f| %>
 
@@ -14,7 +11,6 @@ IVA please add current user wrapper!!
           <% end %>
       </ul>
     <% end %>
-
 
     <div class= "field">
       <%= f.label :name %>
@@ -74,7 +70,8 @@ IVA please add current user wrapper!!
       <%= f.submit %>
     </div>
     <% end %>
-</div>
+  </div>
+<% end %>
 
 <div class="event" id="Events">
   <%= render @wedding.events %>
@@ -84,6 +81,6 @@ IVA please add current user wrapper!!
 
 
 
-
-
-
+ <%# javascript_tag do %>
+  <!-- window.nearbys = <%# raw @nearby_events.map {|nr| {latitude: nr.latitude, longitude: nr.longitude} }.to_json %> -->
+<%# end %>
