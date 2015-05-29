@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
-  # before_create save_recipient_id_to_invitation
+  after_create :save_recipient_id_to_invitation
 
   authenticates_with_sorcery!
 
@@ -19,8 +19,9 @@ class User < ActiveRecord::Base
     "#{address_line_1}, #{city}, #{province} #{country}"
   end
 
-  # def save_recipient_id_to_invitation
-  #   invitation = Invitation.find_by 'token', :token
-  #   invitation.user_id = self.id
-  # end
+  def save_recipient_id_to_invitation
+    invitation = Invitation.find_by_recipient_email(self.email)
+    invitation.user = self
+    invitation.save
+  end
 end

@@ -25,7 +25,7 @@
     <h3>Invitation to Weddings</h3>
 
     <% current_user.attending_weddings.each do |wedding| %>
-      <%= link_to wedding_path(current_user.attending_weddings[0].id) do %>
+      <%= link_to wedding_path(wedding) do %>
           <div>
             <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
           </div>

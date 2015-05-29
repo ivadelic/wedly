@@ -15,7 +15,6 @@
     <th><h4><strong></strong></h4></th>
   </tr>
 
-  <% if current_user == @wedding.user %>
     <tr>
       <td><h4><strong>New</strong></h4></td>
       <%= form_for([@wedding, Guest.new]) do |f| %>
@@ -37,7 +36,6 @@
           <td><p><%= f.text_area :food_restrictions %></p></td>
         </div>
           <td><p><%= f.submit "Add guest" %></p></td>
-    <% end %>
     </tr>
   <% end %>
 

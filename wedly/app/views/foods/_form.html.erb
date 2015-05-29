@@ -1,5 +1,5 @@
-<h3>Add Menu Item</h3>
-  <% if current_user == @wedding.user %>
+<% if current_user == @wedding.user %>
+  <h3>Add Menu Item</h3>
     <%=form_for([@wedding, Food.new])do |f| %>
       <div class = "nested-fields">
         <%= f.hidden_field :wedding_id, value: @wedding.id %>
@@ -20,4 +20,4 @@
         </div>
       </div>
     <% end %>
-  <% end %>
+<% end %>

@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @invitation = Invitation.find_by 'token', :token
+    @invitation = Invitation.find_by_token(params[:token])
     if @invitation.present?
-      @invitation.recipient_email = @user.email
+      @user.email = @invitation.recipient_email
     end
   end
 
