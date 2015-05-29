@@ -24,10 +24,10 @@ Container.destroy_all
 #   end
 # end
 
-20.times do |g|
-  g = Guest.create!({
-    :first_name => Faker::Name.name,
-    :last_name => Faker::Name.name
-  }
-)
-end
+# 20.times do |g|
+#   g = Guest.create!({
+#     :first_name => Faker::Name.name,
+#     :last_name => Faker::Name.name
+#   }
+# )
+# end

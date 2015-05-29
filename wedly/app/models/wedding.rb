@@ -1,4 +1,6 @@
 class Wedding < ActiveRecord::Base
+  validate :one_wedding_per_user
+
   has_many :events
   has_many :invitations
   has_many :containers, through: :events
@@ -21,5 +23,15 @@ class Wedding < ActiveRecord::Base
     p1 = self.partner_1.split(' ')
     p2 = self.partner_2.split(' ')
     self.token = (p1[0] + p2[0] + Time.now.year.to_s).downcase
+  end
+
+  def one_wedding_per_user
+    # binding.pry
+    if Wedding.find_by(user_id: self.user_id)
+      self.errors[:user] = "Can't have more than one wedding! BIGAMIST!"
+      false
+    else
+      true
+    end
   end
 end

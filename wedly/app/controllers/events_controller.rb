@@ -11,6 +11,8 @@ class EventsController < ApplicationController
     @events = Event.all
     end
 
+    @event= Event.new
+
     respond_to do |format|
       format.html
       format.js #index.js.erb
@@ -29,8 +31,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = @wedding.events.build(events_params)
-    @wedding = wedding_id
+    @event = Event.new(event_params)
+    @event.wedding = @wedding
+    if @event.save
+      flash[:notice] = "Event saved"
+      redirect_to wedding_events_path(@wedding)
+    else
+      render :index
+    end
   end
 
   def edit
@@ -55,6 +63,7 @@ class EventsController < ApplicationController
   def load_wedding
     @wedding = Wedding.find(params[:wedding_id])
   end
+
   def event_params
     params.require(:event)
     .permit(
@@ -86,11 +95,5 @@ class EventsController < ApplicationController
         :event_id,
         :_destroy
         ])
-      ])
-  end
-
-  def load_wedding
-    @wedding = Wedding.find(params[:wedding_id])
->>>>>>> 9588b83f73e62bdb1a8ec3513fc04b03e8c2731b
   end
 end

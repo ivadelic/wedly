@@ -1,17 +1,15 @@
-<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
-
 <div id="nav">
+<% if current_user == @wedding.user %>
   <%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %> |
+<% end %>
+  <%= link_to "Events", "/weddings/#{@wedding.id}/events" %> |
   <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
   <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %> |
   <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>
 </div>
 
-<div id="events">
-  <h2>Events:</h2>
-  <%= form_for @wedding do |f| %>
-    <div class="links">
-      <%= link_to_add_association 'Add Event', f, :events %>
-    </div>
-    <%= f.submit "Save Event" %>
-  <% end %>
+<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
+
+<% if current_user == @wedding.user %>
+<% end %>
+

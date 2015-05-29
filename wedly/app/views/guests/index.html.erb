@@ -15,29 +15,31 @@
     <th><h4><strong></strong></h4></th>
   </tr>
 
-  <tr>
-    <td><h4><strong>New</strong></h4></td>
-    <%= form_for([@wedding, Guest.new]) do |f| %>
-    <%= f.hidden_field :wedding_id, value: @wedding.id %>
-      <div class= "field">
-        <td><p><%= f.text_field :first_name %></p></td>
-      </div>
-      <div class= "field">
-        <td><p><%= f.text_field :last_name %></p></td>
-      </div>
-      <div class= "field">
-        <td><p><%= f.check_box :rsvp %></p></td>
-      </div>
-      <div class= "field">
+  <% if current_user == @wedding.user %>
+    <tr>
+      <td><h4><strong>New</strong></h4></td>
+      <%= form_for([@wedding, Guest.new]) do |f| %>
+      <%= f.hidden_field :wedding_id, value: @wedding.id %>
+        <div class= "field">
+          <td><p><%= f.text_field :first_name %></p></td>
+        </div>
+        <div class= "field">
+          <td><p><%= f.text_field :last_name %></p></td>
+        </div>
+        <div class= "field">
+          <td><p><%= f.check_box :rsvp %></p></td>
+        </div>
+        <div class= "field">
 
-        <td><p><%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name, {:prompt=>true}%></p></td>
-      </div>
-      <div class= "field">
-        <td><p><%= f.text_area :food_restrictions %></p></td>
-      </div>
-        <td><p><%= f.submit "Add guest" %></p></td>
+          <td><p><%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name, {:prompt=>true}%></p></td>
+        </div>
+        <div class= "field">
+          <td><p><%= f.text_area :food_restrictions %></p></td>
+        </div>
+          <td><p><%= f.submit "Add guest" %></p></td>
+    <% end %>
+    </tr>
   <% end %>
-  </tr>
 
   <% @guests.inject(@guests.size) do |num, guest| %>
     <tr>
@@ -47,8 +49,12 @@
       <td class = "rsvp check"><p><%= guest.rsvp %></p></td>
       <td><p><%= guest.food.try(:dish_name) %></p></td>
       <td><p><%= guest.food_restrictions %></p></td>
-      <td><%=link_to "Edit", edit_wedding_guest_path(@wedding, guest) %>
-        <%= link_to "Delete", wedding_guest_path(@wedding, guest), method: :delete, data: {confirm: "Are you sure you end want to delete this Guest?"} %></p></td>
+      <% if (current_user == guest) || (current_user == @wedding.user) %>
+        <td>
+          <%=link_to "Edit", edit_wedding_guest_path(@wedding, guest)   %>
+          <%= link_to "Delete", wedding_guest_path(@wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+        </td>
+      <% end %>
     </tr>
     <% num -= 1 %>
   <% end %>

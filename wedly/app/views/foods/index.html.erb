@@ -6,9 +6,10 @@
   <p><strong>Dish Name: </strong><%= food.dish_name %></p>
   <p><strong>Description: </strong><%= food.dish_description %></p>
 
-  <%= link_to "Edit",  edit_wedding_food_path(@wedding, food)%> |
-  <%= link_to "Delete", wedding_food_path(@wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
-
+  <% if current_user == @wedding.user %>
+    <%= link_to "Edit",  edit_wedding_food_path(@wedding, food)%> |
+    <%= link_to "Delete", wedding_food_path(@wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
+  <% end %>
 <% end %>
 
 <%= render "form" %>

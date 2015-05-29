@@ -1,6 +1,9 @@
 
 <%= form_for @wedding do |f| %>
 
+  <%= @wedding.errors.full_messages.first if @wedding.errors.any? %>
+
+
   <div class="field">
     <%= f.label 'Your Full Name' %>:
     <%= f.text_field :partner_1, :value => current_user.first_name + " " + current_user.last_name %>
@@ -18,12 +21,4 @@
   </div>
 
   <%= f.submit %>
-
-  <h4>Events</h4>
-
-  <div id="events">
-    <%= f.fields_for :events do |events_form| %>
-      <%= render 'event_fields', :f => events_form %>
-    <% end %>
-  </div>
 <% end %>
