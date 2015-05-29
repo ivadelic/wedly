@@ -45,10 +45,8 @@ class WeddingsController < ApplicationController
       else
         redirect_to wedding_path(@wedding)
       end
-      render :show
     else
-      @wedding.update_attributes(wedding_params)
-      render :index
+      render :edit
     end
   end
 

@@ -43,6 +43,8 @@ gem 'figaro'
 
 gem 'combined_time_select'
 
+gem 'carrierwave'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

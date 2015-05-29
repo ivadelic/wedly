@@ -1,5 +1,5 @@
 class Wedding < ActiveRecord::Base
-  validate :one_wedding_per_user
+  validate :one_wedding_per_user, :on => :create
 
   has_many :comments
   has_many :events
