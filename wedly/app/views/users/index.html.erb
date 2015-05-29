@@ -10,9 +10,6 @@
     <%= current_user.email %>
     <p></p>
 
-<div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
-</div>
-
 <% if current_user.my_wedding.present? %>
   <h3>Your Wedding</h3>
   <%= link_to wedding_path(current_user.my_wedding) do %>
@@ -31,3 +28,6 @@
     <% end %>
   <% end %>
 <% end %>
+<p></p>
+<div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
+</div>

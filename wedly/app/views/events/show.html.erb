@@ -13,7 +13,9 @@
      <%= @event.country %>
 <p>
 
-<%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
+<% if current_user == @wedding.user %>
+  <%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
+<% end %>
 
 <div id="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
 </div>

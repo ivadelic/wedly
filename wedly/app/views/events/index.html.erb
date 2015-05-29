@@ -1,8 +1,6 @@
 <h1>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
-<h4>Events</h4>
-
-<%= link_to "Back to Wedding", "/weddings/#{@wedding.id}" %>
+<p><%= link_to "Back to Wedding", "/weddings/#{@wedding.id}" %></p>
 
 <% if current_user == @wedding.user %>
 
