@@ -4,8 +4,8 @@
       <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %><br>
     <% end %>
   <% if current_user == wedding.user %>
-  <%= link_to "Edit", edit_wedding_path(wedding) %> |
-  <%= link_to "Delete", wedding_path(wedding), method: :delete, data: {confirm: "Are you sure you want to delete this wedding?"} %><br />
-  <% end %>
+    <%= link_to "Edit", edit_wedding_path(wedding) %> |
+      <%= link_to "Delete", wedding_path(wedding), method: :delete, data: {confirm: "Are you sure you want to delete this wedding?"} %><br />
+    <% end %>
   <% end %>
 </p>

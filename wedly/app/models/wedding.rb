@@ -27,7 +27,6 @@ class Wedding < ActiveRecord::Base
   end
 
   def one_wedding_per_user
-    # binding.pry
     if Wedding.find_by(user_id: self.user_id)
       self.errors[:user] = "Can't have more than one wedding! BIGAMIST!"
       false

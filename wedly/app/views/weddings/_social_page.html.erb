@@ -3,7 +3,7 @@
 <% if current_user == @wedding.user %>
 <% end %>
 
-<p>Already Added Notes</p>
+<em><h4>Already Added Notes</h4></em>
 <% @wedding.comments.each do |comment| %>
   <p>
     <%= comment.note %>
@@ -12,8 +12,7 @@
       <em> by <%= comment.user.first_name %></em>
       Added on: <%= comment.created_at %>
   </p>
-  <%= link_to "Edit Note", " " %> |
-  <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+    <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
 
 <%= render "social_page_form" %>
     <% end %>

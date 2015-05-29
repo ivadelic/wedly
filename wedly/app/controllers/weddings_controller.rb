@@ -41,11 +41,11 @@ class WeddingsController < ApplicationController
     @wedding = Wedding.find(params[:id])
     if @wedding.update_attributes(wedding_params)
       if wedding_params[:registries_attributes].present?
-    binding.pry
         redirect_to wedding_registries_path(@wedding)
       else
         redirect_to wedding_path(@wedding)
       end
+      render :show
     else
       render :index
     end
