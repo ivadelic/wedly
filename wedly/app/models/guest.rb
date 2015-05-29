@@ -5,6 +5,15 @@ class Guest < ActiveRecord::Base
   belongs_to :container
   belongs_to :food
   has_many :events, through: :containers
+
+  def rsvp_string
+    if rsvp
+      "Confirm"
+    else
+      "Regret"
+    end
+  end
+
 end
 
 

@@ -44,7 +44,7 @@
       <td><p><%= num %></p></td>
       <td><p><%= guest.first_name %></p></td>
       <td><p><%= guest.last_name %></p></td>
-      <td class = "rsvp check"><p><%= guest.rsvp %></p></td>
+      <td class = "rsvp check"><p><%= guest.rsvp_string %></p></td>
       <td><p><%= guest.food.try(:dish_name) %></p></td>
       <td><p><%= guest.food_restrictions %></p></td>
       <% if (current_user == guest) || (current_user == @wedding.user) %>
