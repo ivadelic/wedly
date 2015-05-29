@@ -13,10 +13,5 @@
     <div class="links">
       <%= link_to_add_association 'Add Event', f, :events %>
     </div>
-
-    <h3>Event Capacity:</h3>
-    <div class="links">
-      <%= link_to_add_association 'add event capacity', f, :containers %>
-    </div>
-    <%= f.submit %>
+    <%= f.submit "Save Event" %>
   <% end %>

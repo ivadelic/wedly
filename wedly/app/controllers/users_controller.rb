@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def new
-    @user = User.new(:invitation_token => params[:token])
-      @user.email = @user.invitation.recipient_email if @user.invitation
+    @user = User.new
+    @invitation = Invitation.find_by 'token', :token
+    if @invitation.present?
+      @invitation.recipient_email = @user.email
+    end
   end
 
   def edit

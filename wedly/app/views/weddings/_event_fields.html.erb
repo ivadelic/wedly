@@ -53,10 +53,6 @@
     <%= f.label :zip %>
     <%= f.text_field :zip %>
   </div>
-  <div class= "submit-button">
-    <%= f.submit %>
-  </div>
-
   <div class="containers">
     <%= f.fields_for :containers, :wrapper => 'incline' do |container| %>
       <%= render 'container_fields', :f => container %>

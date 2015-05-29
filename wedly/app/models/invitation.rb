@@ -1,7 +1,6 @@
 class Invitation < ActiveRecord::Base
   belongs_to :wedding
-  has_one :recipient, class_name: 'User'
+  belongs_to :user
 
   validates :recipient_email, presence: true
 end
-

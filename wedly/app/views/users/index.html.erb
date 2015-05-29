@@ -21,14 +21,14 @@
   <% end %>
 <% end %>
 
-<% if current_user.weddings.present? %>
+<% if current_user.attending_weddings.present? %>
     <h3>Invitation to Weddings</h3>
 
-    <% current_user.weddings.each do |wedding| %>
-      <%= link_to wedding_path(current_user.wedding) do %>
-        <div>
-          <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
-        </div>
+    <% current_user.attending_weddings.each do |wedding| %>
+      <%= link_to wedding_path(current_user.attending_weddings[0].id) do %>
+          <div>
+            <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
+          </div>
     <% end %>
   <% end %>
 <% end %>

@@ -25,9 +25,5 @@
     <%= f.fields_for :events do |events_form| %>
       <%= render 'event_fields', :f => events_form %>
     <% end %>
-
-    <div class="links">
-      <%= link_to_add_association 'add event', f, :events %>
-    </div>
   </div>
 <% end %>
