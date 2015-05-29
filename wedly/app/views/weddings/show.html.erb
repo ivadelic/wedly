@@ -1,10 +1,14 @@
-<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
-
 <div id="nav">
+<% if current_user == @wedding.user %>
   <%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %> |
+<% end %>
   <%= link_to "Events", "/weddings/#{@wedding.id}/events" %> |
   <%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %> |
   <%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %> |
   <%= link_to "Menu", wedding_foods_path(@wedding, @foods) %>
 </div>
 
+<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
+
+<% if current_user == @wedding.user %>
+<% end %>

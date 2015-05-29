@@ -62,6 +62,7 @@ class WeddingsController < ApplicationController
                   :partner_email,
                   :token,
                   :user_id,
+                  :_destroy,
                   guests_attributes: [
                     :id,
                     :container_id,
