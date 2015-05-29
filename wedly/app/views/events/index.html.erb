@@ -1,8 +1,10 @@
 <h1>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
-<%= link_to "Wedding", wedding_path(@wedding) %>
-
 <h4>Events</h4>
+
+<%= link_to "Back to Wedding", "/weddings/#{@wedding.id}" %>
+
+<% if current_user == @wedding.user %>
 
   <div id="events">
     <%= form_for([@wedding, @event]) do |f| %>
@@ -15,76 +17,73 @@
       </ul>
     <% end %>
 
-
-<% if current_user == @wedding.user %>
-      <div class= "field">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+    <div class= "field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class= "field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class= "field">
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+    </div>
+     <div class= "field">
+        <%= f.label :start_time %>
+        <%= f.time_select :start_time,
+          :combined => true,
+          :default => Time.now,
+          :minute_interval => 30,
+          :time_seperator => "",
+          :ampm =>true
+          %>to
+        <%= f.label :end_time %>
+        <%= f.time_select :end_time,
+          :combined => true,
+          :default => Time.now,
+          :minute_interval => 30,
+          :time_seperator => "",
+          :ampm =>true
+         %>
       </div>
-      <div class= "field">
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
-      <div class= "field">
-        <%= f.label :date %>
-        <%= f.date_select :date %>
-      </div>
-       <div class= "field">
-          <%= f.label :start_time %>
-          <%= f.time_select :start_time,
-            :combined => true,
-            :default => Time.now,
-            :minute_interval => 30,
-            :time_seperator => "",
-            :ampm =>true
-            %>to
-          <%= f.label :end_time %>
-          <%= f.time_select :end_time,
-            :combined => true,
-            :default => Time.now,
-            :minute_interval => 30,
-            :time_seperator => "",
-            :ampm =>true
-           %>
-        </div>
-      <div class= "field">
-        <%= f.label :address_line_1 %>
-        <%= f.text_field :address_line_1 %>
-      </div>
-      <div class= "field">
-        <%= f.label :address_line_2 %>
-        <%= f.text_field :address_line_2 %>
-      </div>
-      <div class= "field">
-        <%= f.label :city %>
-        <%= f.text_field :city %>
-      </div>
-      <div class= "field">
-        <%= f.label :province %>
-        <%= f.text_field :province %>
-      </div>
-      <div class= "field">
-        <%= f.label :country %>
-        <%= f.text_field :country %>
-      </div>
-      <div class= "field">
-        <%= f.label :zip %>
-        <%= f.text_field :zip %>
-      </div>
-      <div class= "submit-button">
-        <%= f.submit %>
-      </div>
-      <% end %>
+    <div class= "field">
+      <%= f.label :address_line_1 %>
+      <%= f.text_field :address_line_1 %>
+    </div>
+    <div class= "field">
+      <%= f.label :address_line_2 %>
+      <%= f.text_field :address_line_2 %>
+    </div>
+    <div class= "field">
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+    <div class= "field">
+      <%= f.label :province %>
+      <%= f.text_field :province %>
+    </div>
+    <div class= "field">
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+    <div class= "field">
+      <%= f.label :zip %>
+      <%= f.text_field :zip %>
+    </div>
+    <div class= "submit-button">
+      <%= f.submit %>
+    </div>
+    <% end %>
   </div>
 <% end %>
+
 <div class="event" id="Events">
   <%= render @wedding.events %>
 </div>
 
 <div id="map-canvas" ></div>
 
-
-
-
-
-
+ <%# javascript_tag do %>
+  <!-- window.nearbys = <%# raw @nearby_events.map {|nr| {latitude: nr.latitude, longitude: nr.longitude} }.to_json %> -->
+<%# end %>

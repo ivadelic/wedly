@@ -1,0 +1,37 @@
+<h3> This is your Social Page.</h3>
+<h4> Think about it as your Pre-Wedding Scrapbook to share with Friends and Family! You can share photos and they can add their wishes and comments for your future together.</h4>
+<% if current_user == @wedding.user %>
+<% end %>
+
+<em><h4>Already Added Notes</h4></em>
+<% @wedding.comments.each do |comment| %>
+  <p>
+    <%= comment.note %>
+    <br>
+    <% if comment.user != nil %>
+      <em> by <%= comment.user.first_name %></em> <br/>
+      Added on: <%= comment.created_at.strftime("%m/%d/%Y") %>
+  </p>
+    <% if current_user == @wedding.user %>
+      <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+
+<%= render "social_page_form" %>
+    <% end %>
+    <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

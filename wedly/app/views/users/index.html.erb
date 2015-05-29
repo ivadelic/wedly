@@ -1,15 +1,14 @@
-<h1>Welcome <%= current_user.first_name %>!</h1>
 
-<h3>Your profile info: <%= current_user.first_name %>
-  <%= current_user.last_name %></h3>
-    <%= current_user.address_line_1 %><br>
-    <%= current_user.address_line_2 %>
+<h1>Welcome to your profile  <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>!</h1>
+
+    <%= current_user.address_line_1 %>, <%= current_user.address_line_2 %><br>
     <%= current_user.city %>,
     <%= current_user.province %><br>
-    <%= current_user.country %>,
+    <%= current_user.country %><br>
     <%= current_user.zip %><br>
     <%= current_user.phone %><br>
     <%= current_user.email %>
+    <p></p>
 
 <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
 </div>

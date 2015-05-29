@@ -13,11 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20150529042546) do
 
+  create_table "comments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "note"
+    t.integer  "wedding_id"
+    t.integer  "user_id"
+  end
+
   create_table "containers", force: :cascade do |t|
     t.integer  "limit"
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "guest_id"
   end
 
   create_table "events", force: :cascade do |t|

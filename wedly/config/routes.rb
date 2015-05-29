@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :guests
     resources :registries
     resources :foods
+    resources :comments, only: [:show, :create, :destroy]
     resources :events do
       resources :containers
     end
