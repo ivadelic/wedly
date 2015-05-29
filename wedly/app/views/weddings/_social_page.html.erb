@@ -9,12 +9,14 @@
     <%= comment.note %>
     <br>
     <% if comment.user != nil %>
-      <em> by <%= comment.user.first_name %></em>
+      <em> by <%= comment.user.first_name %></em> <br/>
       Added on: <%= comment.created_at %>
   </p>
-    <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+    <% if current_user == @wedding.user %>
+      <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
 
 <%= render "social_page_form" %>
+    <% end %>
     <% end %>
 <% end %>
 

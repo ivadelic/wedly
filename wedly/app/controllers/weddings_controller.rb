@@ -47,6 +47,7 @@ class WeddingsController < ApplicationController
       end
       render :show
     else
+      @wedding.update_attributes(wedding_params)
       render :index
     end
   end

@@ -1,5 +1,4 @@
   <% if current_user %>
-<!--     <h4>Add some love notes to this wedding! </h4> -->
     <%= form_for([@comment.wedding, @comment]) do |f| %>
       <% if @comment.errors.any? %>
         <div id= "error_explanation">
