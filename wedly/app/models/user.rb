@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   authenticates_with_sorcery!
 
+  has_many :comments
+  has_many :weddings, through: :comments
   has_one :my_wedding, class_name: "Wedding"
   has_many :guests
   has_many :weddings, through: :guests

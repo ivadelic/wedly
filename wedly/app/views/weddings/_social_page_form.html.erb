@@ -1,0 +1,18 @@
+  <% if current_user %>
+    <%= form_for([@comment.wedding, @comment]) do |f| %>
+      <% if @comment.errors.any? %>
+        <div id= "error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "Error") %> prohibited this note from being saved: </h2>
+          <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %> </li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+    <% end %>
+
+      <% else %>
+    <p>Please <%= link_to "Log In", new_user_session_path %> to add a note. </p>
+  <% end %>

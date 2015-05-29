@@ -13,8 +13,8 @@
       <%= f.check_box :rsvp %>
     </div>
     <div class= "field">
-      <%= f.label :food_id %>
-      <%= f.number_field :food_id %>
+      <%= f.label :food_choice %>
+      <%= f.collection_select :food_id, @wedding.foods, :food_choice , :dish_name, {:prompt=>true}%>
     </div>
     <div class= "field">
       <%= f.label :food_restrictions %>
