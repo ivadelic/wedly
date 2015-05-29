@@ -19,3 +19,7 @@
 
 <div id="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
 </div>
+
+<script>
+  window.nearbys = <%= raw @nearby_events.to_json %>
+</script>
