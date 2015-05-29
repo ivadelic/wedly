@@ -1,6 +1,7 @@
 class Wedding < ActiveRecord::Base
   validate :one_wedding_per_user
 
+  has_many :comments
   has_many :events
   has_many :invitations
   has_many :containers, through: :events
