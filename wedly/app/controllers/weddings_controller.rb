@@ -17,7 +17,9 @@ class WeddingsController < ApplicationController
 
   def show
     @wedding = Wedding.find(params[:id])
-    @comment = @wedding.comments.build
+    if current_user
+      @comment = @wedding.comments.build
+    end
   end
 
   def edit
