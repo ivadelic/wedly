@@ -2,7 +2,7 @@
   <h3><em><%= link_to "#{event.name}", wedding_event_path(event.wedding, event) %></em></h3>
   <h4>Description: <%= event.description %></h4>
   <h4>Date: <%= event.date %></h4>
-  <h5>Time: <%= event.start_time %> - <%= event.end_time %></h5>
+  <h5>Time: <%= event.start_time.strftime("%m :%M %p ") %> - <%= event.end_time.strftime("%m :%M %p ") %></h5>
   <strong>Address:</strong><br>
    <%= event.address_line_1 %><br>
    <% if event.address_line_2.length > 0 %>
@@ -11,8 +11,6 @@
    <%= event.city %><br>
    <%= event.zip %><br>
    <%= event.country %>
-   <%= event.latitude %>
-   <%= event.longitude %>
 
   <% if current_user.my_wedding.present? %>
     <p>

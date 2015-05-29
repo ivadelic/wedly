@@ -10,10 +10,10 @@
       </div>
 
       <div class= "field">
-
         <td><p><%= f.collection_select :guest_id, @event.guests, :first_name, {:prompt=>true}%></p></td>
       </div>
+
       <div class="submit-button">
-      <p><%= f.submit %></p>
+      <p><%= f.submit "Save Table" %></p>
       </div>
   <% end %>
