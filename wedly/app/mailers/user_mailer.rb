@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
 
   def invitation_email(invitation)
     @invitation = invitation
-    @signup_url = signup_url
+    @signup_url = signup_path(@invitation.token)
     mail(to: @invitation.recipient_email, subject: 'Wedding Invitation')
     invitation.update_attribute(:send_time, Time.now)
   end

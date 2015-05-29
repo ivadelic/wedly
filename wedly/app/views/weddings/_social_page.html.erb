@@ -5,7 +5,7 @@
 
 <em><h4>Already Added Notes</h4></em>
 <% @wedding.comments.each do |comment| %>
-  <p>
+  <p id = "social_comments">
     <%= comment.note %>
     <br>
     <% if comment.user != nil %>
