@@ -16,9 +16,12 @@ class PhotosUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fill: [200,200]
+    process resize_to_fill: [50,50]
   end
 
+  version :social do
+    process resize_to_fill: [100,100]
+  end
 
 
   # Override the directory where uploaded files will be stored.

@@ -1,7 +1,45 @@
 <h3> This is your Social Page.</h3>
 <h4> Think about it as your Pre-Wedding Scrapbook to share with Friends and Family! You can share photos and they can add their wishes and comments for your future together.</h4>
+
+<!-- Add Pictures -->
 <% if current_user == @wedding.user %>
+   <%= form_for @wedding, html: {multipart: true} do |f| %>
+    <div class= "field">
+      <label for="social_picutres1"> Profile Picture for Partner 1</label>
+      <%= f.file_field :photo %>
+      <%= f.hidden_field :photo_cache %>
+    </div>
+    <label>
+      <%= f.check_box :remove_photo %>
+      Remove Profile Photo
+    </label>
+  <br/>
+<!--     <div class="actions">
+      <%#f.submit %>
+    </div> -->
+    <br/>
+  <label for="social_picutres2"> Profile Picture for Partner 2</label>
+      <%= f.file_field :photo %>
+      <%= f.hidden_field :photo_cache %>
+    </div>
+    <br/>
+    <label>
+      <%= f.check_box :remove_photo %>
+      Remove Profile Photo
+    </label>
+  <br/>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
 <% end %>
+
+<!-- Pictures for Engaged Couple  -->
+
+ <img class= "social_pictures1" scr= '<%= @wedding.photo.social %>'>
+  <img class= "social_pictures2" scr= '<%= @wedding.photo.social %>'>
+
+<!-- Added Notes -->
 
 <em><h4>Already Added Notes</h4></em>
 <% @wedding.comments.each do |comment| %>

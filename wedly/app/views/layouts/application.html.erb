@@ -13,7 +13,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<img class= "profile_photo" scr= '<%= current_user.photo.thumb %>'>
 
   <div id="nav">
     <% if current_user %>
@@ -27,6 +26,8 @@
       <%= link_to "Create Your Wedding!", "/weddings/new" %> |
       <%= link_to "Join A Wedding", "/weddings" %> |
       <%= link_to "Login", :login %>
+
+      <img class= "profile_photo" scr= '<%= current_user.photo.thumb %>'>
     <% end %>
   </div>
   <div>

@@ -5,11 +5,12 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     u = @user
-    u.photo = params[:file]
+    u.photos.thumb.current_path
     u.save!
-    u.photos[0].url
-    u.photos[0].current_path
-    u.photos[0].identifier
+    # u.photo = params[:thumb]
+    # u.photos.thumb.url
+    # u.photos.thumb.identifier
+    # u.photos.resize "50x50"
     @invitation = Invitation.find_by_token(params[:token])
     if @invitation.present?
       @user.email = @invitation.recipient_email

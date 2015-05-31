@@ -39,6 +39,9 @@ class WeddingsController < ApplicationController
 
   def update
     @wedding = Wedding.find(params[:id])
+    w = @wedding
+    w.photo.social.current_path
+    w.save!
     if @wedding.update_attributes(wedding_params)
       if wedding_params[:registries_attributes].present?
         redirect_to wedding_registries_path(@wedding)

@@ -9,6 +9,7 @@ class Wedding < ActiveRecord::Base
   has_many :guests
   has_many :registries
   has_many :foods
+  mount_uploader :photo, PhotosUploader
   # has_many :attendee_users, through: :invitations, class_name: "User"
 
   accepts_nested_attributes_for :containers, :reject_if => :all_blank, :allow_destroy => true
