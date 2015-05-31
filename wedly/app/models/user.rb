@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   after_create :save_recipient_id_to_invitation
 
   authenticates_with_sorcery!
-
+  mount_uploader :photo, PhotosUploader
   has_many :comments
   has_many :weddings, through: :comments
   has_one :my_wedding, class_name: "Wedding"
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
   validates :email, uniqueness: true
+
 
   def full_address
     "#{address_line_1}, #{city}, #{province} #{country}"

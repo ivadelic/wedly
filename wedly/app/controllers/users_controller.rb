@@ -4,6 +4,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    u = @user
+    u.photo = params[:file]
+    u.save!
+    u.photos[0].url
+    u.photos[0].current_path
+    u.photos[0].identifier
     @invitation = Invitation.find_by_token(params[:token])
     if @invitation.present?
       @user.email = @invitation.recipient_email
@@ -60,7 +66,8 @@ class UsersController < ApplicationController
       :password_confirmation,
       :longitude,
       :latitude,
-      :invitation_id
+      :invitation_id,
+      :_destroy
       )
   end
 end
