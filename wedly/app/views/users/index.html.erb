@@ -12,6 +12,8 @@
 
     <%= link_to "Edit Profile", edit_user_path(current_user) %>
 
+    <img src="<%= current_user.photo %>">
+
 <% if current_user.my_wedding.present? %>
   <h3>Your Wedding</h3>
   <%= link_to wedding_path(current_user.my_wedding) do %>

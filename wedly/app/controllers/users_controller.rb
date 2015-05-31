@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       :longitude,
       :latitude,
       :invitation_id,
+      :photo,
       :_destroy
       )
   end

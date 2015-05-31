@@ -29,8 +29,6 @@ gem 'pry-rails'
 
 gem 'best_errors'
 
-gem 'fog-aws'
-
 gem 'faker'
 
 gem 'favorite_things'
@@ -47,8 +45,8 @@ gem 'combined_time_select'
 
 gem 'carrierwave'
 
-gem 'mini_magick'
-
+# gem 'mini_magick'
+gem "rmagick"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
