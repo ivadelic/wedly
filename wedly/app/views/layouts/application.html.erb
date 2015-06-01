@@ -21,6 +21,9 @@
       <%= link_to "Join A Wedding", "/weddings" %> |
       <%= link_to "Profile", users_path %> |
       <%= link_to "Logout", :logout, method: :post %>
+      <img class= "profile_photo" src= '<%= current_user.photo.thumb %>'>
+      <br/>
+      <%= current_user.first_name %>
     <% else %>
       <%= link_to "Register", new_user_path %> |
       <%= link_to "Create Your Wedding!", "/weddings/new" %> |
@@ -29,8 +32,6 @@
     <% end %>
 
   </div>
-      <%# current_user.first_name %>
-      <img class= "profile_photo" scr= '<%= current_user.photo.thumb %>'>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>

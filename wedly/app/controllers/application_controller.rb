@@ -4,13 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
 
-  def application
-    @current_user = User.find(params[:id])
-    u = @current_user
-    u.photos.thumb.current_path
-    u.save!
-  end
-
   def ensure_logged_in
     unless current_user
       flash[:alert]  = "Please log in to proceed."

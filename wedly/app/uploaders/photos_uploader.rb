@@ -16,11 +16,15 @@ class PhotosUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fill: [50,50]
+    process resize_to_fill: [100,100]
   end
 
-  version :social do
-    process resize_to_fill: [100,100]
+  version :partner do
+    process resize_to_fill: [250,250]
+  end
+
+  version :cover_photo do
+    process resize_to_fill: [500,500]
   end
 
 

@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    u = @user
-    u.photos.thumb.current_path
-    u.save!
+    # u = @user
+    # u.photos.thumb.current_path
+    # u.save!
     @invitation = Invitation.find_by_token(params[:token])
     if @invitation.present?
       @user.email = @invitation.recipient_email
