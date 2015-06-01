@@ -17,6 +17,10 @@ class WeddingsController < ApplicationController
 
   def show
     @wedding = Wedding.find(params[:id])
+    # w = @wedding
+    # w.social_partner1_photo
+    # w.social_partner2_photo
+    # w.social_cover_photo
     if current_user
       @comment = @wedding.comments.build
     end
@@ -38,9 +42,11 @@ class WeddingsController < ApplicationController
   end
 
   def update
-    @wedding = Wedding.find(params[:id])
+     @wedding = Wedding.find(params[:id])
     w = @wedding
-    w.photo.social.current_path
+    w.photos.social_partner1_photo.current_path
+    w.photos.social_partner2_photo.current_path
+    w.photos.social_cover_photo.current_path
     w.save!
     if @wedding.update_attributes(wedding_params)
       if wedding_params[:registries_attributes].present?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531151056) do
+ActiveRecord::Schema.define(version: 20150601014915) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -123,12 +123,14 @@ ActiveRecord::Schema.define(version: 20150531151056) do
   create_table "weddings", force: :cascade do |t|
     t.string   "partner_1"
     t.string   "partner_2"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.string   "partner_email"
     t.string   "token"
-    t.string   "photo"
+    t.string   "social_partner1_photo"
+    t.string   "social_partner2_photo"
+    t.string   "social_cover_photo"
   end
 
 end

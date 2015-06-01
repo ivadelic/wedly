@@ -7,10 +7,10 @@
     <div class= "field">
       <label for="social_picutres1"> Profile Picture for Partner 1</label>
       <%= f.file_field :photo %>
-      <%= f.hidden_field :photo_cache %>
+      <%= f.hidden_field :social_partner1_photo %>
     </div>
     <label>
-      <%= f.check_box :remove_photo %>
+      <%# f.check_box :remove_photo %>
       Remove Profile Photo
     </label>
   <br/>
@@ -20,11 +20,25 @@
     <br/>
   <label for="social_picutres2"> Profile Picture for Partner 2</label>
       <%= f.file_field :photo %>
-      <%= f.hidden_field :photo_cache %>
+      <%= f.hidden_field :social_partner2_photo %>
     </div>
     <br/>
     <label>
-      <%= f.check_box :remove_photo %>
+      <%# f.check_box :remove_photo %>
+      Remove Profile Photo
+    </label>
+  <br/>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <br/>
+     <label for="social_picutres2"> Cover Photo </label>
+      <%= f.file_field :photo %>
+      <%= f.hidden_field :social_cover_photo %>
+    </div>
+    <br/>
+    <label>
+      <%# f.check_box :remove_photo %>
       Remove Profile Photo
     </label>
   <br/>
@@ -35,9 +49,9 @@
 <% end %>
 
 <!-- Pictures for Engaged Couple  -->
-
- <img class= "social_pictures1" scr= '<%= @wedding.photo.social %>'>
-  <img class= "social_pictures2" scr= '<%= @wedding.photo.social %>'>
+ <img class= "social_pictures1" scr= '<%= @wedding.social_partner1_photo.social %>'>
+  <img class= "social_pictures2" scr= '<%= @wedding.social_partner2_photo.social %>'>
+ <img class= "social_cover_photo" scr= '<%= @wedding.social_cover_photo %>'>
 
 <!-- Added Notes -->
 

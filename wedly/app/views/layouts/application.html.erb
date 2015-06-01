@@ -26,10 +26,11 @@
       <%= link_to "Create Your Wedding!", "/weddings/new" %> |
       <%= link_to "Join A Wedding", "/weddings" %> |
       <%= link_to "Login", :login %>
-
-      <img class= "profile_photo" scr= '<%= current_user.photo.thumb %>'>
     <% end %>
+
   </div>
+      <%# current_user.first_name %>
+      <img class= "profile_photo" scr= '<%= current_user.photo.thumb %>'>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
