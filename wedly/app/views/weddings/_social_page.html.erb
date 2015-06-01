@@ -10,7 +10,7 @@
 <% if current_user == @wedding.user %>
    <%= form_for @wedding, html: {multipart: true} do |f| %>
     <div class= "field">
-      <label for="social_picutres1"> Profile Picture for Partner 1</label>
+      <label for="social_partner1"> Profile Picture for Partner 1</label>
       <%= f.file_field :social_partner1_photo %>
     </div>
     <label>
@@ -18,11 +18,8 @@
       Remove Profile Photo
     </label>
   <br/>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
     <br/>
-  <label for="social_picutres2"> Profile Picture for Partner 2</label>
+  <label for="social_partner2"> Profile Picture for Partner 2</label>
       <%= f.file_field :social_partner2_photo %>
     </div>
     <br/>
@@ -31,11 +28,8 @@
       Remove Profile Photo
     </label>
   <br/>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
     <br/>
-     <label for="social_picutres2"> Cover Photo </label>
+     <label for="social_cover_photo"> Cover Photo </label>
       <%= f.file_field :social_cover_photo %>
     </div>
     <br/>

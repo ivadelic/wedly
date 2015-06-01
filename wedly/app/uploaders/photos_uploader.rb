@@ -19,6 +19,10 @@ class PhotosUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [100,100]
   end
 
+  version :registry do
+    process resize_to_fill: [410, 300]
+  end
+
   version :partner do
     process resize_to_fill: [250,250]
   end

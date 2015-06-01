@@ -1,18 +1,25 @@
-
-<%= form_for([@wedding, @registry]) do |f| %>
-
+<%= form_for([registry.wedding, registry]) do |f| %>
+ <%= f.hidden_field :wedding_id, value: @wedding.id %>
   <div class="field">
-    <%= f.label :store %>
-    <!-- options_for_select(Store.all.map{|x| [x.name, x.id] }) -->
+    <%= f.label "Store:" %>
     <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
   </div>
   <div class= "field">
-    <%= f.label :link_to_registry %>
+    <%= f.label "Link to Registry:" %>
     <%= f.text_field :link_to_registry %>
   </div>
+  <br/>
 
-  <div class= "submit-button">
+  <div class= "field">
+  <label for="registry_image"> Image for the Registry</label>
+  <%= f.file_field :image_url %>
+  </div>
+  <label>
+    <%# f.check_box :remove_photo %>
+    Remove Profile Photo
+  </label>
+  <br/>
+   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>

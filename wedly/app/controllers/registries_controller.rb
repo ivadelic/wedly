@@ -17,6 +17,7 @@ class RegistriesController < ApplicationController
   end
 
   def create
+    @registry = Registry.new(registry_params)
     #@registry = @wedding.registries.build(events_params)
     #@wedding = wedding_id
     @registry = Registry.new(registry_params)

@@ -1,6 +1,7 @@
 class Registry < ActiveRecord::Base
   belongs_to :wedding
   before_validation :smart_add_url_protocol
+  mount_uploader :image_url, PhotosUploader
 
 protected
 
