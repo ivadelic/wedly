@@ -2,7 +2,7 @@
 <%= link_to "Events", wedding_events_path %>
   <h4>Description: <%= @event.description %></h4>
   <h4>Date: <%= @event.date.strftime("%A, %B %e, %Y ") %></h4>
-  <h5>Time: <%= @event.start_time.strftime("%m :%M %p ") %> - <%= @event.end_time.strftime("%m :%M %p ") %></h5>
+  <h5>Time: <%= @event.start_time.strftime("%I :%M %p ") %> - <%= @event.end_time.strftime("%I :%M %p ") %></h5>
 
   <p>Number of Tables for <%= @event.name %>: <%= @containers.count %></p>
 

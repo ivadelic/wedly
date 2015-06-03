@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     # @wedding = Wedding.find(params[:id])
     # @wedding = @event.weddings.build(@event.wedding)
 
-    @nearby_events = @event.nearbys(1, {units: :km}).map{|e| {latitude: e.latitude, longitude: e.longitude} }
+    @nearby_events = @event.nearbys(5, {units: :km}).map{|e| {latitude: e.latitude, longitude: e.longitude} }
 
   end
 
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
       if @event.update_attributes(event_params)
-        redirect_to wedding_path(@wedding)
+        redirect_to wedding_events_path(@wedding)
       else redirect_to events_path
     end
   end
