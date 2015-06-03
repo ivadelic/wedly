@@ -10,8 +10,9 @@
     <%= current_user.email %><br>
     <br/>
 
-    <%= link_to "Edit Profile", edit_user_path(current_user) %>
     <td><%= image_tag current_user.photo.thumb if current_user.photo? %></td>
+    <br/>
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
 <% if current_user.my_wedding.present? %>
   <h3>Your Wedding</h3>
   <%= link_to wedding_path(current_user.my_wedding) do %>

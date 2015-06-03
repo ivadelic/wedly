@@ -31,7 +31,7 @@ class Wedding < ActiveRecord::Base
 
   def one_wedding_per_user
     if Wedding.find_by(user_id: self.user_id)
-      self.errors[:user] = "Can't have more than one wedding! BIGAMIST!"
+      self.errors[:user] = "Can't have more than one wedding!"
       false
     else
       true

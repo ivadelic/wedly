@@ -47,7 +47,17 @@
     float: right;
     height: 60px;
     width: 60px;
-    margin-top: -15px;
+    margin-top: -17px;
+  }
+
+  .profile_name {
+    display: inline-block;
+    float: right;
+    padding: 0px 0px 0px 0px;
+    margin-top: 2px;
+    margin-right: 20px;
+  //   margin-bottom: 20px;
+    color: #FCFCFC;
   }
 }
 
