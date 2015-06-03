@@ -14,13 +14,17 @@
 </head>
 <body>
 
-  <div id="nav">
+  <div id="header">
     <% if current_user %>
-      <%= link_to "All Weddings", "/weddings"%> |
-      <%= link_to "Create Your Wedding!", "/weddings/new" %> |
-      <%= link_to "Join A Wedding", "/weddings" %> |
-      <%= link_to "Profile", users_path %> |
-      <%= link_to "Logout", :logout, method: :post %>
+      <%= link_to "WebWed", "/weddings", {:class => "header_text"}%> |
+      <%= link_to "Create Your Wedding!", "/weddings/new", {:class => "header_text"} %> |
+      <%= link_to "Join A Wedding", "/weddings", {:class => "header_text"} %> |
+      <%= link_to "Logout", :logout, method: :post, :class => "header_text"  %> |
+
+      <%= link_to "Profile", users_path, {:class => "header_text"} %>
+
+      <a href= "users_path" class="profile_photo" src= '<%= current_user.photo.thumb %>'></a>
+
 
       <img class= "profile_photo" src= '<%= current_user.photo.thumb %>'>
       <br/>
@@ -38,7 +42,8 @@
     <p id="alert"><%= flash[:alert] %></p>
   </div>
 
-<%= yield %>
-
+<div class= "container_body">
+  <%= yield %>
+</div>
 </body>
 </html>

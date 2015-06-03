@@ -19,11 +19,40 @@
   font-family:'Raleway', sans-serif;
 }
 
+.container_body {
+  margin-top: 90px;
+}
+
 #map-canvas {
   height: 500px;
   width:700px;
 }
-#wrapper {
+
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 35px;
+  background: #030303;
+  color: #3D59AB;
+  padding: 21px 20px 19px 24px;
+
+  .header_text{
+    color: #FCFCFC;
+  }
+
+  .profile_photo {
+    float: right;
+    height: 60px;
+    width: 60px;
+    margin-top: -15px;
+  }
+}
+
+
+/*#wrapper {
   margin:0 auto;
   position:relative;
   top:15px;
@@ -90,8 +119,4 @@
   padding:10px 0px;
   background-color:#fff;
   text-align:left;
-}
-  .profile_photo {
-    border: solid black 5px;
-   float: right;
-  }
+}*/
