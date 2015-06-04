@@ -13,20 +13,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div id="header">
-    <% if current_user%>
-      <%= link_to "WebWed", "/weddings", {:class => "header_text"}%> |
-
+<!-- Nav bar for Logged in User -->
+<div class="menu-wrap">
+  <nav class="menu">
+    <ul class="clearfix">
+      <% if current_user%>
+      <li><a href="#"><%= link_to "WebWed", weddings_path, {:class => "header_text"}%></a></li>
         <% if current_user.my_wedding.present? %>
-          <%= link_to "Your Wedding", wedding_path(current_user.my_wedding), {:class => "header_text"}%> |
+        <ul><a href="#" class="drop_down"><%= link_to "Your Wedding", wedding_path(current_user.my_wedding)%></a></li>
+<!-- Sub menu for "Your Wedding" -->
+            <li class= "current-item"><a href="#"><%= link_to "Social Page", wedding_path(current_user.my_wedding)%></a></li>
+            <li class="current-item"><a href="#"><%= link_to 'Send Invitations', wedding_invitations_path(current_user.my_wedding, @invitations)%></a></li>
+            <li class="current-item"><a href="#"><%= link_to "Events", wedding_events_path(current_user.my_wedding, @events) %></a></li>
+            <li class="current-item"><a href="#"><%= link_to "Guests", wedding_guests_path(current_user.my_wedding, @guests) %></a></li>
+            <li class="current-item"><a href="#"><%= link_to "Registry", wedding_registries_path(current_user.my_wedding, @registries) %></a></li>
+            <li class="current-item"><a href="#"><%= link_to "Menu", wedding_foods_path(current_user.my_wedding, @foods) %></a></li>
+          </ul>
         <% else %>
-          <% link_to "Create Your Wedding!", "/weddings/new", {:class => "header_text"} %> |
+      <li><a href="#"><% link_to "Create Your Wedding!", "/weddings/new", {:class => "header_text"} %></a></li>
         <% end %>
-
       <%# link_to "Join A Wedding", "/weddings", {:class => "header_text"} %>
-      <%= link_to "Logout", :logout, method: :post, :class => "header_text"  %>
-
+    </ul>
+  </nav>
+<!-- Profile Picture and Name -->
       <a href= "<%= users_path %>">
        <img class= "profile_photo" src= '<%= current_user.photo.thumb %>'>
         <p class = "profile_name">
@@ -34,16 +43,15 @@
         </p>
       </a>
 
-
-
+<!-- Nav bar for Un-Registered Viewer -->
     <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Create Your Wedding!", "/weddings/new" %> |
-      <%= link_to "Join A Wedding", "/weddings" %> |
-      <%= link_to "Login", :login %>
-    <% end %>
+      <li><a href="#"><%= link_to "Register", new_user_path %></a></li>
+      <li><a href="#"><%= link_to "Create Your Wedding!", "/weddings/new" %></a></li>
+      <li><a href="#"><%= link_to "Join A Wedding", "/weddings" %></a> </li>
+      <li><a href="#"><%= link_to "Login", :login %></a></li>
+  <% end %>
+</div>
 
-  </div>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>

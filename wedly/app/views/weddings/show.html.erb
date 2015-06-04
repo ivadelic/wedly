@@ -1,13 +1,4 @@
-<div id="wedding_navigation">
-<% if current_user == @wedding.user %>
-  <h4>Your Wedding</h4>
-  <li><%= link_to 'Send Invitations', "/weddings/#{@wedding.id}/invitations" %></li>
-<% end %>
-  <li><%= link_to "Events", "/weddings/#{@wedding.id}/events" %></li>
-  <li><%= link_to "Guests", "/weddings/#{@wedding.id}/guests" %></li>
-  <li><%= link_to "Registry",  "/weddings/#{@wedding.id}/registries" %></li>
-  <li><%= link_to "Menu", wedding_foods_path(@wedding, @foods) %></li>
-</div>
+
 
 <h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
