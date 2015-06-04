@@ -1,18 +1,16 @@
+  <%= render "social_page" %>
+  <% if current_user == @wedding.user %>
+    <%= form_for([@comment.wedding, @comment]) do |f| %>
 
-
-<h1>Wedding for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
-
-<%= render "social_page" %>
-<% if current_user == @wedding.user %>
-  <%= form_for([@comment.wedding, @comment]) do |f| %>
-
-    <div class= "field">
-      <%= f.label "Leave a note"%><br />
-      <%= f.text_area :note %>
+    <div class= "social_note_form">
+      <div class= "field" id="note">
+        <%= f.label "Leave a note"%><br />
+        <%= f.text_area :note %>
+      </div>
+      <div class = "actions">
+        <%= f.submit %>
+        </div>
+      </div>
     </div>
-    <div class = "actions">
-      <%= f.submit %>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
-

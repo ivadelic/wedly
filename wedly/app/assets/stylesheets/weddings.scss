@@ -2,10 +2,111 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// .social_container {
+//   background-image: url(http://www.unsigneddesign.com/LT_AntiquePaper/Preview/LT_AntiquePaper_04.jpg);
+// }
+
+h1 {
+  text-align: center;
+}
+
 #social_comments {
   font-family: 'Bad Script', cursive;
 }
 
-#wedding_navigation {
-  float: right;
+.social_partner {
+  width:300px;
+  height:300px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius:150px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  position: relative;
+  border: 2px black;
+  margin-top: -130px;
 }
+
+#partner {
+  margin-top: 240px;
+  text-align: center;
+}
+
+.social_cover_photo{
+  margin-top: -200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 851px;
+  min-width: 315px;
+  width:103%;
+  height: auto;
+
+  position: absolute;
+  overflow: scroll;
+  display: block;
+
+  right: 0;
+  top: 0;
+  background: bottom left repeat-x;
+  z-index: -1;
+}
+
+.social_page {
+  // background-color: white;
+  z-index: 2;
+  // height: 1000px;
+  margin-top: 100px;
+}
+
+.engaged_names_social{
+  position: relative;
+  background-color: white;
+  width: 100%;
+  display: block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  margin-top: -100px;
+}
+.engaged_form{
+  margin-top: 50px;
+  margin-right: 50px;
+  position: relative;
+  background-color: white;
+  width: 100%;
+  display: block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  padding: 10px 10px 10px 10px;
+}
+.social_notes{
+  position: relative;
+  background-color: white;
+  width: 100%;
+  display: block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  padding: 10px 10px 10px 10px;
+}
+
+#note {
+  margin: 10px 10px 10px 10px;
+}
+
+.social_note_form {
+  position: relative;
+  background-color: white;
+  width: 103%;
+  display: block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.container_body {
+  background-color: white;
+  width: 103%;
+  margin-left: -10px;
+  margin-top: 350px;
+  height: 1000px;
+}
+
