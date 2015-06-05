@@ -106,7 +106,7 @@ h1, h2, h3 {
   }
 
 //Drop-down Menu
-
+//background color
 nav ul ul {
   background-color: #CAFFFF;
   // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
@@ -117,17 +117,21 @@ nav ul ul li {
   padding:10px 30px;
   display:none;
   // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  background-color:#FFFFE0;
-  padding-left: -10px;
+  // background-color:#FFFFE0;
+  // padding-left: -px;
 }
 
 nav ul ul:hover > li {
-  padding:10px 30px;
+  // padding:10px 30px;
   display:block;
   background-color: #E4FFFF;
-  position: center;
-  padding-left: -10px;
-  // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  // position: center;
+  // padding-left: 10px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+}
+
+a {
+  color: #000000;
 }
 
 // Profile Pictures and Names

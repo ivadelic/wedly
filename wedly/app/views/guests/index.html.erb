@@ -5,8 +5,7 @@
 <%# link_to "Back to Events", wedding_path(@wedding) %>
 
 <!-- Counter -->
-<h4 class= "table_names"><strong> <%= @guests.size %></strong> guest(s) have been Invited </h4>
-<h4 class= "table_names"> <%= @guests.where(rsvp: true).size %> has/have confirmed their attendance </h4>
+<h5 class= "guest_numbers">You have invited<strong> <%= @guests.size %></strong> guest(s) and <%= @guests.where(rsvp: true).size %> has/have confirmed their attendance </h4>
 
 <!-- Table -->
 <table class= "guest_list">
@@ -54,8 +53,12 @@
       <td><p><%= guest.food_restrictions %></p></td>
       <% if (current_user == guest) || (current_user == @wedding.user) %>
         <td>
-          <%=button_to "Edit", edit_wedding_guest_path(@wedding, guest)   %>
-          <%=button_to "Delete", wedding_guest_path(@wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+          <button class="pure_button">
+            <%=link_to "Edit", edit_wedding_guest_path(@wedding, guest)   %>
+          </button>
+          <button class="pure_button">
+            <%=link_to "Delete", wedding_guest_path(@wedding, guest), method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+          </button>
         </td>
       <% end %>
     </tr>
