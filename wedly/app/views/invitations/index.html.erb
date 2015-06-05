@@ -1,6 +1,4 @@
 <h1>Invitation List</h1>
-<%= link_to "Back to Events", wedding_path(@wedding) %>
-<br/>
 <%= form_for([@wedding, Invitation.new]) do |f| %>
   <div class="field">
     <%= f.label :recipient_email %><br/>
