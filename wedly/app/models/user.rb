@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
   end
 
   def save_recipient_id_to_invitation
-    invitation = Invitation.find_by_recipient_email(self.email)
-    invitation.user = self
-    invitation.save
+    # invitation = Invitation.find_by_recipient_email(self.email)
+    # invitation.user = self
+    # invitation.save
   end
 end

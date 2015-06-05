@@ -2,21 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .social_container {
-//   background-image: url(http://www.unsigneddesign.com/LT_AntiquePaper/Preview/LT_AntiquePaper_04.jpg);
-// }
 
+// All Titles
 h1 {
+  margin-top: 80px;
   text-align: center;
 }
 
-#social_comments {
-  font-family: 'Bad Script', cursive;
-}
+// Photos
 
 .social_partner {
-  width:300px;
-  height:300px;
+  width:200px;
+  height:200px;
   border-radius: 150px;
   -webkit-border-radius: 150px;
   -moz-border-radius:150px;
@@ -41,8 +38,9 @@ h1 {
   background-size: cover;
   min-height: 851px;
   min-width: 315px;
-  width:103%;
+  width:100%;
   height: auto;
+  // margin-right: -20px;
 
   position: absolute;
   overflow: scroll;
@@ -54,33 +52,42 @@ h1 {
   z-index: -1;
 }
 
-.social_page {
-  // background-color: white;
-  z-index: 2;
-  // height: 1000px;
-  margin-top: 100px;
-}
-
+// Names and Form
 .engaged_names_social{
   position: relative;
+  // background-color: white;
+  // width: 100%;
+  // display: block;
+  // box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  // padding: 10px 10px 10px 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin-top: -100px;
+  position: relative;
   background-color: white;
   width: 100%;
   display: block;
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  padding: 10px 10px 10px 10px;
-  text-align: center;
-  margin-top: -100px;
 }
 .engaged_form{
-  margin-top: 50px;
-  margin-right: 50px;
   position: relative;
   background-color: white;
   width: 100%;
   display: block;
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   padding: 10px 10px 10px 10px;
+  margin-bottom: 40px;
 }
+
+// Notes for the social page
+#social_comments {
+  font-family: 'Bad Script', cursive;
+}
+
 .social_notes{
   position: relative;
   background-color: white;
@@ -97,16 +104,41 @@ h1 {
 .social_note_form {
   position: relative;
   background-color: white;
-  width: 103%;
+  width: 100%;
   display: block;
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
-.container_body {
-  background-color: white;
-  width: 103%;
-  margin-left: -10px;
+// The general white background
+.container_social {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 851px;
+  min-width: 315px;
+  // height: auto;
+  background-color: pink;
   margin-top: 350px;
+  width: auto;
   height: 1000px;
+  display: block;
+  right: 0;
+  top: 0;
+  // background: bottom left repeat-x;
+  // z-index: -1;
+  // position: absolute;
+  // overflow: scroll;
 }
 
+.container {
+  margin-top: -100px;
+  padding: 0px 0px 0px 0px;
+}
+
+.social_page {
+  // background-color: white;
+  z-index: 2;
+  // height: 1000px;
+  margin-top: 100px;
+}

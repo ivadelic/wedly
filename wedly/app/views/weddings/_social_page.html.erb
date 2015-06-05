@@ -1,45 +1,61 @@
-  <!-- Pictures for Engaged Couple  -->
-  <img class= "social_cover_photo" src= '<%= @wedding.social_cover_photo.cover_photo%>'>
-  <div id="partner">
-   <img class= "social_partner"src= '<%= @wedding.social_partner1_photo.partner %>'>
-    <img class= "social_partner" src= '<%= @wedding.social_partner2_photo.partner %>'>
-  </div>
+<!-- Pictures for Engaged Couple  -->
+<img class= "social_cover_photo" src= '<%= @wedding.social_cover_photo %>'>
+<div id="partner">
+  <img class= "social_partner"src= '<%= @wedding.social_partner1_photo %>'>
+  <img class= "social_partner" src= '<%= @wedding.social_partner2_photo %>'>
+</div>
+
 
 <div class= "social_page">
   <div class="engaged_names_social">
-    <h1> <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
+    <h2> <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
     <h4> Think about it as your Pre-Wedding Scrapbook to share with Friends and Family! You can share photos and they can add their wishes and comments for your future together.</h4>
   </div>
-  <!-- Add Pictures -->
 
-  <div class="engaged_form"
+<!--     social_cover_photo,
+    social_partner2_photo,
+    social_partner1_photo
+
+    cover_photo
+    partner
+
+ -->
+<!-- Add Pictures -->
+  <div class="engaged_form">
     <% if current_user == @wedding.user %>
        <%= form_for @wedding, html: {multipart: true} do |f| %>
-        <div class= "field">
-          <label for="social_partner1"> Profile Picture for Partner 1</label>
+      <div class= "field">
+        <label for="partner" class="social_partner1"> Picture for Partner 1</label>
           <%= f.file_field :social_partner1_photo %>
+          <%# f.hidden_field :social_partner1_photo_cache %>
+      </div>
+        <label>
+          <%# f.check_box :remove_social_partner1_photo %>
+          <!-- Remove Partner Photo -->
+        </label>
+        <div class="actions">
+          <%# f.submit %>
         </div>
-        <label>
-          <%# f.check_box :remove_photo %>
-          Remove Profile Photo
-        </label>
-      <br/>
-        <br/>
-      <label for="social_partner2"> Profile Picture for Partner 2</label>
+
+        <label for="partner" class="social_partner2"> Picture for Partner 2</label>
           <%= f.file_field :social_partner2_photo %>
-        <br/>
+          <%# f.hidden_field :social_partner2_photo_cache %>
+          <br/>
         <label>
-          <%# f.check_box :remove_photo %>
-          Remove Profile Photo
+          <%# f.check_box :remove_social_partner2_photo %>
+         <!--  Remove Partner Photo -->
         </label>
-      <br/>
-        <br/>
-         <label for="social_cover_photo"> Cover Photo </label>
+        <div class="actions">
+          <%#f.submit %>
+        </div>
+
+        <label for="cover_photo" class="social_partner2">Cover Photo</label>
           <%= f.file_field :social_cover_photo %>
-        <br/>
+          <%# f.hidden_field :social_cover_photo_cache %>
+          <br/>
         <label>
-          <%# f.check_box :remove_photo %>
-          Remove Profile Photo
+          <%# f.check_box :remove_social_cover_photo %>
+          <!-- Remove Cover Photo -->
         </label>
       <br/>
         <div class="actions">
@@ -49,9 +65,7 @@
     <% end %>
   </div>
 
-
-
-    <!-- Added Notes -->
+<!-- Added Notes -->
   <div class="social_notes">
     <em><h4>Already Added Notes</h4></em>
     <% @wedding.comments.each do |comment| %>
@@ -70,18 +84,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

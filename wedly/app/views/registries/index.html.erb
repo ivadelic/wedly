@@ -12,7 +12,7 @@
   <p><strong>Store: </strong><%= registry.store %></p>
   <p><strong>Link: </strong>
   <a href="<%= registry.link_to_registry %>" target= "_blank"><%= registry.link_to_registry %></a></p>
-  <img class= "registry_image" src= '<%= registry.image_url.registry%>'>
+  <img class= "registry_image" src= '<%= registry.image_url.registry %>'>
   <br/>
   <% if current_user == @wedding.user %>
     <%= link_to "Edit", edit_wedding_registry_path(@wedding, registry) %> |
