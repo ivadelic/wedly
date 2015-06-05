@@ -33,7 +33,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.update_attributes(food_params)
-      redirect to wedding_foods_path(@wedding)
+      redirect_to wedding_foods_path(@wedding)
     else
       render :edit
     ends

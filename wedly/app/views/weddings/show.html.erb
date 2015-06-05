@@ -1,18 +1,3 @@
 <div class= "container_social">
   <%= render "social_page" %>
-  <% if current_user == @wedding.user %>
-    <%= form_for([@comment.wedding, @comment]) do |f| %>
-
-    <div class= "social_note_form">
-      <div class= "field" id="note">
-        <%= f.label "Leave a note"%><br />
-        <%= f.text_area :note %>
-      </div>
-      <div class = "actions">
-        <%= f.submit %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  <% end %>
 </div>

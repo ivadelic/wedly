@@ -6,81 +6,95 @@
 </div>
 
 
-<div class= "social_page">
-  <div class="engaged_names_social">
+<div class= "social_page_form_and_writing">
+  <div class="engaged_names">
     <h2> <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
+<div class= "regular">
     <h4> Think about it as your Pre-Wedding Scrapbook to share with Friends and Family! You can share photos and they can add their wishes and comments for your future together.</h4>
   </div>
+</div>
 
-<!--     social_cover_photo,
-    social_partner2_photo,
-    social_partner1_photo
-
-    cover_photo
-    partner
-
- -->
 <!-- Add Pictures -->
   <div class="engaged_form">
     <% if current_user == @wedding.user %>
        <%= form_for @wedding, html: {multipart: true} do |f| %>
-      <div class= "field">
-        <label for="partner" class="social_partner1"> Picture for Partner 1</label>
-          <%= f.file_field :social_partner1_photo %>
-          <%# f.hidden_field :social_partner1_photo_cache %>
-      </div>
-        <label>
-          <%# f.check_box :remove_social_partner1_photo %>
-          <!-- Remove Partner Photo -->
-        </label>
-        <div class="actions">
-          <%# f.submit %>
+      <div class = "regular">
+        <div class= "field">
+          <label for="partner" class="social_partner1"> Picture for Partner 1</label>
+            <%= f.file_field :social_partner1_photo %>
+            <%# f.hidden_field :social_partner1_photo_cache %>
         </div>
+          <label>
+            <%# f.check_box :remove_social_partner1_photo %>
+            <!-- Remove Partner Photo -->
+          </label>
+          <div class="actions">
+            <%# f.submit %>
+          </div>
 
-        <label for="partner" class="social_partner2"> Picture for Partner 2</label>
-          <%= f.file_field :social_partner2_photo %>
-          <%# f.hidden_field :social_partner2_photo_cache %>
-          <br/>
-        <label>
-          <%# f.check_box :remove_social_partner2_photo %>
-         <!--  Remove Partner Photo -->
-        </label>
-        <div class="actions">
-          <%#f.submit %>
-        </div>
+          <label for="partner" class="social_partner2"> Picture for Partner 2</label>
+            <%= f.file_field :social_partner2_photo %>
+            <%# f.hidden_field :social_partner2_photo_cache %>
+            <br/>
+          <label>
+            <%# f.check_box :remove_social_partner2_photo %>
+           <!--  Remove Partner Photo -->
+          </label>
+          <div class="actions">
+            <%#f.submit %>
+          </div>
 
-        <label for="cover_photo" class="social_partner2">Cover Photo</label>
-          <%= f.file_field :social_cover_photo %>
-          <%# f.hidden_field :social_cover_photo_cache %>
-          <br/>
-        <label>
-          <%# f.check_box :remove_social_cover_photo %>
-          <!-- Remove Cover Photo -->
-        </label>
-      <br/>
-        <div class="actions">
-          <%= f.submit %>
-        </div>
+          <label for="cover_photo" class="social_partner2">Cover Photo</label>
+            <%= f.file_field :social_cover_photo %>
+            <%# f.hidden_field :social_cover_photo_cache %>
+            <br/>
+          <label>
+            <%# f.check_box :remove_social_cover_photo %>
+            <!-- Remove Cover Photo -->
+          </label>
+        <br/>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 
 <!-- Added Notes -->
-  <div class="social_notes">
-    <em><h4>Already Added Notes</h4></em>
-    <% @wedding.comments.each do |comment| %>
-      <p id = "social_comments">
-        <%= comment.note %>
-        <br>
-        <% if comment.user != nil %>
-          <em> by <%= comment.user.first_name %></em> <br/>
-          Added on: <%= comment.created_at.strftime("%m/%d/%Y") %>
-      </p>
-          <% if current_user == @wedding.user %>
-            <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
-            <%= render "social_page_form" %>
+  <div id="social_comments">
+  <div class= "regular">
+      <h3 class= "comment_title">Already Added Notes</h3>
+      <% @wedding.comments.each do |comment| %>
+        <p id = "social_comments">
+          <%= comment.note %>
+          <br>
+          <% if comment.user != nil %>
+            <em> by <%= comment.user.first_name %></em> <br/>
+            Added on: <%= comment.created_at.strftime("%m/%d/%Y") %>
+        </p>
+            <% if current_user == @wedding.user %>
+              <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
+              <%= render "social_page_form" %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
+
+  <%# if current_user == @wedding.user %>
+    <%=form_for([@comment.wedding, @comment]) do |f| %>
+  <div class="regular">
+    <div class= "social_note_form">
+      <div class= "field" id="note">
+        <%= f.label "Leave a note"%><br />
+        <%= f.text_area :note %>
+      </div>
+      <div class = "actions">
+        <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
