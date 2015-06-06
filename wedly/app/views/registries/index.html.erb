@@ -4,9 +4,9 @@
 <br/>
 
 <% @registries.each do |registry| %>
-
+ <%= render partial: "form", locals: {registry: registry} %>
   <% if current_user == @wedding.user %>
-    <%= render partial: "form", locals: {registry: registry} %>
+
   <% end %>
 
   <p><strong>Store: </strong><%= registry.store %></p>

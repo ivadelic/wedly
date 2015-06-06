@@ -1,0 +1,27 @@
+<div id="table_dragDropContainer">
+
+  <div id="table_listOfItems">
+    <div>
+      <p>Guests</p>
+      <% @guests.each do |guest| %>
+        <div id="draggable" class="ui-widget-content">
+          <%= guest.first_name %> <%= guest.last_name %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div id="table_mainContainer">
+
+      <% @containers.each do |container| %>
+        <div id="droppable" class="ui-widget-header">
+          <p><%= container.name %><p>
+            <ul id="<%= container.name %>">
+            </ul>
+        </div>
+     <% end %>
+    </div>
+
+</div>
+

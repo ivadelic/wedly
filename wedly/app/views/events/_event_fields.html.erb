@@ -13,7 +13,7 @@
   </div>
    <div class= "field">
       <%= f.label :start_time %>
-      <%= f.time_select :start_time,
+      <%= f.time_field :start_time,
         :combined => true,
         :default => Time.now,
         :minute_interval => 30,
@@ -21,7 +21,7 @@
         :ampm =>true
         %>to
       <%= f.label :end_time %>
-      <%= f.time_select :end_time,
+      <%= f.time_field :end_time,
         :combined => true,
         :default => Time.now,
         :minute_interval => 30,
