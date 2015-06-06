@@ -44,10 +44,20 @@ $(document).on('ready page:load', function() {
     myMap.init(latitude, longitude);
     myMap.addMarker(latitude, longitude);
 
+    // $.getJSON("/weddings/1/events/4/nearbys", function(json) {
+    //   json.forEach(function(coord) {
+    //     myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude), customImage);
+    //   })
+    // })
+
     if (window.nearbys) {
       nearbys.forEach(function(coord) {
         myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude), customImage);
       })
+    } else {
+      alert("NO NEARBYSSSSS")
     }
   }
+
+
 });

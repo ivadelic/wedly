@@ -26,8 +26,12 @@ class EventsController < ApplicationController
     # @wedding = @event.weddings.build(@event.wedding)
 
     @nearby_events = @event.nearbys(5, {units: :km}).map{|e| {latitude: e.latitude, longitude: e.longitude} }
-
   end
+
+  # def nearbys
+  #   @event = Event.find(params[:id])
+  #   render json: whatever
+  # end
 
   def new
     @event = Event.new

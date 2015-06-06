@@ -1,13 +1,14 @@
 class ContainersController < ApplicationController
   before_filter :load_event
+  before_filter :load_wedding
 
   def index
     @containers = Container.all
   end
 
   def show
-    @container = Container.find(params[:id])
-    @wedding = @container.events.weddings.build
+    @containers = Container.where(@event_id)
+    @guests = Guest.where(@wedding_id)
   end
 
   def new
@@ -59,6 +60,10 @@ class ContainersController < ApplicationController
 
   def load_event
     @event = Event.find(params[:event_id])
+  end
+
+  def load_wedding
+    @wedding = Wedding.find(params[:wedding_id])
   end
 
 end

@@ -12,7 +12,6 @@
     <th><h4><strong>Table Name </strong></h4></th>
     <th><h4><strong>Capacity </strong></h4></th>
     <th><h4><strong></strong></h4></th>
-    <th><h4><strong></strong></h4></th>
   </tr>
 
   <tr>
@@ -25,11 +24,6 @@
       <div class= "field">
         <td><p><%= f.text_field :limit %></p></td>
       </div>
-
-      <div class= "field">
-
-        <td><p><%= f.collection_select :guest_id, @event.guests, :first_name, {:prompt=>true}%></p></td>
-      </div>
       <td><p><%= f.submit "Add New Table" %></p></td>
   <% end %>
   </tr>
@@ -39,7 +33,6 @@
       <td><p></p></td>
       <td><p><%= container.name %></p></td>
       <td><p><%= container.limit %></p></td>
-      <td><p><%#= container.guest.try(:first_name) %></p></td>
       <td><%= link_to "Edit", edit_wedding_event_container_path(@event.wedding, @event, container) %> |
         <%= link_to "Delete", wedding_event_container_path(@event.wedding, @event, container), method: :delete, data: {confirm: "Are you sure you end want to delete this container?"} %></p></td>
     </tr>
