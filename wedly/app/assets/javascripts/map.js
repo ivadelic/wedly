@@ -54,9 +54,10 @@ $(document).on('ready page:load', function() {
       nearbys.forEach(function(coord) {
         myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude), customImage);
       })
-    } else {
-      alert("NO NEARBYSSSSS")
     }
+    // else {
+    //   alert("NO NEARBYSSSSS")
+    // }
   }
 
 
