@@ -1,76 +1,84 @@
-<div class="form">
-   <%= form_for @user, html: {multipart: true} do |f| %>
+<div class="user_profile_container">
+  <div class="user_form">
+    <div class="form">
+       <%= form_for @user, html: {multipart: true} do |f| %>
 
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= f.text_field :email %>
+        </div>
+        <br/>
+        <div class="field">
+          <%= f.label :password %><br>
+          <%= f.password_field :password %>
+        </div>
+        <br/>
+        <div class="field">
+          <%= f.label :password_confirmation %><br>
+          <%= f.password_field :password_confirmation %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :first_name %><br>
+          <%= f.text_field :first_name %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :last_name %><br>
+          <%= f.text_field :last_name %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :address_line_1 %><br>
+          <%= f.text_field :address_line_1 %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :address_line_2 %><br>
+          <%= f.text_field :address_line_2 %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :city %><br>
+          <%= f.text_field :city %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :province %><br>
+          <%= f.text_field :province %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :country %><br>
+          <%= f.text_field :country %>
+        </div>
+        <br/>
+         <div class="field">
+          <%= f.label :zip %><br>
+          <%= f.text_field :zip %>
+        </div>
+        <br/>
+        <div class="field">
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone %>
+        </div>
+      <br/>
+        <div class= "field">
+          <label for="profile_picture"> Profile Picture</label>
+          <br/>
+          <%= f.file_field :photo %>
+          <%= f.hidden_field :photo_cache %>
+        </div>
+        <label>
+          <%= f.check_box :remove_photo %>
+          Remove Profile Photo
+        </label>
+      <br/>
+      <br/>
+         <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
     </div>
-    <div class="field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation %>
-    </div>
-
-     <div class="field">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name %>
-    </div>
-
-     <div class="field">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %>
-    </div>
-
-     <div class="field">
-      <%= f.label :address_line_1 %><br>
-      <%= f.text_field :address_line_1 %>
-    </div>
-
-     <div class="field">
-      <%= f.label :address_line_2 %><br>
-      <%= f.text_field :address_line_2 %>
-    </div>
-
-     <div class="field">
-      <%= f.label :city %><br>
-      <%= f.text_field :city %>
-    </div>
-
-     <div class="field">
-      <%= f.label :province %><br>
-      <%= f.text_field :province %>
-    </div>
-
-     <div class="field">
-      <%= f.label :country %><br>
-      <%= f.text_field :country %>
-    </div>
-
-     <div class="field">
-      <%= f.label :zip %><br>
-      <%= f.text_field :zip %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone %><br>
-      <%= f.text_field :phone %>
-    </div>
-  <br/>
-    <div class= "field">
-      <label for="profile_picture"> Profile Picture</label>
-      <%= f.file_field :photo %>
-      <%= f.hidden_field :photo_cache %>
-    </div>
-    <label>
-      <%= f.check_box :remove_photo %>
-      Remove Profile Photo
-    </label>
-  <br/>
-     <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+  </div>
 </div>
