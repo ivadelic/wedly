@@ -36,6 +36,7 @@ class RegistriesController < ApplicationController
     else
       render :edit
     end
+    @registry.save
   end
 
   def destroy
