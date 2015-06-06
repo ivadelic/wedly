@@ -14,48 +14,13 @@
   </div>
 </div>
 
-<!-- Added Notes -->
-  <div id="social_comments">
-  <div class= "regular">
-      <h3 class= "comment_title">Love Notes</h3>
-      <% @wedding.comments.each do |comment| %>
-        <p id = "social_comments">
-          <%= comment.note %>
-          <br>
-          <% if comment.user != nil %>
-            <em> by <%= comment.user.first_name %></em> <br/>
-            Added on: <%= comment.created_at.strftime("%m/%d/%Y") %>
-        </p>
-            <% if current_user == @wedding.user %>
-              <%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %>
-              <%= render "social_page_form" %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <%# if current_user == @wedding.user %>
-  <%= form_for([@comment.wedding, @comment]) do |f| %>
-    <div class="regular">
-      <div class= "social_note_form">
-        <div class= "field" id="note">
-          <%= f.label "Leave a note"%><br />
-          <%= f.text_area :note %>
-        </div>
-        <div class = "actions">
-          <%= f.submit %>
-          </div>
-        </div>
-      </div>
-      <br/>
-  <% end %>
   <!-- Add Pictures -->
   <div class="engaged_form">
     <% if current_user == @wedding.user %>
        <%= form_for @wedding, html: {multipart: true} do |f| %>
       <div class = "regular">
         <div class= "field">
+        <h3>Add pictures to your Social Page!</h3>
           <label for="partner" class="social_partner1"> Picture for Partner 1</label>
             <%= f.file_field :social_partner1_photo %>
             <%# f.hidden_field :social_partner1_photo_cache %>
@@ -67,7 +32,6 @@
           <div class="actions">
             <%# f.submit %>
           </div>
-
           <label for="partner" class="social_partner2"> Picture for Partner 2</label>
             <%= f.file_field :social_partner2_photo %>
             <%# f.hidden_field :social_partner2_photo_cache %>
@@ -89,13 +53,71 @@
             <!-- Remove Cover Photo -->
           </label>
         <br/>
+
+          <label for="photo_collection_1" class="photo_collection">Photo Collection 1/3</label>
+            <%= f.file_field :photo_collection_1 %>
+            <br/>
+            <label for="photo_collection_2" class="photo_collection">Photo Collection 2/3</label>
+            <%= f.file_field :photo_collection_2 %>
+            <br/>
+            <label for="photo_collection_3" class="photo_collection">Photo Collection 3/3</label>
+            <%= f.file_field :photo_collection_3 %>
+            <br/>
+
           <div class="actions">
             <%= f.submit %>
           </div>
         <% end %>
       <% end %>
     </div>
-  </div>
-  <%# end %>
-</div>
+              <%# render "social_page_form" %>
     </div>
+  </div>
+<br/>
+<div class = "social_form_container">
+  <%# if current_user == @wedding.user %>
+  <%= form_for([@comment.wedding, @comment]) do |f| %>
+    <div class="regular">
+        <div class= "field" id="note">
+          <h2><%= f.label "Leave a note"%></h2>
+          <div class="text_area_note">
+            <%= f.text_area :note %>
+          <div class = "actions">
+            <%= f.submit %>
+              </div>
+          </p>
+        </div>
+      </div>
+      <br/>
+  <% end %>
+  </div>
+  </div>
+</div>
+
+
+    <!-- Added Notes -->
+  <div id="social_comments">
+  <div class= "regular">
+<!--       <h3 class= "comment_title">Love Notes</h3> -->
+
+
+
+    <div class= "note_container">
+        <% @wedding.comments.each do |comment| %>
+      <p id = "social_comments">
+        <%= comment.note %>
+        <% if comment.user != nil %>
+        <br/>
+          <img id = "comment_photo" src= '<%= comment.user.photo.thumb %>'>
+          <br/>
+            Written by: <%= comment.user.first_name %><br/>
+          Added on: <%= comment.created_at.strftime("%m/%d/%Y") %>
+      </p>
+        <% if current_user == @wedding.user %>
+
+        <button><%= link_to "Remove Note", "/weddings/#{@wedding.id}/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure you want to delete this Guest?"} %></button>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

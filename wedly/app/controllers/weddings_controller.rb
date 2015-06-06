@@ -78,6 +78,9 @@ class WeddingsController < ApplicationController
                   :social_cover_photo,
                   :social_partner2_photo,
                   :social_partner1_photo,
+                  :photo_collection_1,
+                  :photo_collection_2,
+                  :photo_collection_3,
                   :_destroy,
                   guests_attributes: [
                     :id,

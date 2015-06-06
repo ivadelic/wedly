@@ -35,6 +35,16 @@ h1 {
   text-align: center;
 }
 
+.note_container {
+  background-color: #EBFFFF;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 500px;
+  margin: 0 auto;
+}
+
 .social_cover_photo{
   margin-top: -200px;
   -webkit-background-size: cover;
@@ -56,15 +66,20 @@ h1 {
   z-index: -1;
 }
 
+#comment_photo {
+  height: 25px;
+  width: 25px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
 // Names and Form
 .engaged_names{
   text-align: center;
 }
 
 .engaged_form{
-  text-align: centre;
+  margin: 0 auto;
   background-color:  #EBFFFF;
-;
   padding-top:10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -76,9 +91,14 @@ h1 {
 #social_comments {
   font-family: 'Homemade Apple', cursive;
 }
-.comment_title{
-  text-decoration: underline;
+
+.text_area_note {
+  text-align: center;
 }
+
+// .social_form_container{
+//   margin-top: 300px;
+// }
 
 // .social_notes{
 //   position: relative;
@@ -93,13 +113,6 @@ h1 {
 //   margin: 10px 10px 10px 10px;
 // }
 
-// .social_note_form {
-//   position: relative;
-//   background-color: white;
-//   width: 100%;
-//   display: block;
-//   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-// }
 
 // The whole container
 // .container_social {

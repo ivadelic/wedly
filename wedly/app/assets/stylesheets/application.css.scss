@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
 
  // @import "bourbon";
@@ -34,9 +34,9 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
-.regular  {
-  font-family: 'Open Sans Condensed', sans-serif;
-}
+// .regular  {
+//   font-family: 'Open Sans Condensed', sans-serif;
+// }
 
 // .container_body {
 //   margin-top: 15px;
@@ -130,8 +130,8 @@ nav ul ul:hover > li {
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
 }
 
-a {
-  color: #000000;
+a:hover {
+  color: #E6B8B8;
 }
 
 // Profile Pictures and Names

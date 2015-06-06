@@ -1,39 +1,50 @@
 <br/>
 <br/>
 <h2>Menu for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %>'s Wedding</h2>
-<%= link_to "Back to Events", wedding_path(@wedding) %>
-<% @foods.each do |food| %>
+      <p class= 'food_phrase'> This wedding has <%= @foods.size %> option(s)</p>
 
-  <p><strong>Option Number: </strong><%= food.food_choice%></p>
-  <p><strong>Dish Name: </strong><%= food.dish_name %></p>
-  <p><strong>Description: </strong><%= food.dish_description %></p>
-
-  <% if current_user == @wedding.user %>
-    <%= link_to "Edit",  edit_wedding_food_path(@wedding, food)%> |
-    <%= link_to "Delete", wedding_food_path(@wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %>
-  <% end %>
-<% end %>
-<br/>
-<br/>
 <% if current_user == @wedding.user %>
-  <%=form_for([@wedding, Food.new])do |f| %>
-    <div class = "nested-fields">
-      <%= f.hidden_field :wedding_id, value: @wedding.id %>
-      <div class= "field">
-        <%= f.label "Menu Option Number" %>
-        <%= f.number_field :food_choice %>
-      </div>
-      <div class= "field">
-        <%= f.label :dish_name %>
-        <%= f.text_field :dish_name %>
-      </div>
-      <div class= "field">
-        <%= f.label :dish_description %>
-        <%= f.text_area :dish_description %>
-      </div>
-      <div class= "submit-button">
-        <%= f.submit %>
-      </div>
+  <div class = "foods_form_container">
+    <h3>Create Menu Options</h3>
+      <div class = "regular-font">
+        <%=form_for([@wedding, Food.new])do |f| %>
+          <div class = "nested-fields">
+            <%= f.hidden_field :wedding_id, value: @wedding.id %>
+            <div class= "field">
+              <%= f.label "Menu Option Number:" %>
+              <p id="field_menu"><%= f.number_field :food_choice %></p>
+            </div>
+            <div class= "field">
+              <%= f.label "Dish Name:" %>
+              <p id="field_menu"><%= f.text_field :dish_name %></p>
+            </div>
+            <div class= "field">
+              <%= f.label "Dish Description" %>
+              <p id="field_menu"><%= f.text_area :dish_description %></p>
+            </div>
+            <div class= "submit-button">
+              <%= f.submit %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+  <br/>
+
+  <!--   <div class= "regular-font"> -->
+  <div class = "foods_menu">
+<!--       <h3 class= "foods_cursive">Menu Options</h3> -->
+    <% @foods.each do |food| %>
+          <p class= "regular-font" id = "foods_choice_number"><%= food.food_choice%></p>
+        <p class= "foods_cursive">Dish Name: </p>
+          <p class= "regular-font"><%= food.dish_name %></p>
+        <p class= "foods_cursive">Description: </p>
+          <p class= "regular-font"><%= food.dish_description %></p>
+      <% if current_user == @wedding.user %>
+        <button><%= link_to "Edit",  edit_wedding_food_path(@wedding, food)%></button>
+        <button><%= link_to "Delete", wedding_food_path(@wedding, food), method: :delete, data: {confirm: "Are you sure you want to delete this Menu Option?"} %></button>
+        <% end %>
+      <% end %>
+    </div>
+  <br/>

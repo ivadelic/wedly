@@ -1,3 +1,47 @@
 // Place all the styles related to the foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.regular-font {
+  font-family: 'Raleway', sans-serif;
+}
+
+.food_phrase {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+// span:nth-child(2n+1)
+.foods_menu  {
+  // background-color: yellow;
+  margin: 0 auto;
+  display: table;
+  box-shadow: 1px 1px 1px #888888;
+  text-align: center;
+  padding: 60px 60px 60px 60px;
+
+  #foods_choice_number {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: 2px solid black;
+    color: #666 black;
+    text-align: center;
+    font-family: 'Homemade Apple', cursive;
+  }
+}
+
+.foods_cursive{
+  font-family: 'Homemade Apple', cursive;
+}
+
+.foods_form_container{
+  margin: 0 auto;
+  display: table;
+  text-align: center;
+  // float: center;
+  box-shadow: 1px 1px 1px #888888;
+  background-color:#e6e6e6;
+  padding: 10px 10px 10px 10px;
+}

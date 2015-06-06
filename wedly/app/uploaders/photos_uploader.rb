@@ -31,6 +31,10 @@ class PhotosUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [500,500]
   end
 
+  version :photo_collection do
+    process resize_to_fill: [200, 200]
+  end
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
