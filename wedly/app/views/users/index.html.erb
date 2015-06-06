@@ -1,40 +1,43 @@
-
+<br/>
+<br/>
 <h1>Welcome to your profile  <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>!</h1>
-<div class="regular">
-    <%= current_user.address_line_1 %>, <%= current_user.address_line_2 %><br>
-    <%= current_user.city %>,
-    <%= current_user.province %><br>
-    <%= current_user.country %><br>
-    <%= current_user.zip %><br>
-    <%= current_user.phone %><br>
-    <%= current_user.email %><br>
-    <br/>
+<div class = "user_profile_container">
+    <div class="regular">
+        <%= current_user.address_line_1 %>, <%= current_user.address_line_2 %><br>
+        <%= current_user.city %>,
+        <%= current_user.province %><br>
+        <%= current_user.country %><br>
+        <%= current_user.zip %><br>
+        <%= current_user.phone %><br>
+        <%= current_user.email %><br>
+        <br/>
 
-    <td><%= image_tag current_user.photo.thumb if current_user.photo? %></td>
-    <br/>
-    <%= link_to "Edit Profile", edit_user_path(current_user) %>
-    <br/>
-    <%= link_to "Logout", :logout, method: :post %>
+      <td><%= image_tag current_user.photo.thumb if current_user.photo? %></td>
+      <br/>
+      <button class="pure_button"><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
+      <br/>
+      <button class="pure-button"><%= link_to "Logout", :logout, method: :post %></button>
 
-<% if current_user.my_wedding.present? %>
-  <h3>Your Wedding</h3>
-  <%= link_to wedding_path(current_user.my_wedding) do %>
-    <%= current_user.my_wedding.partner_1 %> &#38 <%=current_user.my_wedding.partner_2 %>
-  <% end %>
-<% end %>
-
-<% if current_user.attending_weddings.present? %>
-    <h3>Invitation to Weddings</h3>
-
-    <% current_user.attending_weddings.each do |wedding| %>
-      <%= link_to wedding_path(wedding) do %>
-          <div>
-            <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
-          </div>
-      <% end %>
+  <% if current_user.my_wedding.present? %>
+    <h3>Your Wedding</h3>
+    <%= link_to wedding_path(current_user.my_wedding) do %>
+      <%= current_user.my_wedding.partner_1 %> &#38 <%=current_user.my_wedding.partner_2 %>
     <% end %>
   <% end %>
-  <p></p>
+
+  <% if current_user.attending_weddings.present? %>
+      <h3>Invitation to Weddings</h3>
+
+      <% current_user.attending_weddings.each do |wedding| %>
+        <%= link_to wedding_path(wedding) do %>
+            <div>
+              <%= wedding.partner_1 %> &#38 <%= wedding.partner_2 %>
+            </div>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+<br/>
   <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
   </div>
 </div>
