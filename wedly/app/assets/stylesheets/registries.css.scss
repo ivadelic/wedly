@@ -1,3 +1,27 @@
 // Place all the styles related to the registries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.registry_image_container{
+  text-align: center;
+  .hudson_bay{
+    height: 200px;
+    width: 200px;
+    box-shadow: 1px 1px 1px #888888;
+  }
+}
+
+.all_registries {
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 1px 1px 1px #888888;
+   background-color: #e6e6e6;
+   text-align: center;
+   padding-bottom: 10px;
+   padding-top: 10px;
+}
+
+.create_registry {
+font-family: 'Raleway', sans-serif;
+text-align: center;
+padding-bottom: 30px;
+}
