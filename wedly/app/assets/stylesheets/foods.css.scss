@@ -12,39 +12,82 @@
 }
 
 // span:nth-child(2n+1)
-.foods_menu  {
-  // background-color: yellow;
-  margin: 0 auto;
-  display: table;
-  box-shadow: 1px 1px 1px #888888;
-  text-align: center;
-  padding: 60px 60px 60px 60px;
-
-  #foods_choice_number {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    background: #fff;
-    border: 2px solid black;
-    color: #666 black;
-    text-align: center;
-    margin-left: 25px;
-    font-family: 'Homemade Apple', cursive;
-  }
-}
 
 .foods_cursive{
   font-family: 'Homemade Apple', cursive;
 }
 
-.foods_form_container{
-  margin: 0 auto;
-  display: table;
+//Full container
+.foods-form-container{
+  // border: 2px blue;
+}
+
+
+
+.foods_form1{
+  margin-left: 50%;
   text-align: center;
-  // float: center;
+  padding-bottom: 10px;
+  font-family: 'Raleway', sans-serif;
+  display: table;
   box-shadow: 1px 1px 1px #888888;
   background-color:#e6e6e6;
   padding: 10px 10px 10px 10px;
+  height: 250px;
+  width: 250px;
+  // margin: 0 auto;
+}
+  // .foods_container1 {
+  //   padding-bottom: 10px;
+  //   text-align: center;
+  //   margin-left: 10%;
+  //   height: 250px;
+  //   width: 250px;
+  // }
+.foods_form2{
+  margin-left: 50%;
+  display: table;
+  box-shadow: 1px 1px 1px #888888;
+  background-color:#e6e6e6;
+  padding: 10px 10px 10px 10px;
+}
+.foods_container2 {
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: 'Raleway', sans-serif;
+  padding-bottom: 10px;
+  text-align: center;
+  padding-top: 10px;
+  // margin-left: 50%;
+  // margin-top: -280px;
+  // height: 250px;
+  // width: 250px;
+}
+
+
+// Chosen Menu
+.foods_menu  {
+  margin-right: 40%;
+  margin-top: -660px;
+  display: block;
+  // box-shadow: 1px 1px 1px #888888;
+  border: black;
+  text-align: center;
+  // width: 400px;
+  // height: 800px;
+  padding: 10px 10px 10px 10px;
+
+  // #foods_choice_number {
+  //   border-radius: 50%;
+  //   width: 36px;
+  //   height: 36px;
+  //   background: #fff;
+  //   border: 2px solid black;
+  //   color: #666 black;
+  //   text-align: center;
+  //   // margin-left: 100px;
+  //   font-family: 'Homemade Apple', cursive;
+  // }
 }
 
 //Edit form
