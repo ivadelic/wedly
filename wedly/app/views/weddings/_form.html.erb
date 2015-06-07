@@ -1,25 +1,28 @@
-
 <%= form_for @wedding do |f| %>
 
   <%= @wedding.errors.full_messages.first if @wedding.errors.any? %>
 
-
+<div id= "new_wedding_form" class="regular-font">
   <div class="field">
     <%= f.label 'Your Full Name' %>:
+    <br/>
     <%= f.text_field :partner_1, :value => current_user.first_name + " " + current_user.last_name %>
   </div>
 
   <div class="field">
     <%= f.label 'Partner Full Name' %>:
+    <br/>
     <%= f.text_field :partner_2 %>
   </div>
 
   <div class="field">
     <p>If you would like your partner to also become an administrator to the wedding, please enter partner email address.</p>
     <%= f.label :partner_email %>:
+    <br/>
     <%= f.email_field :partner_email %>
   </div>
-
+  <br/>
   <%= f.submit %>
 
 <% end %>
+</div>

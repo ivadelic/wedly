@@ -11,6 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150606164308) do
+
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -69,6 +71,11 @@
     t.string   "last_name"
     t.integer  "user_id"
     t.integer  "wedding_id"
+  end
+
+  create_table "guests_containers", force: :cascade do |t|
+    t.integer "guest_id"
+    t.integer "container_id"
   end
 
   create_table "invitations", force: :cascade do |t|
