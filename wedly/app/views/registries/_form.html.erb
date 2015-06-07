@@ -1,16 +1,20 @@
-<%= form_for([@wedding, @registry]) do |f| %>
-  <%= f.hidden_field :wedding_id, value: @wedding.id %>
-    <div class="field">
-      <%= f.label "Store:" %>
-      <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
+<div class = "all_registries">
+  <%= form_for([@wedding, @registry]) do |f| %>
+    <%= f.hidden_field :wedding_id, value: @wedding.id %>
+      <div class="field">
+        <%= f.label "Store:" %>
+        <br/>
+        <%= f.select(:store, options_for_select([["Hudson Bay", "Hudson Bay"], ["Bath & Beyond", "Bath & Beyond"], ["Crate & Barrel", "Crate & Barrel"], ["Pottery Barn", "Pottery Barn"], ["Willams-Sonoma", "Willams-Sonoma"], ["Pottery Barn", "Pottery Barn"], ["Other", "Other"]]))%>
+      </div>
+      <br/>
+      <div class= "field">
+        <%= f.label "Link to Registry:" %>
+        <br/>
+        <%= f.text_field :link_to_registry %>
+      </div>
+    <br/>
+     <div class="actions">
+      <%= f.submit %>
     </div>
-
-    <div class= "field">
-      <%= f.label "Link to Registry:" %>
-      <%= f.text_field :link_to_registry %>
-    </div>
-  <br/>
-   <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+</div>

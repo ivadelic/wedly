@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
 
  // @import "bourbon";
@@ -28,14 +28,15 @@
 *{
    text-decoration: none;
 }
+
 h1, h2, h3 {
   font-family: 'Homemade Apple', cursive;
   text-decoration: none;
 }
 
-.regular  {
-  font-family: 'Open Sans Condensed', sans-serif;
-}
+// .regular  {
+//   font-family: 'Open Sans Condensed', sans-serif;
+// }
 
 
 #map-canvas {
@@ -51,8 +52,6 @@ h1, h2, h3 {
   list-style: none;
   position: relative;
   float: left;
-  margin: 0;
-  padding:0;
   width: 100%;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   position: fixed;
@@ -61,7 +60,7 @@ h1, h2, h3 {
   right: 0;
   z-index: 1;
   height: 60px;
-  background-color:#FFFFFF;
+  background-color:#CAFFFF;
 }
 
   .menu {
@@ -90,6 +89,7 @@ h1, h2, h3 {
     position: relative;
     font-size: 15px;
     margin-top: 4px;
+    padding-left: 27px;
   }
 
   .menu > ul > li {
@@ -100,27 +100,32 @@ h1, h2, h3 {
     padding: 0px 0px 0px 0px;
     margin-top: 5px;
     margin-right: 10px;
-    color: #FCFCFC;
   }
 
 //Drop-down Menu
-
+//background color
 nav ul ul {
-  background-color: #FFFFFF;
+  background-color: #CAFFFF;
+  // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  padding-left: auto;
 }
 
 nav ul ul li {
   padding:10px 30px;
   display:none;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
 }
 
 nav ul ul:hover > li {
-  padding:10px 30px;
+  // padding:10px 30px;
   display:block;
-  background-color: #FCFCFC;
-  position: center;
+  background-color: #E4FFFF;
+  // position: center;
+  // padding-left: 10px;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+}
+
+a:hover {
+  color: #E6B8B8;
 }
 
 // Profile Pictures and Names
@@ -140,8 +145,4 @@ nav ul ul:hover > li {
   margin-right: 20px;
   color: #030303;
   font-size: 15px;
-}
-
-.letter {
-
 }

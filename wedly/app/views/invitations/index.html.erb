@@ -1,16 +1,19 @@
-<h1>Invitation List</h1>
-<%= form_for([@wedding, Invitation.new]) do |f| %>
-  <div class="field">
-    <%= f.label :recipient_email %><br/>
-    <%= f.text_field :recipient_email %>
-  </div>
-  <div class="action">
-    <%= f.submit 'Invite' %>
-  </div>
-<% end %>
+<div class= "invitation-container">
+  <h1>Invitation List</h1>
+  <p >Add an email and bring the people you like to your wedding.</p>
+  <%= form_for([@wedding, Invitation.new]) do |f| %>
+    <div class="field">
+      <%= f.label :recipient_email %><br/>
+      <%= f.text_field :recipient_email %>
+    </div>
+    <div class="action">
+      <%= f.submit 'Invite' %>
+    </div>
+  <% end %>
 
-<% @invitations.each do |invitation| %>
-<p>
-  <%= invitation.recipient_email %>
-</p>
-<% end %>
+  <% @invitations.each do |invitation| %>
+  <p>
+    <%= invitation.recipient_email %>
+  </p>
+  <% end %>
+</div>

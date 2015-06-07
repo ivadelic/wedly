@@ -13,6 +13,9 @@ class Wedding < ActiveRecord::Base
   mount_uploader :social_cover_photo, PhotosUploader
   mount_uploader :social_partner2_photo, PhotosUploader
   mount_uploader :social_partner1_photo, PhotosUploader
+  mount_uploader :photo_collection_1, PhotosUploader
+  mount_uploader :photo_collection_2, PhotosUploader
+  mount_uploader :photo_collection_3, PhotosUploader
   # has_many :attendee_users, through: :invitations, class_name: "User"
 
   accepts_nested_attributes_for :containers, :reject_if => :all_blank, :allow_destroy => true

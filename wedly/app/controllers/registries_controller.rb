@@ -19,7 +19,7 @@ class RegistriesController < ApplicationController
   def create
     @registry = Registry.new(registry_params)
     #@registry = @wedding.registries.build(events_params)
-    #@wedding = wedding_id
+    @wedding = Wedding.find(params[:wedding_id])
     @registry = Registry.new(registry_params)
     if @registry.save
       flash[:notice] = "Registry added"
@@ -36,6 +36,7 @@ class RegistriesController < ApplicationController
     else
       render :edit
     end
+    @registry.save
   end
 
   def destroy

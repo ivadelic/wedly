@@ -26,7 +26,7 @@
   <nav class="menu">
     <ul class="clearfix">
       <% if current_user%>
-      <li><a href="#"><%= link_to "WebWed", weddings_path, {:class => "header_text"}%></a></li>
+      <li><a href="#"><%= link_to "WedWeb", weddings_path, {:class => "header_text"}%></a></li>
         <% if current_user.my_wedding.present? %>
         <ul><a href="#" class="drop_down"><%= link_to "Your Wedding", wedding_path(current_user.my_wedding)%></a></li>
 <!-- Sub menu for "Your Wedding" -->
@@ -47,7 +47,7 @@
       <a href= "<%= users_path %>">
        <img class= "profile_photo" src= '<%= current_user.photo.thumb %>'>
         <p class = "profile_name">
-          <%= current_user.first_name %>
+          <a><%= current_user.first_name %></a>
         </p>
       </a>
 

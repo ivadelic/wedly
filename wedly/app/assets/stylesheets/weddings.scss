@@ -7,6 +7,10 @@ h1 {
   text-align: center;
 }
 
+.catch {
+  text-align: center;
+}
+
 .regular  {
   font-family: 'Raleway', sans-serif;
 }
@@ -22,13 +26,23 @@ h1 {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   position: relative;
-  border: 2px black;
+  // border: 2px black;
   margin-top: -130px;
 }
 
 #partner {
   margin-top: 240px;
   text-align: center;
+}
+
+.note_container {
+  background-color: #EBFFFF;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .social_cover_photo{
@@ -52,45 +66,42 @@ h1 {
   z-index: -1;
 }
 
+#comment_photo {
+  height: 25px;
+  width: 25px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
 // Names and Form
 .engaged_names{
   text-align: center;
-//   position: relative;
-//   // background-color: white;
-//   // width: 100%;
-//   // display: block;
-//   // box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-//   // padding: 10px 10px 10px 10px;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   padding-left:10px;
-//   padding-right: 10px;
-//   margin-bottom: 40px;
-//   text-align: center;
-//   margin-top: -100px;
-//   position: relative;
-//   background-color: white;
-//   width: 100%;
-//   display: block;
-//   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
-// .engaged_form{
-//   position: relative;
-//   background-color: white;
-//   width: 100%;
-//   display: block;
-//   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-//   padding: 10px 10px 10px 10px;
-//   margin-bottom: 40px;
-// }
+
+.engaged_form{
+  margin: 0 auto;
+  background-color:  #EBFFFF;
+  padding-top:10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .4);
+  height: 240px;
+  width: 383px;
+  text-align: center;
+}
 
 // Notes for the social page
 #social_comments {
   font-family: 'Homemade Apple', cursive;
 }
-.comment_title{
-  text-decoration: underline;
+
+.text_area_note {
+  text-align: center;
 }
+
+// .social_form_container{
+//   margin-top: 300px;
+// }
 
 // .social_notes{
 //   position: relative;
@@ -105,13 +116,6 @@ h1 {
 //   margin: 10px 10px 10px 10px;
 // }
 
-// .social_note_form {
-//   position: relative;
-//   background-color: white;
-//   width: 100%;
-//   display: block;
-//   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-// }
 
 // The whole container
 // .container_social {
@@ -142,7 +146,8 @@ h1 {
 
 // All writing
 .social_page_form_and_writing {
-  background-color: white;
+  background-color: #e6e6e6;
+  height: 100%;
   z-index: 2;
   // height: 1000px;
   margin-top: -27px;
@@ -170,4 +175,52 @@ h1 {
   // right: 0;
   // top: 0;
   // background: bottom left repeat-x;
+}
+
+//Column 1 and 2
+.column_1_content{
+  float: left;
+  display: block;
+  // margin: 0;
+  // padding: 0;
+  // border: 0;
+  // outline: 0;
+  width: 48%;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  padding-bottom: 10px;
+}
+
+.column_2_content{
+  float: right;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  width: 48%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.column_container {
+  width: 100%;
+}
+
+// Added photos
+.collection{
+  height: 230px;
+  width: 330px;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: black;
+}
+
+.collection_container {
 }

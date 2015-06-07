@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603190153) do
-
   create_table "comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "note"
     t.integer  "wedding_id"
     t.integer  "user_id"
+    t.string   "music_choice"
   end
 
   create_table "containers", force: :cascade do |t|
@@ -72,11 +71,6 @@ ActiveRecord::Schema.define(version: 20150603190153) do
     t.integer  "wedding_id"
   end
 
-  create_table "guests_containers", force: :cascade do |t|
-    t.integer "guest_id"
-    t.integer "container_id"
-  end
-
   create_table "invitations", force: :cascade do |t|
     t.integer  "wedding_id"
     t.string   "recipient_email", null: false
@@ -125,6 +119,21 @@ ActiveRecord::Schema.define(version: 20150603190153) do
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+
   create_table "weddings", force: :cascade do |t|
     t.string   "partner_1"
     t.string   "partner_2"
@@ -136,6 +145,9 @@ ActiveRecord::Schema.define(version: 20150603190153) do
     t.string   "social_partner1_photo"
     t.string   "social_partner2_photo"
     t.string   "social_cover_photo"
+    t.string   "photo_collection_1"
+    t.string   "photo_collection_2"
+    t.string   "photo_collection_3"
   end
 
 end

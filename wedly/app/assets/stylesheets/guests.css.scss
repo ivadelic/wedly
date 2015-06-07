@@ -2,12 +2,194 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table, th, td {
-  border: 1px solid black;
+// table, th, td {
+//   border: 1px solid black;
+// }
+// table {
+//   border-collapse: collapse;
+// }
+
+h2 {
+  text-align: center;
 }
+
+.table_names {
+  font-family: 'Raleway', sans-serif;
+}
+
+.pure_button {
+  margin-left: 10px;
+}
+
+.guest_numbers {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: 1px 1px 1px #888888;
+  padding-bottom: 10px;
+}
+
 table {
-  border-collapse: collapse;
+  margin:0px;padding:0px;
+  width:100%;
+  // box-shadow: 1px 1px 1px #888888;
+  // border:1px solid #000000;
+
+  -moz-border-radius-bottomleft:0px;
+  -webkit-border-bottom-left-radius:0px;
+  border-bottom-left-radius:0px;
+
+  -moz-border-radius-bottomright:0px;
+  -webkit-border-bottom-right-radius:0px;
+  border-bottom-right-radius:0px;
+
+  -moz-border-radius-topright:0px;
+  -webkit-border-top-right-radius:0px;
+  border-top-right-radius:0px;
+
+  -moz-border-radius-topleft:0px;
+  -webkit-border-top-left-radius:0px;
+  border-top-left-radius:0px;
+
 }
-#guest_heading {
-  margin-top: 75px;
+
+.guest_list table {
+  border-collapse: collapse;
+// <<<<<<< HEAD
+// }
+// #guest_heading {
+//   margin-top: 75px;
+// }
+// =======
+  border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}
+
+.guest_list tr:last-child td:last-child {
+  -moz-border-radius-bottomright:0px;
+  -webkit-border-bottom-right-radius:0px;
+  border-bottom-right-radius:0px;
+}
+
+.guest_list table tr:first-child td:first-child {
+  -moz-border-radius-topleft:0px;
+  -webkit-border-top-left-radius:0px;
+  border-top-left-radius:0px;
+}
+
+.guest_list table tr:first-child td:last-child {
+  -moz-border-radius-topright:0px;
+  -webkit-border-top-right-radius:0px;
+  border-top-right-radius:0px;
+}
+
+.guest_list tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:0px;
+  -webkit-border-bottom-left-radius:0px;
+  border-bottom-left-radius:0px;
+}
+
+
+.guest_list tr:nth-child(odd){
+  background-color:#e5e5e5;
+}
+
+.guest_list tr:nth-child(even){
+  background-color:#ffffff;
+}
+
+// The list
+.guest_list td{
+  vertical-align:middle;
+  // border:1px solid #000000;
+  // border-width:0px 1px 1px 0px;
+  text-align:left;
+  padding:7px;
+  font-size:15px;
+  font-weight:normal;
+  color:#000000;
+   font-family: 'Homemade Apple', cursive;
+}
+
+.guest_listr tr:last-child td{
+  // border-width:0px 1px 0px 0px;
+
+}
+
+.guest_list tr td:last-child{
+  border-width:0px 0px 1px 0px;
+}
+
+.guest_list tr:last-child td:last-child{
+  border-width:0px 0px 0px 0px;
+}
+
+.guest_list tr:first-child td{
+    background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+  background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");  background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+  background-color:#cccccc;
+  // border:0px solid #000000;
+  text-align:center;
+  border-width:0px 0px 1px 1px;
+  // font-size:1000px;
+  // font-family:Arial;
+  font-weight:bold;
+  color:#000000;
+}
+
+.guest_list tr:first-child:hover td{
+  background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+  background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");  background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+  background-color:#cccccc;
+}
+.guest_list tr:first-child td:first-child{
+  border-width:0px 0px 1px 0px;
+}
+
+// Guest Edit Page
+
+.guest_edit_container1 {
+  background-color:#ffffff;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  padding-top: 10px;
+}
+.guest_edit_container2 {
+  background-color: #e6e6e6;
+
+  z-index: 2;
+  // height: 1000px;
+  // margin-top: -27px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  // min-height: 851px;
+  // min-width: 315px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 500px;
+  padding-top: 10px;
+  margin-left: -10px;
+  // height: 100%;
+  width:100%;
+  // box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  // -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  // -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  // height: auto;
+  // // margin-right: -20px;
+  // position: absolute;
+  // overflow: scroll;
+  // // display: block;
+
+  // right: 0;
+  // top: 0;
+  // background: bottom left repeat-x;
 }
