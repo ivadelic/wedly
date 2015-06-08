@@ -1,18 +1,22 @@
 <h1>Event <%= @event.name %></h1>
 
-  <h4>Description: <%= @event.description %></h4>
-  <h4>Date: <%= @event.date.strftime("%A, %B %e, %Y ") %></h4>
-  <h5>Time: <%= @event.start_time.strftime("%I :%M %p ") %> - <%= @event.end_time.strftime("%I :%M %p ") %></h5>
-  Address:
-    <%= @event.address_line_1 %>, <%= @event.address_line_2 %><br>
-     <%= @event.city %><br>
-     <%= @event.zip %><br>
-     <%= @event.country %>
-<p>
+<div class="event_sing">
+    <h4><%= @event.description %></h4>on<br/>
+    <h4><%= @event.date.strftime("%A, %B %e, %Y ") %></h4>at<br/>
+    <h5><%= @event.start_time.strftime("%I :%M %p ") %> to <%= @event.end_time.strftime("%I :%M %p ") %></h5>
+      <%= @event.address_line_1 %>, <%= @event.address_line_2 %><br>
+       <%= @event.city %><br>
+       <%= @event.zip %><br>
+       <%= @event.country %>
+  <p>
 
-<% if current_user == @wedding.user %>
-  <%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
-<% end %>
+  <% if current_user == @wedding.user %>
+    <div id = "b" >
+      <%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
+    </div>
+  <% end %>
+</div>
+<br/>
 
 <div id="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
 </div>
