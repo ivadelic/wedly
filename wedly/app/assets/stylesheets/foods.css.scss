@@ -87,17 +87,17 @@
   display: block;
   width: 48%;
 
-  // #foods_choice_number {
-  //   border-radius: 50%;
-  //   width: 36px;
-  //   height: 36px;
-  //   background: #fff;
-  //   border: 2px solid black;
-  //   color: #666 black;
-  //   text-align: center;
-  //   // margin-left: 100px;
-  //   font-family: 'Homemade Apple', cursive;
-  // }
+  .foods_menu #foods_choice_number:last-child {
+    border-radius: 50%;
+    width: 36px;
+    // height: 36px;
+    background: #fff;
+    border: 2px solid black;
+    color: #666 black;
+    text-align: center;
+     // width: 48%;
+    font-family: 'Homemade Apple', cursive;
+  }
 }
 
 //Edit form
@@ -108,7 +108,7 @@
   height: 100%;
   width: 100%;
   z-index: -2;
-  padding-top: 10px;
+  padding: 10px 10px 10px 10px;
   font-family: Raleway;
   text-align: center;
   box-shadow: 1px 1px 1px #888888;

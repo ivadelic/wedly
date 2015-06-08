@@ -1,23 +1,33 @@
 <h1><strong>Welcome to WedWeb!!</strong></h1>
+<div class="index">
+  <h2 class="catch">We are your personal all-in-one wedding planner!</h2>
+  <div class="regular">
+      <ul class = "index_list">
+        <p id= "how_to_wed">Create your wedding. Add your partner's email so they can see all the features.</p>
+          <%= image_tag('User-Add-256.png', :size => '75x75', :alt => "user_add", class: "icons") %>
+        <p id= "how_to_wed">Invite your guests with our easy-to-use emailer. They will recieve a link and key to your wedding's website. Here they can create a profile to see your registry, all your events, chose from your menu and specify their dietary preferences making origanizing guest charts a breeze!</p>
 
-<h2 class="catch">We are your personal all-in-one wedding planner!</h2>
-<div class="regular">
-  <h4>Our features include: </h4>
-    <ul>
-      <li>Create your wedding. Add your partner's email so they can see all the features.</li>
-      <li>Invite your guests with our easy-to-use emailer. They will recieve a link and key to your wedding's website. Here they can create a profile to see your registry, all your events, chose from your menu and specify their dietary preferences making origanizing guest charts a breeze!</li>
-      <li>Post a wedding social page for your loved ones to see, share, and comment on.</li>
-      <li>Link and share your gift registry --- so you don't end up with four of the same toasters!</li>
-      <li>Create events like Ceremony, Reception, Engagement Party etc on one page, so your guests arrive at the right place at the right time.</li>
-      <li>Guests can also create a profile, enter in their information, and see maps for their routes to get to your events</li>
-      <li>Create a seating chart using your guest list and print off seating and plate choices for all your vendores</li>
-    </ul>
+          <%= image_tag('Mailbox-256.png', :size => '75x75', :alt => "mailbox") %>
 
-  <div id="weddings">
-    <h2>Wedding Directory:</h2>
-    <%= render :partial => 'wedding' %>
+        <p id= "how_to_wed"> Post a wedding social page for your loved ones to see, share, and comment on.</p>
+          <%= image_tag('User-Group-256.png', :size => '75x75', :alt => "mailbox") %>
+        <p id= "how_to_wed">Link and share your gift registry --- so you don't end up with four of the same toasters!</p>
+          <%= image_tag('Gift-128.png', :size => '75x75', :alt => "mailbox") %>
+        <p id= "how_to_wed">Create events like Ceremony, Reception, Engagement Party etc on one page, so your guests arrive at the right place at the right time.</p>
+          <%= image_tag('Beverage-Wine-256.png', :size => '75x75', :alt => "mailbox") %>
+        <p id= "how_to_wed">Guests can also create a profile, enter in their information, and see maps for their routes to get to your events</p>
+        <%= image_tag('Map-Location-256.png', :size => '75x75', :alt => "mailbox") %>
+        <p id= "how_to_wed">Post all of your menu options so that your guest can choose the fish over the chicken!</p>
+        <%= image_tag('Cutlery-Fork-Knife-256.png', :size => '75x75', :alt => "mailbox") %>
+        <p id= "how_to_wed">Create a seating chart using your guest list and print off seating and plate choices for all your vendors</p>
+        <%= image_tag('Director-256.png', :size => '75x75', :alt => "mailbox") %>
+      </ul>
+
+    <div id="weddings">
+      <h2>Wedding Directory:</h2>
+      <%= render :partial => 'wedding' %>
+    </div>
   </div>
 </div>
-
 
 

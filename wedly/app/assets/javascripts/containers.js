@@ -4,5 +4,5 @@ $(document).ready(function() {
       drop: function() {
         alert( "dropped" );
         }
-      })
+      });
   })

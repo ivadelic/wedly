@@ -1,7 +1,7 @@
 <h1>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
 
 <h2>Create a new Event</h2>
-
+<div class= "events_form" class="regular">
 <% if current_user == @wedding.user %>
 
   <div id="events">
@@ -16,27 +16,32 @@
     <% end %>
 
     <div class= "field">
-      <%= f.label :name %>
+      <%= f.label :name %>:
+      <br/>
       <%= f.text_field :name %>
     </div>
     <div class= "field">
-      <%= f.label :description %>
+      <%= f.label :description %>:
+      <br/>
       <%= f.text_area :description %>
     </div>
     <div class= "field">
-      <%= f.label :date %>
+      <%= f.label :date %>:
+      <br/>
       <%= f.date_select :date %>
     </div>
      <div class= "field">
-        <%= f.label :start_time %>
+        <%= f.label :start_time %>:
+        <br/>
         <%= f.time_field :start_time,
           :combined => true,
           :default => Time.now,
           :minute_interval => 30,
           :time_seperator => "",
           :ampm =>true
-          %>to
+          %><br/>to
         <%= f.label :end_time %>
+          <br/>
         <%= f.time_field :end_time,
           :combined => true,
           :default => Time.now,
@@ -47,35 +52,43 @@
       </div>
     <div class= "field">
       <%= f.label :address_line_1 %>
+      <br/>
       <%= f.text_field :address_line_1 %>
     </div>
     <div class= "field">
       <%= f.label :address_line_2 %>
+      <br/>
       <%= f.text_field :address_line_2 %>
     </div>
     <div class= "field">
       <%= f.label :city %>
+      <br/>
       <%= f.text_field :city %>
     </div>
     <div class= "field">
       <%= f.label :province %>
+      <br/>
       <%= f.text_field :province %>
     </div>
     <div class= "field">
-      <%= f.label :country %>
+      <%= f.label :country %><br/>
       <%= f.text_field :country %>
     </div>
     <div class= "field">
-      <%= f.label :zip %>
+      <%= f.label :zip %><br/>
       <%= f.text_field :zip %>
     </div>
-    <div class= "submit-button">
+    <div class= "submit-button"><br/>
       <%= f.submit %>
     </div>
     <% end %>
   </div>
+</div>
 <% end %>
 
-<div class="event" id="Events">
-  <%= render @wedding.events %>
+<p class = "events_form"> Click on the event name to see details including a map!</p>
+<div class="all_events">
+  <div class="event" id="Events">
+    <%= render @wedding.events %>
+  </div>
 </div>

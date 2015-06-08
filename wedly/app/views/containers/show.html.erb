@@ -3,7 +3,7 @@
   <div id="table_listOfItems">
     <div>
       <p>Guests</p>
-      <% @guests.each do |guest| %>
+      <% @guests.all.each do |guest| %>
         <div id="draggable" class="ui-widget-content">
           <%= guest.first_name %> <%= guest.last_name %>
         </div>
@@ -14,7 +14,7 @@
 
   <div id="table_mainContainer">
 
-      <% @containers.each do |container| %>
+      <% @containers.all.each do |container| %>
         <div id="droppable" class="ui-widget-header">
           <p><%= container.name %><p>
             <ul id="<%= container.name %>">
