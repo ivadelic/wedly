@@ -2,18 +2,20 @@
   <h3 class="event_name"><%= link_to "#{event.name}", wedding_event_path(event.wedding, event) %></h3>
   <div class = "event_sing">
     <p id= "b">Description</p>
-    <p><%= event.description %></p>
+    <p id = "a"><%= event.description %></p>
 
-    <h4>Date: <%= event.date.strftime("%A, %B %e, %Y ") %></h4>
-    <h5>Time: <%= event.start_time.strftime("%I :%M %p ") %> - <%= event.end_time.strftime("%I :%M %p ") %></h5>
-    <strong>Address:</strong><br>
-     <%= event.address_line_1 %><br>
+    <p>Date</p>
+     <p id = "a"><%= event.date.strftime("%A, %B %e, %Y ") %></p>
+    <h5>Time</h5>
+    <p id = "a"> <%= event.start_time.strftime("%I :%M %p ") %> - <%= event.end_time.strftime("%I :%M %p ") %></p>
+    <strong>Address</strong><br>
+    <p id = "b"> <%= event.address_line_1 %><br>
      <% if event.address_line_2.length > 0 %>
       <%= event.address_line_2 %><br>
      <% end %>
      <%= event.city %><br>
      <%= event.zip %><br>
-     <%= event.country %>
+     <%= event.country %></p>
 
     <% if current_user.my_wedding.present? %>
       <p>
