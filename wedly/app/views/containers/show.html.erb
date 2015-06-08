@@ -1,27 +1,37 @@
-<div id="table_dragDropContainer">
+<div id="maincontainer">
+    <div id="navtoplistline">&nbsp;</div>
+    <div id="contentwrapper">
+        <div id="maincolumn">
+            <div class="text">
+                <hr />
+                <div class="listBlock">
+                     <h2>Guests</h2>
 
-  <div id="table_listOfItems">
-    <div>
-      <p>Guests</p>
-      <% @guests.each do |guest| %>
-        <div id="draggable" class="ui-widget-content">
-          <%= guest.first_name %> <%= guest.last_name %>
+                    <ul id="sortable1" class='droptrue'>
+                      <% @guests.each do |guest| %>
+                        <li id="<%= guest.id %>">
+                          <%= guest.first_name %> <%= guest.last_name %></li>
+                          <% end %>
+                    </ul>
+                </div>
+
+                <% @containers.each do |container| %>
+                  <div class="listBlock">
+                    <h2><%= container.name %></h2>
+                    <ul id="sortable2" class='droptrue'>
+                    </ul>
+                    <br clear="both" />
+                <% end %>
+              </div>
+
+                <p>Which articles, in which order?:
+                    <br />
+                    <input type="text" id="postOrder" name="postOrder" value="" size="30" />
+                </p>
+            </div>
         </div>
-      <% end %>
     </div>
-
-  </div>
-
-  <div id="table_mainContainer">
-
-      <% @containers.each do |container| %>
-        <div id="droppable" class="ui-widget-header">
-          <p><%= container.name %><p>
-            <ul id="<%= container.name %>">
-            </ul>
-        </div>
-     <% end %>
-    </div>
-
 </div>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
