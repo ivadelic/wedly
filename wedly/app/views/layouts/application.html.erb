@@ -53,9 +53,9 @@
 
 <!-- Nav bar for Un-Registered Viewer -->
     <% else %>
+      <li><a href="#"><%= link_to "WedWeb", "/weddings" %></a> </li>
+      <li><a href="#"><%= link_to "Create Your Wedding!", :login %></a></li>
       <li><a href="#"><%= link_to "Register", new_user_path %></a></li>
-      <li><a href="#"><%= link_to "Create Your Wedding!", "/weddings/new" %></a></li>
-      <li><a href="#"><%= link_to "Join A Wedding", "/weddings" %></a> </li>
       <li><a href="#"><%= link_to "Login", :login %></a></li>
   <% end %>
 </div>

@@ -1,20 +1,25 @@
 <div class= "invitation-container">
-<p class="regular_font">You have invited "<%= @invitations.size %>"</p> wedd
   <h1>Invitation List</h1>
-  <p >Add an email and bring the people you like to your wedding.</p>
-  <%= form_for([@wedding, Invitation.new]) do |f| %>
-    <div class="field">
-      <%= f.label :recipient_email %><br/>
-      <%= f.text_field :recipient_email %>
-    </div>
-    <div class="action">
-      <%= f.submit 'Invite' %>
-    </div>
-  <% end %>
+  <div class="envelope_container">
+    <%= image_tag 'Mail-01-256.png', size: "100x100", position: "block"%>
+  </div>
+  <div class="invitation_form">
+    <p class="regular_font">You have invited <%= @invitations.size %> guest(s)</p>
+    <p class="invite_ex">Invite your friends and family from all over the world to your wedding using our easy to use emailer. Guests will be able to see your social page, events, the menu, and the registry you've created for your happy day.</p>
+    <%= form_for([@wedding, Invitation.new]) do |f| %>
+      <div class="field">
+        <%= f.label :recipient_email %><br/>
+        <%= f.text_field :recipient_email %>
+      </div>
+      <div class="action">
+        <%= f.submit 'Invite' %>
+      </div>
+    <% end %>
 
-  <% @invitations.each do |invitation| %>
-  <p>
-    <%= invitation.recipient_email %>
-  </p>
-  <% end %>
+    <% @invitations.each do |invitation| %>
+    <p>
+      <%= invitation.recipient_email %>
+    </p>
+    <% end %>
+  </div>
 </div>
