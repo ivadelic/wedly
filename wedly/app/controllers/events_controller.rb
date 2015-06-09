@@ -1,5 +1,3 @@
-
-
 class EventsController < ApplicationController
   before_filter :load_wedding
 

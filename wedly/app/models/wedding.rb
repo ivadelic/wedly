@@ -9,6 +9,8 @@ class Wedding < ActiveRecord::Base
   has_many :guests
   has_many :registries
   has_many :foods
+  has_many :playlists
+  has_many :songs, through: :playlists
 
   mount_uploader :social_cover_photo, PhotosUploader
   mount_uploader :social_partner2_photo, PhotosUploader

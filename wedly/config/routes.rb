@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :guests
     resources :registries
     resources :foods
+    resources :playlists do
+      resources :songs
+    end
     resources :comments, only: [:show, :create, :destroy]
     resources :events do
       resources :containers

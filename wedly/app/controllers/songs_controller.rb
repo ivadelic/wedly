@@ -1,8 +1,8 @@
 class SongsController < ApplicationController
-  before_filter :load_wedding
+  before_filter :load_playlist
 
   def index
-    @songs = song.where(wedding_id: @wedding.id)
+    @songs = Song.where(playlist_id: @playlist.id)
     @song = Song.new
   end
 
@@ -20,20 +20,20 @@ class SongsController < ApplicationController
     if @song.save
       flash[:notice] = "Song added"
     else
-      flash[:notice] = "Song couldn't be added"
+      flash[:notice] = "Song could not be added"
     end
-    redirect_to wedding_songs_path(@wedding, @songs)
+    redirect_to playlist_songs_path(@playlist, @songs)
   end
 
   def edit
-    @song = song.find(params[:id])
+    @song = Song.find(params[:id])
   end
 
   def update
     @song = song.find(params[:id])
 
     if @song.update_attributes(song_params)
-      redirect_to wedding_songs_path(@wedding)
+      redirect_to playlist_songs_path(@playlist)
     else
       render :edit
     ends
@@ -41,9 +41,9 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    @song = song.find(params[:id])
+    @song = Song.find(params[:id])
     @song.destroy
-    redirect_to wedding_songs_path(@wedding, @songs)
+    redirect_to playlist_songs_path(@playlist, @songs)
   end
 
 
@@ -55,7 +55,7 @@ class SongsController < ApplicationController
       )
   end
 
-  def load_wedding
-    @wedding = Wedding.find(params[:wedding_id])
+  def load_playlist
+    @playlist = Playlist.find(params[:playlist_id])
   end
 end

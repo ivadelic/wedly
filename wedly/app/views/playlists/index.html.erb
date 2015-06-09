@@ -1,0 +1,45 @@
+<h1>Playlist for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
+
+<h2>Create a playlist for your wedding</h2>
+
+<h2>Song List for the Celebration of </h2>
+<h2 class="text_center"><%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
+
+<!-- Table -->
+<table class= "song_list">
+  <tr>
+    <th><h4><strong></strong></h4></th>
+    <th><h4 class= "table_names" ><strong>Song Title </strong></h4></th>
+    <th><h4 class= "table_names"><strong>Artist(s)</strong></h4></th>
+    <th><h4 class= "table_names"><strong>Vote Count </strong></h4></th>
+    <th><h4 class= "table_names"><strong></strong></h4></th>
+  </tr>
+<!-- Field For -->
+    <tr>
+      <td><h4><strong>New</strong></h4></td>
+      <%= form_for([@playlist, Song.new]) do |f| %>
+      <%= f.hidden_field :wedding_id, value: @wedding.id %>
+      <%= f.hidden_field :playlist_id, value: @playlist.id %>
+        <div class= "field">
+          <td><p><%= f.text_field :title %></p></td>
+        </div>
+        <div class= "field">
+          <td><p><%= f.text_field :artist %></p></td>
+        </div>
+        <div class= "field">
+          <td><p><%= f.number_field :votes %></p></td>
+        </div>
+          <td><p><%= f.submit "Add song" %></p></td>
+    </tr>
+  <% end %>
+<!-- The List -->
+  <% @songs.inject(@songs.size) do |num, song| %>
+    <tr>
+      <td><p><%= num %></p></td>
+      <td><p><%= song.title %></p></td>
+      <td><p><%= song.artist %></p></td>
+      <td class = "rsvp check"><p><%= song.votes %></p></td>
+      <% end %>
+    </tr>
+    <% num -= 1 %>
+</table>
