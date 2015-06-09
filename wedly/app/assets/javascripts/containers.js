@@ -44,3 +44,11 @@ function updatePostOrder() {
     });
     $('#postOrder').val(arr.join(','));
 }
+
+  //   $( "#draggable" ).draggable();
+  //   $( "#droppable" ).droppable({
+  //     drop: function() {
+  //       alert( "dropped" );
+  //       }
+  //     });
+

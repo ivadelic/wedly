@@ -1,81 +1,100 @@
-<h1>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
-
-<h2>Create a new Event</h2>
+<br/>
+<br/>
+  <h2>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
+  <%= image_tag('Beverage-Wine-256.png', :size => '75x75', :alt => "mailbox") %>
 
 <% if current_user == @wedding.user %>
+  <h2>Create a new Event</h2>
+  <div class= "events_form" class="regular">
+  <% if current_user == @wedding.user %>
 
-  <div id="events">
-    <%= form_for([@wedding, @event]) do |f| %>
+    <div id="events">
+      <%= form_for([@wedding, @event]) do |f| %>
 
-    <% if @event.errors.any? %>
-      <ul>
-        <% @event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-      </ul>
-    <% end %>
+      <% if @event.errors.any? %>
+        <ul>
+          <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+      <% end %>
 
-    <div class= "field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div class= "field">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
-    <div class= "field">
-      <%= f.label :date %>
-      <%= f.date_select :date %>
-    </div>
-     <div class= "field">
-        <%= f.label :start_time %>
-        <%= f.time_field :start_time,
-          :combined => true,
-          :default => Time.now,
-          :minute_interval => 30,
-          :time_seperator => "",
-          :ampm =>true
-          %>to
-        <%= f.label :end_time %>
-        <%= f.time_field :end_time,
-          :combined => true,
-          :default => Time.now,
-          :minute_interval => 30,
-          :time_seperator => "",
-          :ampm =>true
-         %>
+      <div class= "field">
+        <%= f.label :name %>:
+        <br/>
+        <%= f.text_field :name %>
       </div>
-    <div class= "field">
-      <%= f.label :address_line_1 %>
-      <%= f.text_field :address_line_1 %>
+      <div class= "field">
+        <%= f.label :description %>:
+        <br/>
+        <%= f.text_area :description %>
+      </div>
+      <div class= "field">
+        <%= f.label :date %>:
+        <br/>
+        <%= f.date_select :date %>
+      </div>
+       <div class= "field">
+          <%= f.label :start_time %>:
+          <br/>
+          <%= f.time_field :start_time,
+            :combined => true,
+            :default => Time.now,
+            :minute_interval => 30,
+            :time_seperator => "",
+            :ampm =>true
+            %><br/>to
+          <%= f.label :end_time %>
+            <br/>
+          <%= f.time_field :end_time,
+            :combined => true,
+            :default => Time.now,
+            :minute_interval => 30,
+            :time_seperator => "",
+            :ampm =>true
+           %>
+        </div>
+      <div class= "field">
+        <%= f.label :address_line_1 %>
+        <br/>
+        <%= f.text_field :address_line_1 %>
+      </div>
+      <div class= "field">
+        <%= f.label :address_line_2 %>
+        <br/>
+        <%= f.text_field :address_line_2 %>
+      </div>
+      <div class= "field">
+        <%= f.label :city %>
+        <br/>
+        <%= f.text_field :city %>
+      </div>
+      <div class= "field">
+        <%= f.label :province %>
+        <br/>
+        <%= f.text_field :province %>
+      </div>
+      <div class= "field">
+        <%= f.label :country %><br/>
+        <%= f.text_field :country %>
+      </div>
+      <div class= "field">
+        <%= f.label :zip %><br/>
+        <%= f.text_field :zip %>
+      </div>
+      <div class= "submit-button"><br/>
+        <%= f.submit %>
+      </div>
+      <% end %>
     </div>
-    <div class= "field">
-      <%= f.label :address_line_2 %>
-      <%= f.text_field :address_line_2 %>
-    </div>
-    <div class= "field">
-      <%= f.label :city %>
-      <%= f.text_field :city %>
-    </div>
-    <div class= "field">
-      <%= f.label :province %>
-      <%= f.text_field :province %>
-    </div>
-    <div class= "field">
-      <%= f.label :country %>
-      <%= f.text_field :country %>
-    </div>
-    <div class= "field">
-      <%= f.label :zip %>
-      <%= f.text_field :zip %>
-    </div>
-    <div class= "submit-button">
-      <%= f.submit %>
-    </div>
-    <% end %>
   </div>
+  <% end %>
 <% end %>
 
-<div class="event" id="Events">
-  <%= render @wedding.events %>
+<p class = "events_form"> Click on the event name to see details including a map!<br/><br/>
+<%= image_tag('Map-Location-256.png', :size => '75x75', :alt => "mailbox") %></p>
+<div class="all_events">
+  <div class="event" id="Events">
+    <%= render @wedding.events %>
+  </div>
 </div>

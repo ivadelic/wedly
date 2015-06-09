@@ -1,3 +1,36 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.events_form {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  background-color: #e6e6e6;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  padding: 10px;
+}
+
+.all_events {
+  text-align: center;
+}
+
+.event_sing {
+  font-family: 'Raleway', sans-serif;
+}
+
+.event_name{
+text-decoration: underline;
+}
+
+#a {
+   font-family: 'Homemade Apple', cursive;;
+}
+
+#b {
+   font-family: 'Raleway', sans-serif;
+   text-decoration: underline;
+}
+
+.event_sing {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}

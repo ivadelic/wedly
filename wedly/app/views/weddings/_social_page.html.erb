@@ -10,58 +10,89 @@
 
   <div class="engaged_names">
     <h2> <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2%></h2>
+     <%= image_tag('Wedding-Ring-256.png', :size => '50x50', :alt => "user_add", class: "icons") %>
   <div class= "regular">
     <h4> This is <strong><%= @wedding.partner_1 %> and <%= @wedding.partner_2 %></strong>'s  Pre-Wedding Scrapbook. Share your wishes for them by leaving a comment below.</h4>
   </div>
 </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+</head>
+<body>
 
-<div class ="column_container">
-  <div class = "column_1_content">
-  <!--   <div class= "regular"> -->
-    <div class = "engaged_form">
-    <h3>This is your social page!</h3>
-      <p>
-      Add photos and memories to celebrate your upcoming wedding. Guests can sign-up and see the photos and messages left by other guests.
-      </p>
+<div id="tabs">
+  <ul>
+<% if current_user == @wedding.user %>
+    <li><a class= "tabs"href="#tabs-1">This is your social page!</a></li>
+    <li><a class= "tabs" href="#tabs-2">Add pictures</a></li><% end %>
+
+    <li><a class= "tabs" href="#tabs-3">Guest Navigation</a></li>
+  </ul>
+  <% if current_user == @wedding.user %>
+  <div id="tabs-1">
+        Add photos and memories to celebrate your upcoming wedding. Guests can sign-up and see the photos and messages left by other guests.
+  </div>
+  <div id="tabs-2">
+    <p><%= form_for @wedding, html: {multipart: true} do |f| %>
+          <div class = "regular">
+            <div class= "field">
+              <label for="partner" class="social_partner1"> Picture for Partner 1</label>
+                  <%= f.file_field :social_partner1_photo %>
+              </div>
+              <label for="partner" class="social_partner2"> Picture for Partner 2</label>
+              <%= f.file_field :social_partner2_photo %>
+              <br/>
+              <label for="cover_photo" class="social_partner2">Cover Photo</label>
+                <%= f.file_field :social_cover_photo %>
+              <br/>
+              <label for="photo_collection_1" class="photo_collection">Photo Collection 1/3</label>
+              <%= f.file_field :photo_collection_1 %>
+              <br/>
+              <label for="photo_collection_2" class="photo_collection">Photo Collection 2/3</label>
+              <%= f.file_field :photo_collection_2 %>
+              <br/>
+              <label for="photo_collection_3" class="photo_collection">Photo Collection 3/3</label>
+              <%= f.file_field :photo_collection_3 %>
+              <br/>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
     </div>
   </div>
+  <% end %>
+  <div id="tabs-3">
+        <li id="links"><a href="#"><%= link_to "Social Page", wedding_path%></a></li>
+        <li id="links"><a href="#"><%= link_to "Events", "/weddings/#{@wedding.id}/events" %></a></li>
+        <li id="links"><a href="#"><%= link_to "Menu", "/weddings/#{@wedding.id}/foods" %></a></li>
+        <li id="links"><a href="#"><%= link_to "RSVP", "/weddings/#{@wedding.id}/guests" %></a></li>
+        <li id="links"><a href="#"><%= link_to "Registry", "/weddings/#{@wedding.id}/registries" %></a></li>
+  </div>
+</body>
+</html>
+
 
   <div class = "column_2_content">
     <!-- Add Pictures -->
       <div class="engaged_form">
         <% if current_user == @wedding.user %>
-           <%= form_for @wedding, html: {multipart: true} do |f| %>
-          <div class = "regular">
-            <div class= "field">
-            <h3>Add pictures to your Social Page!</h3>
-              <label for="partner" class="social_partner1"> Picture for Partner 1</label>
-                  <%= f.file_field :social_partner1_photo %>
-            </div>
-              <label for="partner" class="social_partner2"> Picture for Partner 2</label>
-                <%= f.file_field :social_partner2_photo %>
-                <br/>
-              <label for="cover_photo" class="social_partner2">Cover Photo</label>
-                  <%= f.file_field :social_cover_photo %>
-                <br/>
-              <label for="photo_collection_1" class="photo_collection">Photo Collection 1/3</label>
-                <%= f.file_field :photo_collection_1 %>
-                <br/>
-                <label for="photo_collection_2" class="photo_collection">Photo Collection 2/3</label>
-                <%= f.file_field :photo_collection_2 %>
-                <br/>
-                <label for="photo_collection_3" class="photo_collection">Photo Collection 3/3</label>
-                <%= f.file_field :photo_collection_3 %>
-                <br/>
 
-              <div class="actions">
-                <%= f.submit %>
-              </div>
-            <% end %>
           <% end %>
         </div>
       </div>
     </div>
-  </div>
+
   <br/>
 
 <!-- Add collection of three photos -->
@@ -74,7 +105,7 @@
 
 <div class = "social_form_container">
   <%# if current_user == @wedding.user %>
-  <%= form_for([@comment.wedding, @comment]) do |f| %>
+  <%= form_for([@wedding, Comment.new]) do |f| %>
     <div class="regular">
         <div class= "field" id="note">
           <h2><%= f.label "Leave a note"%></h2>
@@ -117,5 +148,3 @@
     </div>
   </div>
 </div>
-
-

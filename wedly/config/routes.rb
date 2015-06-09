@@ -1,7 +1,7 @@
 
 Rails.application.routes.draw do
 
-  root 'users#index'
+  root 'weddings#index'
 
   resources :weddings do
     resources :invitations, only: [:index, :new, :create]

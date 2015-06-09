@@ -2,7 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  text-align: center;
+}
 
-// .invitation-container{
-//   background-color:   #FFFFEB;
-// }
+.invitation_form{
+  position: block;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  .invite_ex{
+    text-align: center;
+   display: block;
+    background-color: #e6e6e6;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    padding: 10px 10px 10px 10px;
+  }
+}

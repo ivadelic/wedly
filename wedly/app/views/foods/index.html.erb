@@ -4,14 +4,15 @@
     <p class= 'food_phrase'> This wedding has <%= @foods.size %> menu option(s) to choose from.</p>
 <br/>
 <div class = "foods-form-container">
-  <% if current_user == @wedding.user %>
     <div class = "foods_container1">
       <div class = "foods_form1">
+  <% if current_user == @wedding.user %>
         <h3>This is your menu page</h3>
           <div>
             This is your menu page, create new menu options that your guests can chose form. Select a menu option number, write down the dist name and describe the dish with ingredients and descriptive wording.
           </div>
     </div>
+    <% end %>
   </div>
 </div>
 
@@ -42,12 +43,13 @@
           <% end %>
         </div>
       <br/>
-    <% end %>
   </div>
 
 
 <div class = "foods_menu">
 <!--       <h3 class= "foods_cursive">Menu Options</h3> -->
+      <h3>Menu</h3>
+       <%= image_tag('Cutlery-Fork-Knife-256.png', :size => '45x45', :alt => "user_add", class: "icons") %>
   <% @foods.each do |food| %>
         <p class= "foods_cursive" id = "foods_choice_number"><%= food.food_choice%></p>
       <p class= "regular-font">Dish Name: </p>
