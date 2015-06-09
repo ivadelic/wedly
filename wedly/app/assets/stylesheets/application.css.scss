@@ -78,10 +78,10 @@ h1, h2, h3 {
     text-decoration: none;
   }
 
-  .menu .arrow {
-    font-size: 12px;
-    line-height: 0%;
-  }
+  // .menu .arrow {
+  //   font-size: 12px;
+  //   line-height: 0%;
+  // }
 
   .menu ul ul {
     float: left;
@@ -89,7 +89,6 @@ h1, h2, h3 {
     position: relative;
     font-size: 15px;
     margin-top: 4px;
-    padding-left: 27px;
   }
 
   .menu > ul > li {
@@ -97,9 +96,23 @@ h1, h2, h3 {
     display: inline-block;
     position: relative;
     font-size: 15px;
-    padding: 0px 0px 0px 0px;
+
     margin-top: 5px;
     margin-right: 10px;
+  }
+
+    .menu > ul > li {
+    float: left;
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+
+  .menu > ul > ul {
+    margin-top: 2px;
   }
 
 //Drop-down Menu
@@ -107,21 +120,47 @@ h1, h2, h3 {
 nav ul ul {
   background-color: #CAFFFF;
   // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  padding-left: auto;
+  // padding-left: 40px;
 }
 
 nav ul ul li {
-  padding:10px 30px;
   display:none;
 }
 
+// nav ul:hover ul {
+//   padding-left: 30px;
+// }
+
 nav ul ul:hover > li {
-  // padding:10px 30px;
+  padding:10px 30px;
   display:block;
   background-color: #E4FFFF;
   // position: center;
   // padding-left: 10px;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  // box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+}
+
+.icon {
+  margin-left: -100px;
+}
+.icon2 {
+  margin-left: -69px;
+}
+
+.icon3{
+  margin-left: -127px;
+}
+
+.icon4{
+  margin-left: -127px;
+}
+
+.icon5{
+  margin-left: -114px;
+}
+
+#events{
+  margin-right: 0px;
 }
 
 a:hover {

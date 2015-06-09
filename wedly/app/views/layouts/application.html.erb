@@ -5,6 +5,8 @@
 
   <link href='http://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple|Raleway|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Bad+Script|Raleway' rel='stylesheet' type='text/css'>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
   <meta charset="utf-8">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -28,14 +30,23 @@
       <% if current_user%>
       <li><a href="#"><%= link_to "WedWeb", weddings_path, {:class => "header_text"}%></a></li>
         <% if current_user.my_wedding.present? %>
-        <ul><a href="#" class="drop_down"><%= link_to "Your Wedding", wedding_path(current_user.my_wedding)%></a></li>
+        <ul id="your_wed"><a href="#" class="drop_down"><%= link_to "Your Wedding", wedding_path(current_user.my_wedding)%></a>
 <!-- Sub menu for "Your Wedding" -->
-            <li class= "current-item"><a href="#"><%= link_to "Social Page", wedding_path(current_user.my_wedding)%></a></li>
-            <li class="current-item"><a href="#"><%= link_to 'Send Invitations', wedding_invitations_path(current_user.my_wedding, @invitations)%></a></li>
-            <li class="current-item"><a href="#"><%= link_to "Events", wedding_events_path(current_user.my_wedding, @events) %></a></li>
-            <li class="current-item"><a href="#"><%= link_to "Guests", wedding_guests_path(current_user.my_wedding, @guests) %></a></li>
-            <li class="current-item"><a href="#"><%= link_to "Registry", wedding_registries_path(current_user.my_wedding, @registries) %></a></li>
-            <li class="current-item"><a href="#"><%= link_to "Menu", wedding_foods_path(current_user.my_wedding, @foods) %></a></li>
+              <%= image_tag('Wedding-Ring-256.png', :size => '20x20', :alt => "user_add", class: "icons") %>
+            <li class= "current-item"><%= image_tag('Thumbs-Up-256.png', :size => '25x25', :alt => "mailbox", :class => "icon") %>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to "Social Page", wedding_path(current_user.my_wedding)%></a></li>
+            <li class="current-item"><%= image_tag('Mailbox-256.png', :size => '25x25', :alt => "mailbox",:class => "icon2") %>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to 'Send Invitations', wedding_invitations_path(current_user.my_wedding, @invitations)%></a></li>
+            <li class="current-item"><%= image_tag('Beverage-Wine-256.png', :size => '25x25', :alt => "mailbox", :class => "icon3") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to "Events", wedding_events_path(current_user.my_wedding, @events) %></a></li>
+            <li class="current-item"> <%= image_tag('Cutlery-Fork-Knife-256.png', :size => '25x25', :alt => "mailbox", :class => "icon4") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to "Menu", wedding_foods_path(current_user.my_wedding, @foods) %></a></li>
+            <li class="current-item"> <%= image_tag('User-Group-256.png', :size => '25x25', :alt => "mailbox", :class => "icon5") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to "Guests", wedding_guests_path(current_user.my_wedding, @guests) %></a></li>
+            <li class="current-item"> <%= image_tag('Gift-128.png', :size => '25x25', :alt => "mailbox", :class => "icon5") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><%= link_to "Registry", wedding_registries_path(current_user.my_wedding, @registries) %></a></li>
           </ul>
         <% else %>
       <li><a href="#"><%= link_to "Create Your Wedding!", "/weddings/new", {:class => "header_text"} %></a></li>
