@@ -9,11 +9,28 @@
                        <h2>Guests</h2>
             <ul id="sortable1" class='droptrue'>
               <% @guests.each do |guest| %>
+              <% if guest.rsvp == true %>
                 <li id="<%= guest.id %>">
                   <%= guest.first_name %> <%= guest.last_name %></li>
                   <% end %>
+                <% end %>
             </ul>
           </div>
+
+                <% @containers.each do |container| %>
+                  <div class="listBlock">
+                    <h2><%= container.name %> - max <%= container.limit %></h2>
+                    <ul id="sortable2" class='droptrue'></ul>
+                   </div>
+                <% end %>
+                <br clear="both" />
+
+                <!-- <p>Which table order?
+                    <br/>
+                    <input type="text" id="postOrder" name="postOrder" value="" size="30" />
+                </p> -->
+            </div>
+
         </div>
       </div>
     </div>

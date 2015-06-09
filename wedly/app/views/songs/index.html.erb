@@ -1,0 +1,36 @@
+<h1>All Songs for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h1>
+
+<h2>Create a new Song</h2>
+
+  <div id="songs">
+    <%= form_for([@wedding, @song]) do |f| %>
+
+    <% if @song.errors.any? %>
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      </ul>
+    <% end %>
+
+    <div class= "field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class= "field">
+      <%= f.label :artist %>
+      <%= f.text_area :artist %>
+    </div>
+
+    <div class= "submit-button">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
+
+<div class="song" id="Songs">
+  <%= render @playlist, @songs %>
+</div>
+
+
+
