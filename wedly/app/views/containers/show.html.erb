@@ -17,16 +17,16 @@
 
                 <% @containers.each do |container| %>
                   <div class="listBlock">
-                    <h2><%= container.name %></h2>
+                    <h2><%= container.name %> - max <%= container.limit %></h2>
                     <ul id="sortable2" class='droptrue'>
                     </ul>
                     <br clear="both" />
                 <% end %>
               </div>
 
-                <p>order:
+                <p>Which table order?
                     <br />
-                    <input type="text" id="postOrder" name="postOrder" value="" size="<%= container.limit %>" />
+                    <input type="text" id="postOrder" name="postOrder" value="" size="30" />
                 </p>
             </div>
         </div>
