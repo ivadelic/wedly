@@ -13,10 +13,11 @@ Map.prototype.init = function(latitude, longitude){
   this.canvas = new google.maps.Map(this.mapElem, options);
 }
 
-Map.prototype.addMarker = function(latitude, longitude, markerImage) {
+Map.prototype.addMarker = function(latitude, longitude, markerImage, content) {
   var options = {
     position: {lat: latitude, lng: longitude},
-    map: this.canvas
+    map: this.canvas,
+    title: "Meet your marker"
   }
 
   if (markerImage) {
@@ -24,6 +25,15 @@ Map.prototype.addMarker = function(latitude, longitude, markerImage) {
   }
 
   var myMarker = new google.maps.Marker(options);
+
+  var info = new google.maps.InfoWindow({
+    content: content
+  })
+
+  google.maps.event.addListener(myMarker, 'click', function(){
+    info.open(options.map, myMarker)
+  })
+
   this.markers.push(myMarker);
 }
 
@@ -52,7 +62,7 @@ $(document).on('ready page:load', function() {
 
     if (window.nearbys) {
       nearbys.forEach(function(coord) {
-        myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude), customImage);
+        myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude), customImage, content);
       })
     }
     // else {
