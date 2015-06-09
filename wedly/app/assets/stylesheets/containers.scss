@@ -14,6 +14,10 @@
   margin-left: 10px;
 }
 
+.regular_font {
+  font-family: 'Raleway', sans-serif;
+}
+
 // .guest_numbers {
 //   font-family: 'Raleway', sans-serif;
 //   font-size: 15px;
@@ -127,7 +131,9 @@ table {
     background: #eee;
     padding: 5px;
     width: 300px;
-    border: 1px solid black;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
 }
 #sortable1 li, #sortable2 li {
     color:black;
@@ -140,7 +146,7 @@ table {
     background-color: white;
 }
 .selected {
-    background:red !important;
+  background: #EBFFFF !important;
 }
 .hidden {
     display:none !important;
@@ -148,3 +154,11 @@ table {
 ul {
     list-style-type: none;
 }
+
+// .container-column-2 {
+//   float: right;
+// }
+
+// .container-column-1 {
+//   float: left;
+// }

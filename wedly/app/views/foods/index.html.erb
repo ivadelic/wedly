@@ -3,16 +3,15 @@
 <h2>Menu for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %>'s Wedding</h2>
     <p class= 'food_phrase'> This wedding has <%= @foods.size %> menu option(s) to choose from.</p>
 <br/>
+<% if current_user == @wedding.user %>
 <div class = "foods-form-container">
     <div class = "foods_container1">
       <div class = "foods_form1">
-  <% if current_user == @wedding.user %>
         <h3>This is your menu page</h3>
           <div>
             This is your menu page, create new menu options that your guests can chose form. Select a menu option number, write down the dist name and describe the dish with ingredients and descriptive wording.
           </div>
     </div>
-    <% end %>
   </div>
 </div>
 
@@ -44,6 +43,7 @@
         </div>
       <br/>
   </div>
+    <% end %>
 
 
 <div class = "foods_menu">

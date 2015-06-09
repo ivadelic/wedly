@@ -1,39 +1,38 @@
-<div id="maincontainer">
-    <div id="navtoplistline">&nbsp;</div>
-    <div id="contentwrapper">
-        <div id="maincolumn">
-            <div class="text">
-                <hr />
-                <div class="listBlock">
-                     <h2>Guests</h2>
-
-                    <ul id="sortable1" class='droptrue'>
-                      <% @guests.each do |guest| %>
-                        <li id="<%= guest.id %>">
-                          <%= guest.first_name %> <%= guest.last_name %></li>
-                          <% end %>
-                    </ul>
-                </div>
-
-
-                <% @containers.each do |container| %>
+<div class= "container-column-1">
+  <div id="maincontainer">
+      <div id="navtoplistline">&nbsp;</div>
+      <div id="contentwrapper">
+          <div id="maincolumn">
+              <div class="text">
+                  <hr />
                   <div class="listBlock">
-                    <h2><%= container.name %></h2>
-                    <ul id="sortable2" class='droptrue'>
-                    </ul>
-                    <br clear="both" />
-                <% end %>
-              </div>
-
-                <p>order:
-                    <br />
-                    <input type="text" id="postOrder" name="postOrder" value="" size="<%= container.limit %>" />
-                </p>
-            </div>
-
+                       <h2>Guests</h2>
+            <ul id="sortable1" class='droptrue'>
+              <% @guests.each do |guest| %>
+                <li id="<%= guest.id %>">
+                  <%= guest.first_name %> <%= guest.last_name %></li>
+                  <% end %>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
+<div class="container-column-2">
+    <% @containers.each do |container| %>
+      <div class="listBlock">
+        <h2 class="regular font"><%= container.name %></h2>
+        <ul id="sortable2" class='droptrue'>
+        </ul>
+        <br clear="both" />
+    <% end %>
+      <p>order:
+          <br />
+          <input type="text" id="postOrder" name="postOrder" value="" <!-- size="<%# @container.limit %>" --> />
+      </p>
+    </div>
+  </div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

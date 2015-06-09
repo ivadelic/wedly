@@ -64,6 +64,8 @@
   width: 48%;
   box-shadow: 1px 1px 1px #888888;
   background-color:#e6e6e6;
+  margin: 0 auto;
+  margin-top: 10px;
   // margin-left: 50%;
   // margin-top: -280px;
   // height: 250px;
@@ -73,29 +75,33 @@
 
 // Chosen Menu
 .foods_menu  {
-  // background-color:#e6e6e6;
-  margin-top: -374px;
-  display: block;
-  box-shadow: 2px 2px 2px #888888;
-  border: 2px black;
-  text-align: center;
-  // width: 400px;
-  // height: 800px;
-  padding: 10px 10px 10px 10px;
-  background-color: white;
-  float: right;
-  width: 48%;
-  // .foods_menu #foods_choice_number:last-child {
-  //     // border-radius: 50%;
-  //     // width: 36px;
-  //     // height: 36px;
-  //     // background: #fff;
-  //     // border: 2px solid black;
-  //     // color: #666 black;
-  //     // text-align: center;
-  //     //  // width: 48%;
-  //     // font-family: 'Homemade Apple', cursive;
-  // }
+  @if (current_user == wedding){
+    // background-color:#e6e6e6;
+    margin-top: -374px;
+    display: block;
+    box-shadow: 2px 2px 2px #888888;
+    border: 2px black;
+    text-align: center;
+    // width: 400px;
+    // height: 800px;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    // float: right;
+    width: 48%;
+    // .foods_menu #foods_choice_number:last-child {
+    //     // border-radius: 50%;
+    //     // width: 36px;
+    //     // height: 36px;
+    //     // background: #fff;
+    //     // border: 2px solid black;
+    //     // color: #666 black;
+    //     // text-align: center;
+    //     //  // width: 48%;
+    //     // font-family: 'Homemade Apple', cursive;
+    } @else {
+      margin: 0 auto;
+      margin-top: 65px;
+    }
 }
 
 //Edit form
