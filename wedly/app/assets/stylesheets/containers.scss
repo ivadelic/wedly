@@ -2,6 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//Container Index
+.container_container {
+  font-family: 'Raleway', sans-serif;
+}
+.table_names {
+  font-family: 'Raleway', sans-serif;
+}
+
+.pure_button {
+  margin-left: 10px;
+}
+
+// .guest_numbers {
+//   font-family: 'Raleway', sans-serif;
+//   font-size: 15px;
+//   text-align: center;
+//   box-shadow: 1px 1px 1px #888888;
+//   padding-bottom: 10px;
+// }
+
+table {
+  margin:0px;padding:0px;
+  width:100%;
+  // box-shadow: 1px 1px 1px #888888;
+  // border:1px solid #000000;
+
+  -moz-border-radius-bottomleft:0px;
+  -webkit-border-bottom-left-radius:0px;
+  border-bottom-left-radius:0px;
+
+  -moz-border-radius-bottomright:0px;
+  -webkit-border-bottom-right-radius:0px;
+  border-bottom-right-radius:0px;
+
+  -moz-border-radius-topright:0px;
+  -webkit-border-top-right-radius:0px;
+  border-top-right-radius:0px;
+
+  -moz-border-radius-topleft:0px;
+  -webkit-border-top-left-radius:0px;
+  border-top-left-radius:0px;
+
+}
+
+.container_list table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width:100%;
+  height:100%;
+  margin:0px;padding:0px;
+}
+
+.container_list tr:last-child td:last-child {
+  -moz-border-radius-bottomright:0px;
+  -webkit-border-bottom-right-radius:0px;
+  border-bottom-right-radius:0px;
+}
+
+.container_list table tr:first-child td:first-child {
+  -moz-border-radius-topleft:0px;
+  -webkit-border-top-left-radius:0px;
+  border-top-left-radius:0px;
+}
+
+.container_list table tr:first-child td:last-child {
+  -moz-border-radius-topright:0px;
+  -webkit-border-top-right-radius:0px;
+  border-top-right-radius:0px;
+}
+
+.container_list tr:last-child td:first-child{
+  -moz-border-radius-bottomleft:0px;
+  -webkit-border-bottom-left-radius:0px;
+  border-bottom-left-radius:0px;
+}
+
+
+.container_list tr:nth-child(odd){
+  background-color:#e5e5e5;
+}
+
+.container_list tr:nth-child(even){
+  background-color:#ffffff;
+}
+
+
+
+
+
+//Container Show Page
 #table_dragDropContainer{  /* Main container for this script */
     width:790px;
     height:620px;
