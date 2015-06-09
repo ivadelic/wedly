@@ -5,12 +5,28 @@
 h1 {
   margin-top: 80px;
   text-align: center;
+  margin-bottom: -7px;
 }
 
 .catch {
   text-align: center;
 }
 
+#logo {
+  margin-top: -3px;
+}
+
+.logo_image {
+  margin-top: -12px;
+}
+
+.logo_container {
+  height: 140px;
+  width: 100%;
+  position: block;
+  background-color:#e6b8b8;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
 .regular  {
   font-family: 'Raleway', sans-serif;
 }
