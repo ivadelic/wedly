@@ -10,7 +10,7 @@
         <%= current_user.email %><br>
         <br/>
 
-      <td><%= image_tag current_user.photo.thumb if current_user.photo? %></td>
+      <td><%= image_tag current_user.photo.thumb  if current_user.photo? %></td>
       <br/>
       <button class="pure_button"><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
       <br/>

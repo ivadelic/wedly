@@ -20,6 +20,7 @@ h2 {
   text-align: center;
   box-shadow: 1px 1px 1px #888888;
   padding-bottom: 10px;
+   border-radius: 20px;
 }
 
 table {
@@ -43,7 +44,6 @@ table {
   -moz-border-radius-topleft:0px;
   -webkit-border-top-left-radius:0px;
   border-top-left-radius:0px;
-
 }
 
 .guest_list table {
@@ -101,7 +101,7 @@ table {
   font-size:15px;
   font-weight:normal;
   color:#000000;
-  font-family: 'Homemade Apple', cursive;
+  font-family: 'Raleway', sans-serif;
 }
 
 .guest_listr tr:last-child td{

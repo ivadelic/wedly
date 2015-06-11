@@ -12,7 +12,7 @@
 
   <% if current_user == @wedding.user %>
     <div id = "b" >
-      <%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %>
+      <button class = "pure_button"><%= link_to "Update/View Tables for #{@event.name}", "/weddings/#{@wedding.id}/events/#{@event.id}/containers" %></button>
     </div>
   <% end %>
 </div>

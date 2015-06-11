@@ -1,9 +1,9 @@
 <br/>
 <br/>
   <h2>All Events for <%= @wedding.partner_1 %> &#38 <%= @wedding.partner_2 %></h2>
+<% if current_user == @wedding.user %>
   <%= image_tag('Beverage-Wine-256.png', :size => '75x75', :alt => "mailbox") %>
 
-<% if current_user == @wedding.user %>
   <h2>Create a new Event</h2>
   <div class= "events_form" class="regular">
   <% if current_user == @wedding.user %>

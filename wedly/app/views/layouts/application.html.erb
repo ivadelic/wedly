@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Bad+Script|Homemade+Apple|Raleway|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Bad+Script|Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bad+Script|Raleway|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Forum' rel='stylesheet' type='text/css'>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -35,9 +35,9 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="#"><%= link_to "Social Page", wedding_path(current_user.my_wedding)%></a></li>
             <li class="current-item"><%= image_tag('Mailbox-256.png', :size => '25x25', :alt => "mailbox",:class => "icon2") %>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="#"><%= link_to 'Send Invitations', wedding_invitations_path(current_user.my_wedding, @invitations)%></a></li>
-            <li class="current-item"><%= image_tag('Beverage-Wine-256.png', :size => '25x25', :alt => "mailbox", :class => "icon3") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="current-item"><%= image_tag('Beverage-Wine-256.png', :size => '25x25', :alt => "mailbox", :class => "icon3") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="#"><%= link_to "Events", wedding_events_path(current_user.my_wedding, @events) %></a></li>
             <li class="current-item"> <%= image_tag('Cutlery-Fork-Knife-256.png', :size => '25x25', :alt => "mailbox", :class => "icon4") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="#"><%= link_to "Menu", wedding_foods_path(current_user.my_wedding, @foods) %></a></li>

@@ -5,7 +5,7 @@
     <h5><%= @event.start_time.strftime("%I :%M %p ") %> to <%= @event.end_time.strftime("%I :%M %p ") %></h5>
 
     <p>Number of Tables for <%= @event.name %>: <%= @containers.count %></p>
-   <button><%= link_to "Organize your Guest's seating","/weddings/#{@wedding.id}/events/#{@event.id}/containers/#{:id}" %></button>
+   <button class="pure_button"><%= link_to "Organize your Guest's seating","/weddings/#{@wedding.id}/events/#{@event.id}/containers/#{:id}" %></button>
   <table class="container_list">
     <tr>
       <th><h4 class= "table_names" ><strong></strong></h4></th>
