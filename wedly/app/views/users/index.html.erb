@@ -36,6 +36,6 @@
     <% end %>
 </div>
 <br/>
-  <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>">
+  <div id="map-canvas" data-latitude="<%= @current_user.latitude.to_f %>" data-longitude="<%= @current_user.longitude.to_f %>" content="<%= @current_user.first_name %>">
   </div>
 </div>

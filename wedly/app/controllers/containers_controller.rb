@@ -3,11 +3,12 @@ class ContainersController < ApplicationController
   before_filter :load_wedding
 
   def index
-    @containers = Container.all
+    @containers = Container.where(event_id: @event.id)
+    @container = Container.new()
   end
 
   def show
-    @containers = Container.where(@event_id)
+    @containers = Container.where(event_id: @event.id)
     @guests = Guest.where(@wedding_id)
   end
 
