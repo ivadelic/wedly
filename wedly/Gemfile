@@ -49,7 +49,6 @@ gem 'carrierwave'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
-# gem 'bourbon'
 
 # gem 'mini_magick'
 gem "rmagick"
